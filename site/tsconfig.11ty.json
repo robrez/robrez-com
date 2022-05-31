@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./",
+    "sourceMap": true,
+    "inlineSources": false,
+    "rootDir": "./",
+    "incremental": true,
+    "module": "CommonJS"
+  },
+  "include": ["src/**/*.mts", "src/**/*.cts", "src/**/*.ts"],
+  "exclude": []
+}
