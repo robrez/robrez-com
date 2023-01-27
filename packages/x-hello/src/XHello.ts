@@ -9,11 +9,16 @@ export class XHello extends LitElement {
   `;
 
   render() {
-    return html`
+    const val = 'hello';
+    const content = 'yo';
+    const foo = html`<div ?foo="${true}" value="${val}">${content}</div>`;
+    const result = html`
       <h1>Test</h1>
       <main>
         <div>Hello world</div>
+        ${foo}
       </main>
     `;
+    return result;
   }
 }
