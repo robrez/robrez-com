@@ -7,7 +7,8 @@
     "inlineSources": false,
     "rootDir": "./",
     "incremental": true,
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "moduleResolution": "node16"
   },
   "include": ["src/**/*.mts", "src/**/*.cts", "src/**/*.ts"],
   "exclude": []
