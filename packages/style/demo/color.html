@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="stylesheet" href="../props-all.css" />
+    <link rel="stylesheet" href="../utils-all.css" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    </style>
+    <title>test</title>
+  </head>
+
+  <body>
+    <h1>Color</h1>
+
+    <div class="card">
+      <h2>Background Color</h2>
+      <section class="bg-color-demo"></section>
+    </div>
+
+    <div class="card">
+      <h2>Text Color</h2>
+      <section class="text-color-demo"></section>
+    </div>
+  </body>
+  <script type="module">
+    import { bgColor, color } from '../src/demo/index.js';
+    bgColor(document.querySelector('.bg-color-demo'));
+    color(document.querySelector('.text-color-demo'));
+  </script>
+</html>

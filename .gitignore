@@ -4,6 +4,7 @@ npm-debug.log*
 coverage
 node_modules/
 .npm
+tw-dist
 dist
 *.tsbuildinfo
 packages/**/*.js

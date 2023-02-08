@@ -1,0 +1,24 @@
+{
+  "name": "@robrez-com/app-layout",
+  "description": "",
+  "license": "MIT",
+  "author": "me",
+  "version": "0.1.0",
+  "main": "index.js",
+  "module": "index.js",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "nuke": "rimraf node_modules",
+    "build": "tsc",
+    "clean": "tsc --build ./tsconfig.json --clean"
+  },
+  "dependencies": {
+    "@robrez-com/style": "^0.1.0",
+    "lit": "^2.0.2",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}

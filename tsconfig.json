@@ -12,6 +12,7 @@
     "importHelpers": true,
     "sourceMap": false,
     "inlineSources": false,
-    "incremental": true
+    "incremental": true,
+    "useDefineForClassFields": false
   }
 }
