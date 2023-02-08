@@ -3,6 +3,7 @@ layout: layouts/blog-detail.11ty.js
 title: <my-element> ⌲ Examples ⌲ Basic
 name: Blog 1
 description: A basic example
+date: '2021-03-01'
 ---
 
 <style>

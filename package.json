@@ -13,7 +13,7 @@
     "lint": "eslint --fix",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "site": "wds --root-dir=site/dist --node-resolve"
+    "site": "wds --watch --root-dir=site/dist --node-resolve"
   },
   "workspaces": [
     "./packages/x-hello",
