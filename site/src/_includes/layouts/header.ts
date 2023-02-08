@@ -1,5 +1,6 @@
 import type { RenderData, CollectionItem } from '../../types/eleventy.js';
 import relative from '../util/relative-path.js';
+import { firstWithTag } from '../util/collections.js';
 
 const html = String.raw;
 type NavMeta = {
@@ -7,12 +8,6 @@ type NavMeta = {
   href: string;
   selected: boolean;
 };
-
-function firstWithTag(tag: string, items: CollectionItem[]): CollectionItem | undefined {
-  return items?.find(item => {
-    return !!item.data?.tags?.find(itemTag => itemTag === tag);
-  });
-}
 
 function computeUrl(data: RenderData, tag: string): NavMeta {
   // Items tagged as "sitenav"
@@ -40,7 +35,6 @@ const renderNav = (data: RenderData): string => {
   const posts = computeUrl(data, '_posts');
   const awesome = computeUrl(data, '_awesome');
   const resume = computeUrl(data, '_resume');
-  const dummy = computeUrl(data, '_dummy');
   /*
    * note on `data-selected=`, REALLY missing lit-style bindings w/ this pure string
    * based strategy. need ot look at lit-labs ssr to see if it can help. I really
@@ -57,7 +51,6 @@ const renderNav = (data: RenderData): string => {
       <li><a href="${posts.href}" data-selected="${posts.selected}">Posts</a></li>
       <li><a href="${awesome.href}" data-selected="${awesome.selected}">Awesome</a></li>
       <li><a href="${resume.href}" data-selected="${resume.selected}">Resume</a></li>
-      <li><a href="${dummy.href}" data-selected="${dummy.selected}">Dummy</a></li>
     </ul>
   </nav>`;
 };

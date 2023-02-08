@@ -19,8 +19,12 @@ module.exports = function (eleventyConfig) {
     return [...collectionsApi.getFilteredByGlob('./src/blog/*.md')];
   });
 
+  eleventyConfig.addCollection('home', collectionsApi => {
+    return [...collectionsApi.getFilteredByGlob('./src/home/*.md')];
+  });
+
   eleventyConfig.addCollection('sitenav', collectionsApi => {
-    return collectionsApi.getFilteredByTags("_sitenav");
+    return collectionsApi.getFilteredByTags('_sitenav');
   });
 
   return {

@@ -6,19 +6,4 @@ tags:
   - _home
 ---
 
-# Hello World
-
-## Yo
-
-### Markdown works?
-
-- Lets
-- Check
-
-## Heres an element
-
-```html
-<x-hello></x-hello>
-```
-
-<x-hello></x-hello>
+I'm an _engineer_ who is enthusiastic about web technology and standards. I love building all the things: platforms, applications, design systems, web components, APIs, AuthZ/AuthN

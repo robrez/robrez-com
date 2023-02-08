@@ -1,4 +1,35 @@
-import { css } from 'lit-element';
+import { css, unsafeCSS, CSSResult } from 'lit-element';
+
+type Side = '' | 'top' | 'left' | 'bottom' | 'right';
+const sides: Side[] = ['', 'top', 'left', 'bottom', 'right'];
+
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+const sizes: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
+
+function sideAbbreviated(side: Side): string {
+  return side.charAt(0);
+}
+
+function sideModifier(side: Side): string {
+  return !side.length ? '' : `-${side}`;
+}
+
+function marginUtils(): CSSResult {
+  const results: string[] = [];
+  sides.forEach((side: Side) => {
+    const abbrev = sideAbbreviated(side);
+    const mod = sideModifier(side);
+    sizes.forEach((size: Size) => {
+      const rule = `
+        .m${abbrev}-${size} {
+          margin${mod}: var(--robrez-space-${size});
+        }
+      `;
+      results.push(rule);
+    });
+  });
+  return unsafeCSS(results.join('\n'));
+}
 
 const styles = css`
   :root,
@@ -65,6 +96,12 @@ const styles = css`
     --robrez-content-text-color: var(--robrez-shade-80);
     --robrez-divider-color: var(--robrez-shade-20);
     --robrez-divider-secondary-color: var(--robrez-shade-10);
+
+    --robrez-space-xl: 2rem;
+    --robrez-space-lg: 1.5rem;
+    --robrez-space-md: 1rem;
+    --robrez-space-sm: 0.75rem;
+    --robrez-space-xs: 0.5rem;
 
     font-family: var(--robrez-font-family);
     background-color: var(--robrez-base-bg-color);
@@ -199,6 +236,8 @@ const styles = css`
   nav a[data-selected='true'] {
     text-decoration: underline;
   }
+
+  ${marginUtils()}
 `;
 
 export { styles };
