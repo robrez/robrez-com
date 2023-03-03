@@ -1,5 +1,4 @@
 ---
-layout: layouts/blog-detail.11ty.js
 title: Clnical Quality Measures
 company: CPSI
 startDate: 2013-04-01

@@ -1,5 +1,4 @@
 ---
-layout: layouts/blog-detail.11ty.js
 title: Shared Solutions
 company: CPSI
 startDate: 2020-01-01

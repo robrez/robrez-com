@@ -1,5 +1,4 @@
 ---
-layout: layouts/blog-detail.11ty.js
 title: EHR Web Framework
 company: CPSI
 startDate: 2018-01-01

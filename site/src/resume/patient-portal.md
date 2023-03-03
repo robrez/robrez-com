@@ -1,5 +1,4 @@
 ---
-layout: layouts/blog-detail.11ty.js
 title: Patient Portal
 company: CPSI
 startDate: 2015-11-01

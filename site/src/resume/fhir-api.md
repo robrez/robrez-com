@@ -1,5 +1,4 @@
 ---
-layout: layouts/blog-detail.11ty.js
 title: FHIR API
 company: CPSI
 startDate: 2017-04-01

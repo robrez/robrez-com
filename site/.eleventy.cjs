@@ -27,6 +27,10 @@ module.exports = function (eleventyConfig) {
     return collectionsApi.getFilteredByTags('_sitenav');
   });
 
+  eleventyConfig.addCollection('resume', collectionsApi => {
+    return [...collectionsApi.getFilteredByGlob('./src/resume/*.md')];
+  });
+
   return {
     dir: {
       input: 'src',
