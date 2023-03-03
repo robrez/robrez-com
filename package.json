@@ -13,7 +13,8 @@
     "lint": "eslint --fix",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "site": "wds --watch --root-dir=site/dist --node-resolve"
+    "site": "wds --watch --root-dir=site/dist --node-resolve",
+    "tw": "tailwindcss -i ./tw/input.css -o ./tw-dist/output.css"
   },
   "workspaces": [
     "./packages/x-hello",
