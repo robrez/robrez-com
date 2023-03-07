@@ -1,8 +1,4 @@
 import { css, unsafeCSS, CSSResult } from 'lit-element';
-import colorProps from 'open-props/src/props.colors.js';
-import fontProps from 'open-props/src/props.fonts.js';
-import shadowProps from 'open-props/src/props.shadows.js';
-import borderProps from 'open-props/src/props.borders.js';
 
 type Side = '' | 'top' | 'left' | 'bottom' | 'right';
 const sides: Side[] = ['', 'top', 'left', 'bottom', 'right'];
@@ -34,43 +30,6 @@ function marginUtils(): CSSResult {
   });
   return unsafeCSS(results.join('\n'));
 }
-
-function openCssProps(props: Record<string, string>): CSSResult {
-  //const colorsDictionary = colorProps as Record<string, string>;
-  const results: string[] = Object.keys(props).map(propName => {
-    const value = props[propName];
-    return `${propName}: ${value};`;
-  });
-  return unsafeCSS(results.join('\n'));
-}
-
-const colorPropsCss = css`
-  :root,
-  :host {
-    ${openCssProps(colorProps)}
-  }
-`;
-
-const fontPropsCss = css`
-  :root,
-  :host {
-    ${openCssProps(fontProps)}
-  }
-`;
-
-const shadowPropsCss = css`
-  :root,
-  :host {
-    ${openCssProps(shadowProps)}
-  }
-`;
-
-const borderPropsCss = css`
-  :root,
-  :host {
-    ${openCssProps(borderProps)}
-  }
-`;
 
 const styles = css`
   :root,
@@ -279,14 +238,6 @@ const styles = css`
   }
 
   ${marginUtils()}
-
-  ${colorPropsCss}
-
-  ${fontPropsCss}
-
-  ${shadowPropsCss}
-
-  ${borderPropsCss}
 `;
 
 export { styles };

@@ -13,8 +13,7 @@
     "lint": "eslint --fix",
     "lint-staged": "lint-staged",
     "prepare": "husky install",
-    "site": "wds --watch --root-dir=site/dist --node-resolve",
-    "tw": "tailwindcss -i ./tw/input.css -o ./tw-dist/output.css"
+    "site": "wds --watch --root-dir=site/dist --node-resolve"
   },
   "workspaces": [
     "./packages/x-hello",
@@ -46,9 +45,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "dependencies": {
-    "open-props": "^1.5.5",
-    "tailwindcss": "^3.2.7"
   }
 }
