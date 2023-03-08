@@ -1,35 +1,10 @@
-import { css, unsafeCSS, CSSResult } from 'lit-element';
-
-type Side = '' | 'top' | 'left' | 'bottom' | 'right';
-const sides: Side[] = ['', 'top', 'left', 'bottom', 'right'];
-
-type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-const sizes: Size[] = ['xs', 'sm', 'md', 'lg', 'xl'];
-
-function sideAbbreviated(side: Side): string {
-  return side.charAt(0);
-}
-
-function sideModifier(side: Side): string {
-  return !side.length ? '' : `-${side}`;
-}
-
-function marginUtils(): CSSResult {
-  const results: string[] = [];
-  sides.forEach((side: Side) => {
-    const abbrev = sideAbbreviated(side);
-    const mod = sideModifier(side);
-    sizes.forEach((size: Size) => {
-      const rule = `
-        .m${abbrev}-${size} {
-          margin${mod}: var(--robrez-space-${size});
-        }
-      `;
-      results.push(rule);
-    });
-  });
-  return unsafeCSS(results.join('\n'));
-}
+import { css } from 'lit-element';
+import colorProps from '../../style/props/color.js';
+import spacingProps from '../../style/props/spacing.js';
+import typographyProps from '../../style/props/typography.js';
+import flexUtils from '../../style/utils/flex.js';
+import spacingUtils from '../../style/utils/spacing.js';
+import typographyUtils from '../../style/utils/typography.js';
 
 const styles = css`
   :root,
@@ -46,17 +21,6 @@ const styles = css`
     --robrez-shade-20: rgba(0, 0, 0, 0.2);
     --robrez-shade-10: rgba(0, 0, 0, 0.1);
     --robrez-shade-5: rgba(0, 0, 0, 0.05);
-
-    --robrez-md-bluegrey-10: #eceff1;
-    --robrez-md-bluegrey-20: #cfd8dc;
-    --robrez-md-bluegrey-30: #b0bec5;
-    --robrez-md-bluegrey-40: #90a4ae;
-    --robrez-md-bluegrey-50: #78909c;
-    --robrez-md-bluegrey-60: #607d8b;
-    --robrez-md-bluegrey-70: #546e7a;
-    --robrez-md-bluegrey-80: #455a64;
-    --robrez-md-bluegrey-90: #37474f;
-    --robrez-md-bluegrey: #263238;
 
     --robrez-dx-bluegrey-5: #f0f4f8;
     --robrez-dx-bluegrey-10: #d9e2ec;
@@ -107,6 +71,10 @@ const styles = css`
     background-color: var(--robrez-base-bg-color);
     color: var(--robrez-base-text-color);
   }
+
+  ${colorProps} ${spacingProps} ${typographyProps}
+
+  ${flexUtils} ${spacingUtils} ${typographyUtils}
 
   :host([dark]) {
     --robrez-base-bg-color: var(--robrez-shade-90);
@@ -236,8 +204,6 @@ const styles = css`
   nav a[data-selected='true'] {
     text-decoration: underline;
   }
-
-  ${marginUtils()}
 `;
 
 export { styles };

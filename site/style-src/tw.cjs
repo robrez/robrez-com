@@ -1,136 +1,189 @@
 const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
-
-//console.log('defaultTheme', defaultTheme.spacing);
-
 const { lightBlue, warmGray, trueGray, coolGray, blueGray, ...keepColors } = colors;
 
-function addMissingSemi(record, noop = true) {
-  if (noop) {
-    // note that this doesn't appear to be needed when
-    // building via node... only via the tailwind cli
-    return record;
-  }
-  const result = { ...record };
-  //bug where last semi is missing, cheating by adding semi to last value
-  const keys = Object.keys(result);
-  const lastKey = keys[keys.length - 1];
-  result[lastKey] = result[lastKey] + ';';
-  return result;
+/**
+ *
+ * @param {string} propName
+ * @returns
+ */
+function cssPropName(propName) {
+  const prefix = 'rr-';
+  const cleanPropName = propName.replaceAll(/^--/g, '').replaceAll('.', '_');
+  return `--${prefix}${cleanPropName}`;
 }
 
-function extractSpacingVars(data) {
-  let sizes = {};
+/**
+ *
+ * @param {import('tailwindcss/defaultTheme').spacing} data
+ * @returns
+ */
+function extractSpacingTheme(data) {
+  let theme = {};
+  let props = {};
   Object.keys(data).forEach(spacing => {
-    const propName = `--spacing-${spacing.replaceAll('.', '_')}`;
+    const propName = cssPropName(`--spacing-${spacing}`);
     const propValue = data[spacing];
-    sizes = {
-      ...sizes,
+    theme = {
+      ...theme,
+      ...{ [spacing]: `var(${propName})` }
+    };
+    props = {
+      ...props,
       ...{ [propName]: propValue }
     };
   });
-  return addMissingSemi({
-    ...sizes
-  });
+  return {
+    props,
+    theme
+  };
 }
-
-function extractSpacingTheme(data) {
-  let sizes = {};
-  Object.keys(data).forEach(spacing => {
-    const propName = `--spacing-${spacing.replaceAll('.', '_')}`;
-    sizes = {
-      ...sizes,
-      ...{ [spacing]: `var(${propName})` }
-    };
-  });
-  return addMissingSemi({
-    ...sizes
-  });
-}
-
 const spacingTheme = extractSpacingTheme(defaultTheme.spacing);
-const spacingProps = extractSpacingVars(defaultTheme.spacing);
+
+const spacingPropsPlugin = ({ addBase }) => {
+  addBase({
+    ':root': spacingTheme.props
+  });
+};
 
 function extractColorVars(_colorObj, _colorGroup = '') {
   function _extractColorVars(colorObj, colorGroup = '') {
     return Object.keys(colorObj).reduce((vars, colorKey) => {
       const value = colorObj[colorKey];
-
-      const newVars =
-        typeof value === 'string'
-          ? { [`--color${colorGroup}-${colorKey}`]: value }
-          : _extractColorVars(value, `-${colorKey}`);
-
+      const propName = cssPropName(`--color${colorGroup}-${colorKey}`);
+      const newVars = typeof value === 'string' ? { [propName]: value } : _extractColorVars(value, `-${colorKey}`);
       return { ...vars, ...newVars };
     }, {});
   }
-
-  const result = addMissingSemi(_extractColorVars(_colorObj, _colorGroup));
+  const result = _extractColorVars(_colorObj, _colorGroup);
   return result;
 }
 
-function extractFontVars(data) {
-  let sizes = {};
-  let lineHeights = {};
+const colorPropsPlugin = ({ addBase, theme }) => {
+  addBase({
+    ':root': extractColorVars(theme('colors'))
+  });
+};
+
+/**
+ *
+ * @param {import('tailwindcss/defaultTheme').fontSize} data
+ * @returns
+ */
+function extractFontTheme(data) {
+  let sizeProps = {};
+  let lineHeightProps = {};
+  let fontSizeThemes = {};
   Object.keys(data).forEach(font => {
     const fontData = data[font];
-    const propName = `--font-size-${font}`;
+    const propName = cssPropName(`--font-size-${font}`);
     const propValue = fontData[0];
-    sizes = {
-      ...sizes,
+    let themeVals = [`var(${propName})`];
+    sizeProps = {
+      ...sizeProps,
       ...{ [propName]: propValue }
     };
-
     if (fontData.length > 1) {
       const lineHeight = fontData[1]?.lineHeight;
       if (lineHeight) {
-        const lineHeightPropName = `--line-height-${font}`;
-        lineHeights = {
-          ...lineHeights,
+        const lineHeightPropName = cssPropName(`--line-height-${font}`);
+        themeVals = [...themeVals, { lineHeight: `var(${lineHeightPropName})` }];
+        lineHeightProps = {
+          ...lineHeightProps,
           ...{ [lineHeightPropName]: lineHeight }
         };
       }
     }
+    fontSizeThemes = {
+      ...fontSizeThemes,
+      ...{ [font]: themeVals }
+    };
   });
-  return addMissingSemi({
-    ...sizes,
-    ...lineHeights
-  });
+  return {
+    props: {
+      ...sizeProps,
+      ...lineHeightProps
+    },
+    theme: fontSizeThemes
+  };
 }
+const fontSizeTheme = extractFontTheme(defaultTheme.fontSize);
+
+const typographyPropsPlugin = ({ addBase }) => {
+  addBase({
+    ':root': fontSizeTheme.props
+  });
+};
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const baseConfig = {
   theme: {
     colors: keepColors,
-    spacing: spacingTheme
+    spacing: spacingTheme.theme,
+    fontSize: fontSizeTheme.theme
   },
   corePlugins: {
     preflight: false
   },
   experimental: {
     optimizeUniversalDefaults: true
-  },
+  }
+};
+
+/** @type {import('tailwindcss').Config} */
+const colorPropsConfig = {
+  ...baseConfig,
+  plugins: [colorPropsPlugin]
+};
+
+/** @type {import('tailwindcss').Config} */
+const typographyPropsConfig = {
+  ...baseConfig,
+  plugins: [typographyPropsPlugin]
+};
+
+/** @type {import('tailwindcss').Config} */
+const spacingPropsConfig = {
+  ...baseConfig,
+  plugins: [spacingPropsPlugin]
+};
+
+/** @type {import('tailwindcss').Config} */
+const typographyUtilsConfig = {
+  ...baseConfig,
   safelist: [
-    'justify-start',
+    {
+      pattern: /^text-(xs|sm|base|lg|xl|[0-9]*xl)/
+    }
+  ]
+};
+
+/** @type {import('tailwindcss').Config} */
+const flexUtilsConfig = {
+  ...baseConfig,
+  safelist: [
     {
       pattern: /^justify-/
-    },
+    }
+  ]
+};
+
+/** @type {import('tailwindcss').Config} */
+const spacingUtilsConfig = {
+  ...baseConfig,
+  safelist: [
     {
       // m{t|r|b|l}-
       pattern: /^(m|m[trbl]|-m|-m[trbl])-/
     }
-  ],
-  plugins: [
-    function ({ addBase, theme }) {
-      addBase({
-        ':root': extractColorVars(theme('colors'))
-      });
-      addBase({
-        ':root': extractFontVars(theme('fontSize'))
-      });
-      addBase({
-        ':root': spacingProps
-      });
-    }
   ]
+};
+
+module.exports = {
+  colorPropsConfig,
+  typographyPropsConfig,
+  spacingPropsConfig,
+  typographyUtilsConfig,
+  flexUtilsConfig,
+  spacingUtilsConfig
 };
