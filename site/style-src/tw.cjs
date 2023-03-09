@@ -1,6 +1,61 @@
 const colors = require('tailwindcss/colors');
-const defaultTheme = require('tailwindcss/defaultTheme');
-const { lightBlue, warmGray, trueGray, coolGray, blueGray, ...keepColors } = colors;
+// const defaultTheme = require('tailwindcss/defaultTheme');
+const Color = require('color');
+
+function computeContrast(colorStr, white = colors.white, black = colors.black) {
+  const color = new Color(colorStr);
+  return color.isDark() ? white : black;
+}
+
+function computeInvertedContrast(colorStr, white = colors.white, black = colors.black) {
+  const color = new Color(colorStr);
+  return color.isLight() ? white : black;
+}
+
+function computePalette(palette, base = '500') {
+  return {
+    ...palette,
+    contrast: computeContrast(palette[base]),
+    contrastx: computeInvertedContrast(palette[base])
+  };
+}
+
+const coreColorPrimitives = {
+  inherit: colors.inherit,
+  current: colors.current,
+  transparent: colors.transparent,
+  black: colors.black,
+  white: colors.white
+};
+
+const colorPalettes = {
+  slate: computePalette(colors.slate),
+  neutral: computePalette(colors.neutral),
+  red: computePalette(colors.red),
+  orange: computePalette(colors.orange),
+  yellow: computePalette(colors.yellow),
+  green: computePalette(colors.green),
+  teal: computePalette(colors.teal),
+  sky: computePalette(colors.sky),
+  blue: computePalette(colors.blue),
+  indigo: computePalette(colors.indigo),
+  violet: computePalette(colors.violet),
+  pink: computePalette(colors.pink)
+};
+
+const emotiveColors = {
+  primary: colorPalettes.blue,
+  success: colorPalettes.green,
+  danger: colorPalettes.red,
+  warning: colorPalettes.yellow,
+  info: colorPalettes.teal
+};
+
+const allColors = {
+  ...coreColorPrimitives,
+  ...colorPalettes,
+  ...emotiveColors
+};
 
 /**
  *
@@ -38,7 +93,23 @@ function extractSpacingTheme(data) {
     theme
   };
 }
-const spacingTheme = extractSpacingTheme(defaultTheme.spacing);
+
+const spacing = {
+  px: '1px',
+  0: '0',
+  '3xs': '0.125rem',
+  '2xs': '0.25rem',
+  xs: '0.5rem',
+  s: '0.75rem',
+  m: '1rem',
+  l: '1.25rem',
+  xl: '1.5rem',
+  '2xl': '2rem',
+  '3xl': '2.5rem',
+  '4xl': '3rem'
+};
+
+const spacingTheme = extractSpacingTheme(spacing);
 
 const spacingPropsPlugin = ({ addBase }) => {
   addBase({
@@ -107,7 +178,20 @@ function extractFontTheme(data) {
     theme: fontSizeThemes
   };
 }
-const fontSizeTheme = extractFontTheme(defaultTheme.fontSize);
+
+const fontSize = {
+  '3xs': ['0.5rem', { lineHeight: '1' }],
+  '2xs': ['0.625rem', { lineHeight: '1' }],
+  xs: ['0.75rem', { lineHeight: '1' }],
+  s: ['0.875rem', { lineHeight: '1.25' }],
+  m: ['1rem', { lineHeight: '1.5' }],
+  l: ['1.125rem', { lineHeight: '1.25' }],
+  xl: ['1.25rem', { lineHeight: '1.25' }],
+  '2xl': ['1.5rem', { lineHeight: '1' }],
+  '3xl': ['2rem', { lineHeight: '1' }],
+  '4xl': ['2.25rem', { lineHeight: '1' }]
+};
+const fontSizeTheme = extractFontTheme(fontSize);
 
 const typographyPropsPlugin = ({ addBase }) => {
   addBase({
@@ -118,7 +202,7 @@ const typographyPropsPlugin = ({ addBase }) => {
 /** @type {import('tailwindcss').Config} */
 const baseConfig = {
   theme: {
-    colors: keepColors,
+    colors: allColors,
     spacing: spacingTheme.theme,
     fontSize: fontSizeTheme.theme
   },
@@ -175,6 +259,10 @@ const spacingUtilsConfig = {
     {
       // m{t|r|b|l}-
       pattern: /^(m|m[trbl]|-m|-m[trbl])-/
+    },
+    {
+      // p{t|r|b|l}-
+      pattern: /^(p|p[trbl])-/
     }
   ]
 };

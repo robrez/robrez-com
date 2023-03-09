@@ -13,38 +13,6 @@ const styles = css`
     font-size: var(--rr-font-size-4xl);
     line-height: var(--rr-line-height-4xl);
   }
-  .text-5xl {
-    font-size: var(--rr-font-size-5xl);
-    line-height: var(--rr-line-height-5xl);
-  }
-  .text-6xl {
-    font-size: var(--rr-font-size-6xl);
-    line-height: var(--rr-line-height-6xl);
-  }
-  .text-7xl {
-    font-size: var(--rr-font-size-7xl);
-    line-height: var(--rr-line-height-7xl);
-  }
-  .text-8xl {
-    font-size: var(--rr-font-size-8xl);
-    line-height: var(--rr-line-height-8xl);
-  }
-  .text-9xl {
-    font-size: var(--rr-font-size-9xl);
-    line-height: var(--rr-line-height-9xl);
-  }
-  .text-base {
-    font-size: var(--rr-font-size-base);
-    line-height: var(--rr-line-height-base);
-  }
-  .text-lg {
-    font-size: var(--rr-font-size-lg);
-    line-height: var(--rr-line-height-lg);
-  }
-  .text-sm {
-    font-size: var(--rr-font-size-sm);
-    line-height: var(--rr-line-height-sm);
-  }
   .text-xl {
     font-size: var(--rr-font-size-xl);
     line-height: var(--rr-line-height-xl);
