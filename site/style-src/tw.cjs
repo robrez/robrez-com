@@ -13,23 +13,95 @@ function computeInvertedContrast(colorStr, white = colors.white, black = colors.
 }
 
 function computePalette(palette, base = '500') {
-  return {
-    ...palette,
-    contrast: computeContrast(palette[base]),
-    contrastx: computeInvertedContrast(palette[base])
+  let result = {
+    ...palette
   };
+  if (!result.DEFAULT) {
+    result.DEFAULT = palette[base];
+  }
+  result = {
+    ...result,
+    contrast: computeContrast(palette.DEFAULT),
+    contrastx: computeInvertedContrast(palette.DEFAULT)
+  };
+  if (!result['950']) {
+    const c = new Color(result['900']);
+    result['950'] = c.darken(0.2).hex();
+  }
+  return result;
 }
+
+function computePaletteDark(_palette, base = '500') {
+  const palette = computePalette(_palette, base);
+  const numericKeys = Object.keys(palette)
+    .filter(k => {
+      try {
+        const kInt = parseInt(k, 10);
+        return Number.isInteger(kInt);
+      } catch (e) {
+        return false;
+      }
+    })
+    .map(k => parseInt(k))
+    .sort((a, b) => a - b);
+  let result = { ...palette };
+  const reverseNumericKeys = [...numericKeys].reverse();
+  numericKeys.forEach((key, index) => {
+    const reverseKey = reverseNumericKeys[index];
+    result[`${key}`] = palette[`${reverseKey}`];
+  });
+
+  return result;
+}
+
+const shade = {
+  DEFAULT: 'rgba(0, 0, 0)',
+  900: 'rgba(0, 0, 0, 0.9)',
+  800: 'rgba(0, 0, 0, 0.8)',
+  700: 'rgba(0, 0, 0, 0.7)',
+  600: 'rgba(0, 0, 0, 0.6)',
+  500: 'rgba(0, 0, 0, 0.5)',
+  400: 'rgba(0, 0, 0, 0.4)',
+  300: 'rgba(0, 0, 0, 0.3)',
+  200: 'rgba(0, 0, 0, 0.2)',
+  100: 'rgba(0, 0, 0, 0.1)',
+  50: 'rgba(0, 0, 0, 0.05)'
+};
+
+const tint = {
+  DEFAULT: 'rgba(255, 255, 255)',
+  900: 'rgba(255, 255, 255, 0.9)',
+  800: 'rgba(255, 255, 255, 0.8)',
+  700: 'rgba(255, 255, 255, 0.7)',
+  600: 'rgba(255, 255, 255, 0.6)',
+  500: 'rgba(255, 255, 255, 0.5)',
+  400: 'rgba(255, 255, 255, 0.4)',
+  300: 'rgba(255, 255, 255, 0.3)',
+  200: 'rgba(255, 255, 255, 0.2)',
+  100: 'rgba(255, 255, 255, 0.1)',
+  50: 'rgba(255, 255, 255, 0.05)'
+};
+
+const contrast = {
+  ...shade
+};
 
 const coreColorPrimitives = {
   inherit: colors.inherit,
   current: colors.current,
   transparent: colors.transparent,
   black: colors.black,
-  white: colors.white
+  white: colors.white,
+  shade: shade,
+  tint: tint,
+  contrast: contrast
 };
 
 const colorPalettes = {
   slate: computePalette(colors.slate),
+  gray: computePalette(colors.gray),
+  zinc: computePalette(colors.zinc),
+  stone: computePalette(colors.stone),
   neutral: computePalette(colors.neutral),
   red: computePalette(colors.red),
   orange: computePalette(colors.orange),
@@ -57,6 +129,42 @@ const allColors = {
   ...emotiveColors
 };
 
+const coreColorPrimitivesDark = {
+  contrast: tint
+};
+
+const colorPalettesDark = {
+  slate: computePaletteDark(colors.slate),
+  gray: computePaletteDark(colors.gray),
+  zinc: computePaletteDark(colors.zinc),
+  stone: computePaletteDark(colors.stone),
+  neutral: computePaletteDark(colors.neutral),
+  red: computePaletteDark(colors.red),
+  orange: computePaletteDark(colors.orange),
+  yellow: computePaletteDark(colors.yellow),
+  green: computePaletteDark(colors.green),
+  teal: computePaletteDark(colors.teal),
+  sky: computePaletteDark(colors.sky),
+  blue: computePaletteDark(colors.blue),
+  indigo: computePaletteDark(colors.indigo),
+  violet: computePaletteDark(colors.violet),
+  pink: computePaletteDark(colors.pink)
+};
+
+const emotiveColorsDark = {
+  primary: colorPalettesDark.blue,
+  success: colorPalettesDark.green,
+  danger: colorPalettesDark.red,
+  warning: colorPalettesDark.yellow,
+  info: colorPalettesDark.teal
+};
+
+const allColorsDark = {
+  ...coreColorPrimitivesDark,
+  ...colorPalettesDark,
+  ...emotiveColorsDark
+};
+
 /**
  *
  * @param {string} propName
@@ -77,7 +185,7 @@ function extractSpacingTheme(data) {
   let theme = {};
   let props = {};
   Object.keys(data).forEach(spacing => {
-    const propName = cssPropName(`--spacing-${spacing}`);
+    const propName = cssPropName(`--space-${spacing}`);
     const propValue = data[spacing];
     theme = {
       ...theme,
@@ -121,7 +229,8 @@ function extractColorVars(_colorObj, _colorGroup = '') {
   function _extractColorVars(colorObj, colorGroup = '') {
     return Object.keys(colorObj).reduce((vars, colorKey) => {
       const value = colorObj[colorKey];
-      const propName = cssPropName(`--color${colorGroup}-${colorKey}`);
+      const colorKeyModifier = colorKey.toLowerCase() === 'default' ? '' : `-${colorKey}`;
+      const propName = cssPropName(`--color${colorGroup}${colorKeyModifier}`);
       const newVars = typeof value === 'string' ? { [propName]: value } : _extractColorVars(value, `-${colorKey}`);
       return { ...vars, ...newVars };
     }, {});
@@ -133,6 +242,12 @@ function extractColorVars(_colorObj, _colorGroup = '') {
 const colorPropsPlugin = ({ addBase, theme }) => {
   addBase({
     ':root': extractColorVars(theme('colors'))
+  });
+};
+
+const colorPropsDarkPlugin = ({ addBase }) => {
+  addBase({
+    '.rr-theme-dark, :host([theme~="dark"])': extractColorVars(allColorsDark)
   });
 };
 
@@ -221,6 +336,12 @@ const colorPropsConfig = {
 };
 
 /** @type {import('tailwindcss').Config} */
+const colorPropsDarkConfig = {
+  ...baseConfig,
+  plugins: [colorPropsDarkPlugin]
+};
+
+/** @type {import('tailwindcss').Config} */
 const typographyPropsConfig = {
   ...baseConfig,
   plugins: [typographyPropsPlugin]
@@ -269,6 +390,7 @@ const spacingUtilsConfig = {
 
 module.exports = {
   colorPropsConfig,
+  colorPropsDarkConfig,
   typographyPropsConfig,
   spacingPropsConfig,
   typographyUtilsConfig,

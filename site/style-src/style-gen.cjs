@@ -54,6 +54,12 @@ const props = [
   },
   {
     outDir: `${baseOutDir}/props`,
+    name: 'color-dark',
+    input: genericInputCss,
+    tailwindConfig: tailwindConfig.colorPropsDarkConfig
+  },
+  {
+    outDir: `${baseOutDir}/props`,
     name: 'typography',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.typographyPropsConfig

@@ -1,5 +1,6 @@
 import { css } from 'lit-element';
 import colorProps from '../../style/props/color.js';
+import colorDarkProps from '../../style/props/color-dark.js';
 import spacingProps from '../../style/props/spacing.js';
 import typographyProps from '../../style/props/typography.js';
 import flexUtils from '../../style/utils/flex.js';
@@ -10,73 +11,50 @@ const styles = css`
   :root,
   :host {
     display: block;
-    --rr-shade: rgba(0, 0, 0);
-    --rr-shade-900: rgba(0, 0, 0, 0.9);
-    --rr-shade-800: rgba(0, 0, 0, 0.8);
-    --rr-shade-700: rgba(0, 0, 0, 0.7);
-    --rr-shade-600: rgba(0, 0, 0, 0.6);
-    --rr-shade-500: rgba(0, 0, 0, 0.5);
-    --rr-shade-400: rgba(0, 0, 0, 0.4);
-    --rr-shade-300: rgba(0, 0, 0, 0.3);
-    --rr-shade-200: rgba(0, 0, 0, 0.2);
-    --rr-shade-100: rgba(0, 0, 0, 0.1);
-    --rr-shade-50: rgba(0, 0, 0, 0.05);
-
-    --rr-tint: rgba(255, 255, 255);
-    --rr-tint-900: rgba(255, 255, 255, 0.9);
-    --rr-tint-800: rgba(255, 255, 255, 0.8);
-    --rr-tint-700: rgba(255, 255, 255, 0.7);
-    --rr-tint-600: rgba(255, 255, 255, 0.6);
-    --rr-tint-500: rgba(255, 255, 255, 0.5);
-    --rr-tint-400: rgba(255, 255, 255, 0.4);
-    --rr-tint-300: rgba(255, 255, 255, 0.3);
-    --rr-tint-200: rgba(255, 255, 255, 0.2);
-    --rr-tint-100: rgba(255, 255, 255, 0.1);
-    --rr-tint-50: rgba(255, 255, 255, 0.05);
 
     --rr-base-divider-color: dodgerblue;
     --rr-large-divider-width: 6px;
     --rr-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
-    --rr-base-bg-color: var(--rr-color-slate-50);
-    --rr-base-text-color: var(--rr-shade-800);
-    --rr-header-bg-color: var(--rr-shade-800);
-    --rr-header-text-color: var(--rr-tint-900);
-    --rr-header-text-secondary-color: var(--rr-tint-800);
-    --rr-header-text-tertiary-color: var(--rr-tint-600);
-    --rr-content-bg-color: var(--rr-tint);
-    --rr-content-text-color: var(--rr-shade-800);
-    --rr-divider-color: var(--rr-shade-200);
-    --rr-divider-secondary-color: var(--rr-shade-100);
+    --rr-base-bg-color: var(--rr-color-gray-50);
+    --rr-base-text-color: var(--rr-color-shade-800);
 
-    --rr-space-xl: 2rem;
-    --rr-space-lg: 1.5rem;
-    --rr-space-md: 1rem;
-    --rr-space-sm: 0.75rem;
-    --rr-space-xs: 0.5rem;
+    --rr-header-bg-color: var(--rr-color-shade-800);
+    --rr-header-text-color: var(--rr-color-tint-900);
+    --rr-header-text-secondary-color: var(--rr-color-tint-800);
+    --rr-header-text-tertiary-color: var(--rr-color-tint-600);
 
-    font-family: var(--rr-font-family);
+    --rr-surface-bg-color: var(--rr-color-tint);
+    --rr-surface-text-color: var(--rr-color-contrast-800);
+
+    --rr-divider-color: var(--rr-color-shade-200);
+    --rr-divider-secondary-color: var(--rr-color-shade-100);
+
     background-color: var(--rr-base-bg-color);
     color: var(--rr-base-text-color);
+    font-family: var(--rr-font-family);
   }
 
-  ${colorProps} ${spacingProps} ${typographyProps}
+  ${colorProps} ${colorDarkProps} ${spacingProps} ${typographyProps}
 
   ${flexUtils} ${spacingUtils} ${typographyUtils}
 
-  :host([dark]) {
-    --rr-base-bg-color: var(--rr-shade-900);
-    --rr-base-text-color: var(--rr-tint-900);
-    --rr-base-divider-color: var(--rr-color-slate-500);
-    --rr-header-bg-color: var(--rr-shade);
-    --rr-header-text-color: var(--rr-tint-900);
-    --rr-header-text-secondary-color: var(--rr-tint-800);
-    --rr-header-text-tertiary-color: var(--rr-tint-600);
-    --rr-content-bg-color: var(--rr-color-slate-800);
-    --rr-content-text-color: var(--rr-tint-800);
-    --rr-divider-color: var(--rr-tint-100);
-    --rr-divider-secondary-color: var(--rr-tint-50);
+  .rr-theme-dark,
+  :host([theme~="dark"]) {
+    --rr-base-bg-color: var(--rr-color-shade-900);
+    --rr-base-text-color: var(--rr-color-tint-900);
+
+    --rr-header-bg-color: var(--rr-color-shade);
+    --rr-header-text-color: var(--rr-color-tint-900);
+    --rr-header-text-secondary-color: var(--rr-color-tint-800);
+    --rr-header-text-tertiary-color: var(--rr-color-tint-600);
+
+    --rr-surface-bg-color: var(--rr-color-gray-200);
+    --rr-surface-text-color: var(--rr-color-contrast-800);
+
+    --rr-divider-color: var(--rr-color-tint-100);
+    --rr-divider-secondary-color: var(--rr-color-tint-50);
   }
 
   h1,
@@ -85,6 +63,16 @@ const styles = css`
   h4,
   h5 {
     margin: 0;
+    color: var(--rr-color-primary-600);
+  }
+
+  .card a {
+    color: var(--rr-color-primary-600);
+    text-decoration: none;
+  }
+
+  .card a:hover {
+    text-decoration: underline;
   }
 
   header {
@@ -130,17 +118,11 @@ const styles = css`
     max-width: 1024px;
   }
 
-  .card-container {
-    break-inside: avoid;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-
   .card {
     border-radius: 2px;
     border: 1px solid var(--rr-divider-color);
-    background-color: var(--rr-content-bg-color);
-    color: var(--rr-content-text-color);
+    background-color: var(--rr-surface-bg-color);
+    color: var(--rr-surface-text-color);
   }
 
   .card-heading,
