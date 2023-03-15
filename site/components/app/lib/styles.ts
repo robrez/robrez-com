@@ -1,11 +1,9 @@
 import { css } from 'lit-element';
-import colorProps from '../../style/props/color.js';
-import colorDarkProps from '../../style/props/color-dark.js';
-import spacingProps from '../../style/props/spacing.js';
-import typographyProps from '../../style/props/typography.js';
-import flexUtils from '../../style/utils/flex.js';
-import spacingUtils from '../../style/utils/spacing.js';
-import typographyUtils from '../../style/utils/typography.js';
+
+// import '../../style/props/spacing-module.js';
+// import '../../style/utils/flex-module.js';
+// import spacingUtils from '../../style/utils/spacing.js';
+// import typographyUtils from '../../style/utils/typography.js';
 
 const styles = css`
   :root,
@@ -36,12 +34,8 @@ const styles = css`
     font-family: var(--rr-font-family);
   }
 
-  ${colorProps} ${colorDarkProps} ${spacingProps} ${typographyProps}
-
-  ${flexUtils} ${spacingUtils} ${typographyUtils}
-
   .rr-theme-dark,
-  :host([theme~="dark"]) {
+  :host([theme~='dark']) {
     --rr-base-bg-color: var(--rr-color-shade-900);
     --rr-base-text-color: var(--rr-color-tint-900);
 

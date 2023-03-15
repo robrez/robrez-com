@@ -1,6 +1,9 @@
 import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
 
 export class XHello extends LitElement {
+  @property({ type: String }) greeting = 'hello world';
+
   static styles = css`
     :host {
       display: block;
@@ -15,7 +18,7 @@ export class XHello extends LitElement {
     const result = html`
       <h1>Test</h1>
       <main>
-        <div>Hello world</div>
+        <div>${this.greeting}</div>
         ${foo}
       </main>
     `;

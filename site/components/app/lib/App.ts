@@ -1,10 +1,16 @@
 import { CSSResult, css, html, LitElement, TemplateResult } from 'lit';
+import { property } from 'lit/decorators.js';
+import { rebrand } from '../../style/rebrand.js';
 import { styles } from './styles.js';
 
 export class App extends LitElement {
+  @property({ type: String, reflect: true }) brandColor: string | undefined = undefined;
+  @property() name = 'rob';
+
   static get is() {
     return 'robrez-app';
   }
+
   static get styles(): CSSResult[] {
     const s1 = css`
       :host {
@@ -14,8 +20,20 @@ export class App extends LitElement {
     `;
     return [s1, styles];
   }
+
+  private renderBrandStyle(): TemplateResult {
+    if (!this.brandColor) {
+      return html``; //nothing
+    }
+    const brandColorCss = rebrand(this.brandColor);
+    return html`<style>
+      ${brandColorCss}
+    </style>`;
+  }
+
   protected override render(): TemplateResult {
     return html`
+      ${this.renderBrandStyle()}
       <header>
         <slot name="header"></slot>
       </header>

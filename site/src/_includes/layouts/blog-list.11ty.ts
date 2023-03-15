@@ -60,7 +60,7 @@ const renderExample = (data: RenderData): string => {
       ${head(data)}
 
       <body>
-        <robrez-app>
+        <robrez-app brandcolor="pink">
           ${header(data)}
 
           <!-- main slot -->

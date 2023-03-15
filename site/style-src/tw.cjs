@@ -101,18 +101,25 @@ const colorPalettes = {
   slate: computePalette(colors.slate),
   gray: computePalette(colors.gray),
   zinc: computePalette(colors.zinc),
-  stone: computePalette(colors.stone),
   neutral: computePalette(colors.neutral),
+  stone: computePalette(colors.stone),
   red: computePalette(colors.red),
   orange: computePalette(colors.orange),
+  amber: computePalette(colors.amber),
   yellow: computePalette(colors.yellow),
+  lime: computePalette(colors.lime),
   green: computePalette(colors.green),
+  emerald: computePalette(colors.emerald),
   teal: computePalette(colors.teal),
+  cyan: computePalette(colors.cyan),
   sky: computePalette(colors.sky),
   blue: computePalette(colors.blue),
   indigo: computePalette(colors.indigo),
   violet: computePalette(colors.violet),
-  pink: computePalette(colors.pink)
+  purple: computePalette(colors.purple),
+  fuscia: computePalette(colors.fuchsia),
+  pink: computePalette(colors.pink),
+  rose: computePalette(colors.rose)
 };
 
 const emotiveColors = {

@@ -25,6 +25,26 @@ const prettify = (content, config = {}) => {
 /**
  * Creates a lit css template wrapping the given css content string
  *
+ * @param {string} packageId :
+ * @param {string} moduleId :
+ * @returns string
+ */
+const asLitCssModule = (packageId, moduleId) => {
+  const tpl = `
+    import { appendModule } from '../css-module-util.js';
+    import styles from './${moduleId}.js';
+
+    const moduleId = '${packageId}/${moduleId}';
+    appendModule(moduleId, styles);
+
+    export default styles;
+  `;
+  return prettify(tpl, {});
+};
+
+/**
+ * Creates a lit css template wrapping the given css content string
+ *
  * @param {string} content : css string;
  * @returns string
  */
@@ -35,11 +55,21 @@ const asLitCss = content => {
     const styles = css\`
       ${content}
     \`
-    
+
     export default styles;
     ;
   `;
   return prettify(tpl, {});
+};
+
+/**
+ * Creates a lit css template wrapping the given css content string
+ *
+ * @param {string} content : css string;
+ * @returns string
+ */
+const asCss = content => {
+  return prettify(content, { parser: 'css' });
 };
 
 const genericInputCss = `./style-src/input.css`;
@@ -47,56 +77,71 @@ const baseOutDir = `./components/style`;
 
 const props = [
   {
-    outDir: `${baseOutDir}/props`,
+    package: 'props',
     name: 'color',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.colorPropsConfig
   },
   {
-    outDir: `${baseOutDir}/props`,
+    package: 'props',
     name: 'color-dark',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.colorPropsDarkConfig
   },
   {
-    outDir: `${baseOutDir}/props`,
+    package: 'props',
     name: 'typography',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.typographyPropsConfig
   },
   {
-    outDir: `${baseOutDir}/props`,
+    package: 'props',
     name: 'spacing',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.spacingPropsConfig
   },
   {
-    outDir: `${baseOutDir}/utils`,
+    package: 'utils',
     name: 'typography',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.typographyUtilsConfig
   },
   {
-    outDir: `${baseOutDir}/utils`,
+    package: 'utils',
     name: 'spacing',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.spacingUtilsConfig
   },
   {
-    outDir: `${baseOutDir}/utils`,
+    package: 'utils',
     name: 'flex',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.flexUtilsConfig
   }
-];
+].map(original => {
+  const result = {
+    outDir: `${baseOutDir}/${original.package}`,
+    ...original
+  };
+  return result;
+});
 
 async function processProp(prop) {
   const css = fs.readFileSync(prop.input);
   const processor = await postcss([tailwindcss(prop.tailwindConfig)]);
   const result = await processor.process(css, {});
-  const tsStyles = asLitCss(result.css, { parser: 'css' });
+
+  const tsStyles = asLitCss(result.css);
   fs.mkdirSync(prop.outDir, { recursive: true });
   fs.writeFileSync(`${prop.outDir}/${prop.name}.ts`, tsStyles, { encoding: 'utf-8' });
+
+  const tsModuleStyles = asLitCssModule(prop.package, prop.name);
+  fs.mkdirSync(prop.outDir, { recursive: true });
+  fs.writeFileSync(`${prop.outDir}/${prop.name}-module.ts`, tsModuleStyles, { encoding: 'utf-8' });
+
+  const cssStyles = asCss(result.css);
+  fs.mkdirSync(prop.outDir, { recursive: true });
+  fs.writeFileSync(`${prop.outDir}/${prop.name}.css`, cssStyles, { encoding: 'utf-8' });
 }
 
 props.forEach(prop => {

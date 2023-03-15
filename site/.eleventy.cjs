@@ -12,7 +12,11 @@ module.exports = function (eleventyConfig) {
    * Considered copying w/ rollup
    */
   eleventyConfig.addPassthroughCopy({
-    '../node_modules/prismjs/themes/prism-okaidia.css': 'prism-okaidia.css'
+    '../node_modules/prismjs/themes/prism-okaidia.css': 'prism-okaidia.css',
+    './components/style/props/*.css': 'style/props/',
+    './components/style/props-all.css': 'style/props-all.css',
+    './components/style/utils/*.css': 'style/utils/',
+    './components/style/utils-all.css': 'style/utils-all.css'
   });
 
   eleventyConfig.addCollection('blog', collectionsApi => {
