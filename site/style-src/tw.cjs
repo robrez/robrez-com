@@ -238,7 +238,18 @@ function extractColorVars(_colorObj, _colorGroup = '') {
       const value = colorObj[colorKey];
       const colorKeyModifier = colorKey.toLowerCase() === 'default' ? '' : `-${colorKey}`;
       const propName = cssPropName(`--color${colorGroup}${colorKeyModifier}`);
-      const newVars = typeof value === 'string' ? { [propName]: value } : _extractColorVars(value, `-${colorKey}`);
+      let newVars;
+      if (typeof value === 'string') {
+        if (!!emotiveColors[colorGroup.replace('-', '')]) {
+          // const overridePropName = cssPropName(`--color${colorGroup}-override${colorKeyModifier}`);
+          // newVars = { [propName]: `var(${overridePropName}, ${value})` };
+          newVars = { [propName]: value };
+        } else {
+          newVars = { [propName]: value };
+        }
+      } else {
+        newVars = _extractColorVars(value, `-${colorKey}`);
+      }
       return { ...vars, ...newVars };
     }, {});
   }

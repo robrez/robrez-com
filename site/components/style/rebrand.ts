@@ -2,7 +2,8 @@ import { CSSResult, unsafeCSS } from 'lit';
 
 function rebrandProperty(colorName: string, colorKey: string): string {
   const colorKeyModifier = colorKey.toLowerCase() === 'default' ? '' : `-${colorKey}`;
-  return `--rr-color-primary${colorKeyModifier}: var(--rr-color-${colorName}${colorKeyModifier});`;
+  // return `--rr-color-primary-override${colorKeyModifier}: var(--rr-color-${colorName}${colorKeyModifier});`;
+  return `--rr-color-primary${colorKeyModifier}: var(--rr-color-${colorName}${colorKeyModifier}) !important;`;
 }
 
 export function rebrand(colorName: string): CSSResult {
@@ -26,6 +27,9 @@ export function rebrand(colorName: string): CSSResult {
   const css = String.raw;
   const properties = keys.map(key => rebrandProperty(colorName, key)).join('\n');
   const result = css`
+    :root,
+    .rr-theme-dark,
+    :host([theme='dark']),
     :host {
       ${properties}
     }
