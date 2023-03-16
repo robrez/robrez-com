@@ -1,4 +1,5 @@
 import { css } from 'lit-element';
+import '@robrez-com/style/props-all-module.js';
 
 // import '../../style/props/spacing-module.js';
 // import '../../style/utils/flex-module.js';

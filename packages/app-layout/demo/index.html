@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+      }
+
+      .card {
+        padding: 1rem;
+        background: #fff;
+      }
+    </style>
+    <title>test</title>
+  </head>
+
+  <body>
+    <robrez-app>
+      <h1 slot="header">Application</h1>
+
+      <div class="card">
+        <h2>Lorem Ipsum</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Consequat semper viverra nam libero justo. Faucibus scelerisque eleifend donec pretium. Amet est
+          placerat in egestas erat. Molestie at elementum eu facilisis sed. Lacinia at quis risus sed vulputate odio ut
+          enim. Vulputate dignissim suspendisse in est ante in. Ornare lectus sit amet est placerat in egestas erat.
+          Pellentesque nec nam aliquam sem. Massa tempor nec feugiat nisl pretium. Neque volutpat ac tincidunt vitae
+          semper quis lectus nulla at. Eros in cursus turpis massa tincidunt. Id neque aliquam vestibulum morbi blandit
+          cursus risus at ultrices. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh. Diam
+          sollicitudin tempor id eu nisl nunc mi. Neque ornare aenean euismod elementum nisi quis. Nec ultrices dui
+          sapien eget mi proin. Diam vulputate ut pharetra sit amet aliquam id. Egestas congue quisque egestas diam in
+          arcu. In hac habitasse platea dictumst. Ut pharetra sit amet aliquam id diam maecenas ultricies. Dolor morbi
+          non arcu risus quis varius quam quisque. Vel risus commodo viverra maecenas accumsan. Sit amet nisl purus in
+          mollis. Dictum sit amet justo donec enim diam vulputate ut. Diam phasellus vestibulum lorem sed risus
+          ultricies tristique nulla.
+        </p>
+      </div>
+
+      <div slot="footer">
+        <div>Thanks for visiting</div>
+        <div><button id="modeBtn">Switch Theme</button></div>
+      </div>
+    </robrez-app>
+
+    <script type="module">
+      import '../define.js';
+
+      const modeBtn = document.getElementById('modeBtn');
+      modeBtn.addEventListener('click', e => {
+        const appEl = document.querySelector('robrez-app');
+        appEl.classList.toggle('rr-theme-dark');
+        const darkMode = appEl.classList.contains('rr-theme-dark');
+        modeBtn.textContent = darkMode ? 'Switch to Light' : 'Switch to Dark';
+      });
+    </script>
+  </body>
+</html>
