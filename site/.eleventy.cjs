@@ -13,10 +13,10 @@ module.exports = function (eleventyConfig) {
    */
   eleventyConfig.addPassthroughCopy({
     '../node_modules/prismjs/themes/prism-okaidia.css': 'prism-okaidia.css',
-    './components/style/props/*.css': 'style/props/',
-    './components/style/props-all.css': 'style/props-all.css',
-    './components/style/utils/*.css': 'style/utils/',
-    './components/style/utils-all.css': 'style/utils-all.css'
+    '../node_modules/@robrez-com/style/src/props/*.css': 'style/src/props/',
+    '../node_modules/@robrez-com/style/props-all.css': 'style/props-all.css',
+    '../node_modules/@robrez-com/style/src/utils/*.css': 'style/src/utils/',
+    '../node_modules/@robrez-com/style/utils-all.css': 'style/utils-all.css'
   });
 
   eleventyConfig.addCollection('blog', collectionsApi => {

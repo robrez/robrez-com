@@ -72,8 +72,8 @@ const asCss = content => {
   return prettify(content, { parser: 'css' });
 };
 
-const genericInputCss = `./style-src/input.css`;
-const baseOutDir = `./components/style`;
+const genericInputCss = `./scripts/input.css`;
+const baseOutDir = `./src`;
 
 const props = [
   {

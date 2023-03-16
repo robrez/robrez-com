@@ -17,11 +17,12 @@
     "tsc:clean:11ty": "tsc --build ./tsconfig.11ty.json --clean",
     "tsc:clean:components": "tsc --build ./tsconfig.json --clean",
     "11ty": "eleventy --config=.eleventy.cjs",
-    "rollup": "rollup -c rollup.config.js",
-    "build:style": "node ./style-src/style-gen.cjs"
+    "rollup": "rollup -c rollup.config.js"
   },
   "dependencies": {
+    "@robrez-com/app-layout": "^0.1.0",
     "@robrez-com/x-hello": "^0.1.0",
+    "@robrez-com/style": "^0.1.0",
     "lit": "^2.0.2",
     "tslib": "^2.3.1"
   },
@@ -30,13 +31,8 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "autoprefixer": "^10.4.13",
-    "color": "^4.2.3",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
     "rollup": "^2.0.0",
     "rollup-plugin-copy": "^3.4.0",
-    "tailwindcss": "^3.2.7",
     "typescript": "^4.5.2"
   }
 }

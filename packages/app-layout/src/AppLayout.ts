@@ -1,9 +1,9 @@
 import { CSSResult, css, html, LitElement, TemplateResult } from 'lit';
 import { property } from 'lit/decorators.js';
-import { rebrand } from '../../style/rebrand.js';
+import { rebrand } from '@robrez-com/style/rebrand.js';
 import { styles } from './styles.js';
 
-export class App extends LitElement {
+export class AppLayout extends LitElement {
   @property({ type: String, reflect: true }) brandColor: string | undefined = undefined;
   @property() name = 'rob';
 

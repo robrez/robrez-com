@@ -1,5 +1,5 @@
 {
-  "name": "@acme/components",
+  "name": "@robrez/robrez-com",
   "private": true,
   "license": "MIT",
   "author": "me",
@@ -16,12 +16,11 @@
     "site": "wds --watch --root-dir=site/dist --node-resolve"
   },
   "workspaces": [
-    "./packages/x-hello",
+    "./packages/*",
     "./site"
   ],
   "devDependencies": {
     "@lit-labs/ssr": "^3.0.1",
-    "@robrez-com/site": "^0.1.0",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
     "@web/dev-server": "^0.1.28",
