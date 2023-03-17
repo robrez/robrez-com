@@ -1,6 +1,7 @@
 ---
 title: Patient Portal
 company: CPSI
+category: project
 startDate: 2015-11-01
 endDate: 2016-12-01
 itemTags:

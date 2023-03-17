@@ -5,5 +5,3 @@ tags:
   - _sitenav
   - _resume
 ---
-
-# Resume TODO

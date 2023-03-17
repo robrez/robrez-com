@@ -1,6 +1,7 @@
 ---
 title: Shared Solutions
 company: CPSI
+category: project
 startDate: 2020-01-01
 endDate:
 itemTags:

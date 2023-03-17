@@ -1,6 +1,7 @@
 ---
 title: FHIR API
 company: CPSI
+category: project
 startDate: 2017-04-01
 endDate:
 itemTags:

@@ -5,4 +5,4 @@ tags:
   - _intro
 ---
 
-I'm enthusiastic about web technology and standards. I love building all the things: design systems, web components, libraries, APIs, applications, platforms
+I'm enthusiastic about web technology and standards. I love everything about software craftsmanship including: design systems, web components, UX, libraries, DBs, APIs, applications, platforms

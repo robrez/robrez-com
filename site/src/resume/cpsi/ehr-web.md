@@ -1,6 +1,7 @@
 ---
 title: EHR Web Framework
 company: CPSI
+category: project
 startDate: 2018-01-01
 endDate: 2019-12-31
 itemTags:

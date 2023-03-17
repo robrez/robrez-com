@@ -32,7 +32,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection('resume', collectionsApi => {
-    return [...collectionsApi.getFilteredByGlob('./src/resume/*.md')];
+    return [...collectionsApi.getFilteredByGlob('./src/resume/**/*.md')];
   });
 
   return {

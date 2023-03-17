@@ -1,6 +1,7 @@
 ---
 title: Clnical Quality Measures
 company: CPSI
+category: project
 startDate: 2013-04-01
 endDate: 2013-07-01
 itemTags:
