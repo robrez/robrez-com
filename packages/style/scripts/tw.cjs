@@ -86,6 +86,23 @@ const contrast = {
   ...shade
 };
 
+const base = {
+  bg: 'var(--rr-color-gray-50)',
+  text: 'var(--rr-color-neutral-800)',
+  'secondary-text': 'var(--rr-color-neutral-800)'
+};
+
+const surface = {
+  bg: 'var(--rr-color-white)',
+  text: 'var(--rr-color-neutral-800)',
+  secondary: 'var(--rr-color-neutral-800)'
+};
+
+const divider = {
+  default: 'var(--rr-color-zinc-300)',
+  secondary: 'var(--rr-color-zinc-200)'
+};
+
 const coreColorPrimitives = {
   inherit: colors.inherit,
   current: colors.current,
@@ -94,7 +111,10 @@ const coreColorPrimitives = {
   white: colors.white,
   shade: shade,
   tint: tint,
-  contrast: contrast
+  contrast: contrast,
+  base,
+  surface,
+  divider
 };
 
 const colorPalettes = {
@@ -136,8 +156,28 @@ const allColors = {
   ...emotiveColors
 };
 
+const dividerDark = {
+  default: 'var(--rr-color-zinc-300)',
+  secondary: 'var(--rr-color-zinc-200)'
+};
+
+const baseDark = {
+  bg: 'var(--rr-color-shade-900)',
+  text: 'var(--rr-color-neutral-900)',
+  'secondary-text': 'var(--rr-color-neutral-700)'
+};
+
+const surfaceDark = {
+  bg: 'var(--rr-color-gray-200)',
+  text: 'var(--rr-color-neutral-900)',
+  'secondary-text': 'var(--rr-color-neutral-700)'
+};
+
 const coreColorPrimitivesDark = {
-  contrast: tint
+  contrast: tint,
+  base: baseDark,
+  surface: surfaceDark,
+  divider: dividerDark
 };
 
 const colorPalettesDark = {
@@ -265,7 +305,7 @@ const colorPropsPlugin = ({ addBase, theme }) => {
 
 const colorPropsDarkPlugin = ({ addBase }) => {
   addBase({
-    '.rr-theme-dark, :host([theme~="dark"])': extractColorVars(allColorsDark)
+    '[theme~="dark"], :host([theme~="dark"])': extractColorVars(allColorsDark)
   });
 };
 

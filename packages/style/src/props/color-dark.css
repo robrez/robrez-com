@@ -1,4 +1,4 @@
-.rr-theme-dark,
+[theme~='dark'],
 :host([theme~='dark']) {
   --rr-color-contrast-50: rgba(255, 255, 255, 0.05);
   --rr-color-contrast-100: rgba(255, 255, 255, 0.1);
@@ -11,6 +11,14 @@
   --rr-color-contrast-800: rgba(255, 255, 255, 0.8);
   --rr-color-contrast-900: rgba(255, 255, 255, 0.9);
   --rr-color-contrast: rgba(255, 255, 255);
+  --rr-color-base-bg: var(--rr-color-shade-900);
+  --rr-color-base-text: var(--rr-color-neutral-900);
+  --rr-color-base-secondary-text: var(--rr-color-neutral-700);
+  --rr-color-surface-bg: var(--rr-color-gray-200);
+  --rr-color-surface-text: var(--rr-color-neutral-900);
+  --rr-color-surface-secondary-text: var(--rr-color-neutral-700);
+  --rr-color-divider: var(--rr-color-zinc-300);
+  --rr-color-divider-secondary: var(--rr-color-zinc-200);
   --rr-color-slate-50: #0c1222;
   --rr-color-slate-100: #0f172a;
   --rr-color-slate-200: #1e293b;

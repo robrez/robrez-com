@@ -15,7 +15,7 @@ const renderExample = (data: RenderData): string => {
       ${head(data)}
 
       <body>
-        <robrez-app brandcolor="indigo">
+        <rr-app-layout brandcolor="indigo">
           ${header(data)}
 
           <!-- main slot -->
@@ -30,7 +30,7 @@ const renderExample = (data: RenderData): string => {
 
           <!-- footer slot -->
           ${footer(data)}
-        </robrez-app>
+        </rr-app-layout>
       </body>
     </html>`;
 };

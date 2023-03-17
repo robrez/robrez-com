@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <robrez-app>
+    <rr-app-layout>
       <h1 slot="header">Application</h1>
 
       <div class="card">
@@ -48,14 +48,14 @@
         <div>Thanks for visiting</div>
         <div><button id="modeBtn">Switch Theme</button></div>
       </div>
-    </robrez-app>
+    </rr-app-layout>
 
     <script type="module">
       import '../define.js';
 
       const modeBtn = document.getElementById('modeBtn');
       modeBtn.addEventListener('click', e => {
-        const appEl = document.querySelector('robrez-app');
+        const appEl = document.querySelector('rr-app-layout');
         appEl.classList.toggle('rr-theme-dark');
         const darkMode = appEl.classList.contains('rr-theme-dark');
         modeBtn.textContent = darkMode ? 'Switch to Light' : 'Switch to Dark';

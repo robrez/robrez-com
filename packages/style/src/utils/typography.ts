@@ -21,6 +21,15 @@ const styles = css`
     font-size: var(--rr-font-size-xs);
     line-height: var(--rr-line-height-xs);
   }
+  .text-base-bg {
+    color: var(--rr-color-gray-50);
+  }
+  .text-base-secondary-text {
+    color: var(--rr-color-neutral-800);
+  }
+  .text-base-text {
+    color: var(--rr-color-neutral-800);
+  }
 `;
 
 export default styles;

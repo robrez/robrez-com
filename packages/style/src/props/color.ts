@@ -40,6 +40,14 @@ const styles = css`
     --rr-color-contrast-800: rgba(0, 0, 0, 0.8);
     --rr-color-contrast-900: rgba(0, 0, 0, 0.9);
     --rr-color-contrast: rgba(0, 0, 0);
+    --rr-color-base-bg: var(--rr-color-gray-50);
+    --rr-color-base-text: var(--rr-color-neutral-800);
+    --rr-color-base-secondary-text: var(--rr-color-neutral-800);
+    --rr-color-surface-bg: var(--rr-color-white);
+    --rr-color-surface-text: var(--rr-color-neutral-800);
+    --rr-color-surface-secondary: var(--rr-color-neutral-800);
+    --rr-color-divider: var(--rr-color-zinc-300);
+    --rr-color-divider-secondary: var(--rr-color-zinc-200);
     --rr-color-slate-50: #f8fafc;
     --rr-color-slate-100: #f1f5f9;
     --rr-color-slate-200: #e2e8f0;

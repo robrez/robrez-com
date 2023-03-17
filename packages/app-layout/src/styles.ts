@@ -1,55 +1,28 @@
 import { css } from 'lit-element';
 import '@robrez-com/style/props-all-module.js';
 
-// import '../../style/props/spacing-module.js';
-// import '../../style/utils/flex-module.js';
-// import spacingUtils from '../../style/utils/spacing.js';
-// import typographyUtils from '../../style/utils/typography.js';
-
 const styles = css`
   :root,
   :host {
     display: block;
 
-    --rr-base-divider-color: dodgerblue;
-    --rr-large-divider-width: 6px;
     --rr-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-
-    --rr-base-bg-color: var(--rr-color-gray-50);
-    --rr-base-text-color: var(--rr-color-shade-800);
 
     --rr-header-bg-color: var(--rr-color-shade-800);
     --rr-header-text-color: var(--rr-color-tint-900);
     --rr-header-text-secondary-color: var(--rr-color-tint-800);
     --rr-header-text-tertiary-color: var(--rr-color-tint-600);
+    --rr-base-divider-color: var(--rr-color-primary);
+    --rr-large-divider-width: 6px;
 
-    --rr-surface-bg-color: var(--rr-color-tint);
-    --rr-surface-text-color: var(--rr-color-contrast-800);
-
-    --rr-divider-color: var(--rr-color-shade-200);
-    --rr-divider-secondary-color: var(--rr-color-shade-100);
-
-    background-color: var(--rr-base-bg-color);
-    color: var(--rr-base-text-color);
+    background-color: var(--rr-color-base-bg);
+    color: var(--rr-color-base-text);
     font-family: var(--rr-font-family);
   }
 
-  .rr-theme-dark,
   :host([theme~='dark']) {
-    --rr-base-bg-color: var(--rr-color-shade-900);
-    --rr-base-text-color: var(--rr-color-tint-900);
-
     --rr-header-bg-color: var(--rr-color-shade);
-    --rr-header-text-color: var(--rr-color-tint-900);
-    --rr-header-text-secondary-color: var(--rr-color-tint-800);
-    --rr-header-text-tertiary-color: var(--rr-color-tint-600);
-
-    --rr-surface-bg-color: var(--rr-color-gray-200);
-    --rr-surface-text-color: var(--rr-color-contrast-800);
-
-    --rr-divider-color: var(--rr-color-tint-100);
-    --rr-divider-secondary-color: var(--rr-color-tint-50);
   }
 
   h1,
@@ -115,9 +88,9 @@ const styles = css`
 
   .card {
     border-radius: 2px;
-    border: 1px solid var(--rr-divider-color);
-    background-color: var(--rr-surface-bg-color);
-    color: var(--rr-surface-text-color);
+    border: 1px solid var(--rr-color-divider);
+    background-color: var(--rr-color-surface-bg);
+    color: var(--rr-color-surface-text);
   }
 
   .card-heading,
@@ -126,7 +99,7 @@ const styles = css`
   }
 
   .card-heading.divider {
-    border-bottom: 1px solid var(--rr-divider-secondary-color);
+    border-bottom: 1px solid var(--rr-color-divider-secondary);
   }
 
   footer {

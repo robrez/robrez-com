@@ -70,7 +70,7 @@ function page(data: RenderData): string {
       ${head(data)}
 
       <body>
-        <robrez-app>
+        <rr-app-layout>
           ${header(data)}
 
           <!-- main slot -->
@@ -83,7 +83,7 @@ function page(data: RenderData): string {
 
           <!-- footer slot -->
           ${footer(data)}
-        </robrez-app>
+        </rr-app-layout>
       </body>
     </html>`;
   return tpl;

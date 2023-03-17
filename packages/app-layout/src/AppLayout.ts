@@ -8,7 +8,7 @@ export class AppLayout extends LitElement {
   @property() name = 'rob';
 
   static get is() {
-    return 'robrez-app';
+    return 'rr-app-layout';
   }
 
   static get styles(): CSSResult[] {

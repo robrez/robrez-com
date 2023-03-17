@@ -10,7 +10,8 @@
   "types": "index.d.ts",
   "scripts": {
     "nuke": "rimraf node_modules",
-    "build": "tsc",
+    "build": "npm run build:style && npm run build:style",
+    "build:tsc": "tsc",
     "clean": "tsc --build ./tsconfig.json --clean",
     "build:style": "node ./scripts/style-gen.cjs"
   },
