@@ -17,7 +17,7 @@ const styles = css`
     --rr-color-shade-700: rgba(0, 0, 0, 0.7);
     --rr-color-shade-800: rgba(0, 0, 0, 0.8);
     --rr-color-shade-900: rgba(0, 0, 0, 0.9);
-    --rr-color-shade: rgba(0, 0, 0);
+    --rr-color-shade: rgb(0, 0, 0);
     --rr-color-tint-50: rgba(255, 255, 255, 0.05);
     --rr-color-tint-100: rgba(255, 255, 255, 0.1);
     --rr-color-tint-200: rgba(255, 255, 255, 0.2);
@@ -28,7 +28,7 @@ const styles = css`
     --rr-color-tint-700: rgba(255, 255, 255, 0.7);
     --rr-color-tint-800: rgba(255, 255, 255, 0.8);
     --rr-color-tint-900: rgba(255, 255, 255, 0.9);
-    --rr-color-tint: rgba(255, 255, 255);
+    --rr-color-tint: rgb(255, 255, 255);
     --rr-color-contrast-50: rgba(0, 0, 0, 0.05);
     --rr-color-contrast-100: rgba(0, 0, 0, 0.1);
     --rr-color-contrast-200: rgba(0, 0, 0, 0.2);
@@ -39,7 +39,7 @@ const styles = css`
     --rr-color-contrast-700: rgba(0, 0, 0, 0.7);
     --rr-color-contrast-800: rgba(0, 0, 0, 0.8);
     --rr-color-contrast-900: rgba(0, 0, 0, 0.9);
-    --rr-color-contrast: rgba(0, 0, 0);
+    --rr-color-contrast: rgb(0, 0, 0);
     --rr-color-base-bg: var(--rr-color-gray-50);
     --rr-color-base-text: var(--rr-color-neutral-800);
     --rr-color-base-secondary-text: var(--rr-color-neutral-800);

@@ -13,7 +13,7 @@ const styles = css`
     --rr-color-contrast-700: rgba(255, 255, 255, 0.7);
     --rr-color-contrast-800: rgba(255, 255, 255, 0.8);
     --rr-color-contrast-900: rgba(255, 255, 255, 0.9);
-    --rr-color-contrast: rgba(255, 255, 255);
+    --rr-color-contrast: rgb(255, 255, 255);
     --rr-color-base-bg: var(--rr-color-shade-900);
     --rr-color-base-text: var(--rr-color-neutral-900);
     --rr-color-base-secondary-text: var(--rr-color-neutral-700);

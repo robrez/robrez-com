@@ -38,6 +38,7 @@ module.exports = {
         '@typescript-eslint/no-unsafe-member-access': 'warn',
         '@typescript-eslint/no-unsafe-argument': 'warn',
         '@typescript-eslint/no-unsafe-assignment': 'warn',
+        '@typescript-eslint/unbound-method': 'off',
         '@typescript-eslint/no-unused-vars': [
           'warn', // or error
           {

@@ -55,7 +55,7 @@ function computePaletteDark(_palette, base = '500') {
 }
 
 const shade = {
-  DEFAULT: 'rgba(0, 0, 0)',
+  DEFAULT: 'rgb(0, 0, 0)',
   900: 'rgba(0, 0, 0, 0.9)',
   800: 'rgba(0, 0, 0, 0.8)',
   700: 'rgba(0, 0, 0, 0.7)',
@@ -69,7 +69,7 @@ const shade = {
 };
 
 const tint = {
-  DEFAULT: 'rgba(255, 255, 255)',
+  DEFAULT: 'rgb(255, 255, 255)',
   900: 'rgba(255, 255, 255, 0.9)',
   800: 'rgba(255, 255, 255, 0.8)',
   700: 'rgba(255, 255, 255, 0.7)',

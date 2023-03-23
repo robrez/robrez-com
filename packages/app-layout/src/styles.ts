@@ -86,6 +86,7 @@ const styles = css`
     max-width: 1024px;
   }
 
+  ::slotted(.card),
   .card {
     border-radius: 2px;
     border: 1px solid var(--rr-color-divider);
