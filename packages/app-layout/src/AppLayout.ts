@@ -31,6 +31,7 @@ export class AppLayout extends LitElement {
       }
 
       [part='theme-toggle'] {
+        margin-left: 1rem;
         border: none;
         outline: none;
         background-color: transparent;
@@ -109,7 +110,10 @@ export class AppLayout extends LitElement {
 
   private renderThemeToggle(): TemplateResult {
     const icon = this.isDarkTheme ? darkIcon : lightIcon;
-    return html`<button @click="${this.onClickThemeToggle}" class="icon-button" part="theme-toggle">${icon}</button>`;
+    const title = `Switch to ${this.isDarkTheme ? 'light' : 'dark'} mode`;
+    return html`<button @click="${this.onClickThemeToggle}" class="icon-button" part="theme-toggle" title="${title}">
+      ${icon}
+    </button>`;
   }
 
   protected override render(): TemplateResult {

@@ -10,6 +10,7 @@ const styles = css`
       'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
     --rr-header-bg-color: var(--rr-color-shade-800);
+    --rr-header-primary-text-color: var(--rr-color-primary-300);
     --rr-header-text-color: var(--rr-color-tint-900);
     --rr-header-text-secondary-color: var(--rr-color-tint-800);
     --rr-header-text-tertiary-color: var(--rr-color-tint-600);
@@ -23,15 +24,26 @@ const styles = css`
 
   :host([theme~='dark']) {
     --rr-header-bg-color: var(--rr-color-shade);
+    --rr-header-primary-text-color: var(--rr-color-primary-700);
+  }
+
+  [part~='header'] h1,
+  [part~='header'] h2,
+  [part~='header'] h3,
+  [part~='header'] h4,
+  [part~='header'] h5,
+  [part~='header'] h6 {
+    color: var(--rr-header-primary-text-color);
   }
 
   h1,
   h2,
   h3,
   h4,
-  h5 {
+  h5,
+  h6 {
+    color: var(--rr-color-surface-secondary-text);
     margin: 0;
-    color: var(--rr-color-primary-600);
   }
 
   .card a {

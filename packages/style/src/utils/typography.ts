@@ -25,7 +25,7 @@ const styles = css`
     color: var(--rr-color-gray-50);
   }
   .text-base-secondary-text {
-    color: var(--rr-color-neutral-800);
+    color: var(--rr-color-neutral-500);
   }
   .text-base-text {
     color: var(--rr-color-neutral-800);

@@ -89,13 +89,13 @@ const contrast = {
 const base = {
   bg: 'var(--rr-color-gray-50)',
   text: 'var(--rr-color-neutral-800)',
-  'secondary-text': 'var(--rr-color-neutral-800)'
+  'secondary-text': 'var(--rr-color-neutral-500)'
 };
 
 const surface = {
   bg: 'var(--rr-color-white)',
   text: 'var(--rr-color-neutral-800)',
-  secondary: 'var(--rr-color-neutral-800)'
+  'secondary-text': 'var(--rr-color-neutral-500)'
 };
 
 const divider = {
