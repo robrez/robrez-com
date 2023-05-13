@@ -255,6 +255,25 @@ const colorPropsPlugin = ({ addBase, theme }) => {
   });
 };
 
+const colorUtilPlugin = ({ matchUtilities }) => {
+  const _vals = extractColorVars(colorPalettes)
+  matchUtilities(
+    {
+      xxx: value => {
+        return {
+          color: value
+        };
+      }
+    },
+    {
+      values: {
+        1: '1',
+        2: '2'
+      }
+    }
+  );
+};
+
 const colorPropsDarkPlugin = ({ addBase }) => {
   addBase({
     '[theme~="dark"], :host([theme~="dark"])': extractColorVars(allColorsDark)
@@ -263,6 +282,7 @@ const colorPropsDarkPlugin = ({ addBase }) => {
 
 module.exports = {
   colorPropsPlugin,
+  colorUtilPlugin,
   colorPropsDarkPlugin,
   allColors
 };

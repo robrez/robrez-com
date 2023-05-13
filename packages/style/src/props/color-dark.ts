@@ -303,6 +303,12 @@ const styles = css`
     --rr-color-info-contrast: var(--rr-color-teal-contrast);
     --rr-color-info-contrastx: var(--rr-color-teal-contrastx);
   }
+  .xxx-1 {
+    color: 1;
+  }
+  .xxx-2 {
+    color: 2;
+  }
 `;
 
 export default styles;

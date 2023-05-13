@@ -36,9 +36,9 @@ const spacing = {
   '3xs': '0.125rem',
   '2xs': '0.25rem',
   xs: '0.5rem',
-  s: '0.75rem',
-  m: '1rem',
-  l: '1.25rem',
+  sm: '0.75rem',
+  md: '1rem',
+  lg: '1.25rem',
   xl: '1.5rem',
   '2xl': '2rem',
   '3xl': '2.5rem',
@@ -100,9 +100,9 @@ const fontSize = {
   '3xs': ['0.5rem', { lineHeight: '1' }],
   '2xs': ['0.625rem', { lineHeight: '1' }],
   xs: ['0.75rem', { lineHeight: '1' }],
-  s: ['0.875rem', { lineHeight: '1.25' }],
-  m: ['1rem', { lineHeight: '1.5' }],
-  l: ['1.125rem', { lineHeight: '1.25' }],
+  sm: ['0.875rem', { lineHeight: '1.25' }],
+  md: ['1rem', { lineHeight: '1.5' }],
+  lg: ['1.125rem', { lineHeight: '1.25' }],
   xl: ['1.25rem', { lineHeight: '1.25' }],
   '2xl': ['1.5rem', { lineHeight: '1' }],
   '3xl': ['2rem', { lineHeight: '1' }],
@@ -120,6 +120,7 @@ const typographyPropsPlugin = ({ addBase }) => {
 const baseConfig = {
   theme: {
     colors: colorModule.allColors,
+    textColor: colorModule.allColors,
     spacing: spacingTheme.theme,
     fontSize: fontSizeTheme.theme
   },
@@ -140,7 +141,12 @@ const colorPropsConfig = {
 /** @type {import('tailwindcss').Config} */
 const colorPropsDarkConfig = {
   ...baseConfig,
-  plugins: [colorModule.colorPropsDarkPlugin]
+  plugins: [colorModule.colorPropsDarkPlugin, colorModule.colorUtilPlugin],
+  safelist: [
+    {
+      pattern: /^xxx/
+    }
+  ]
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -160,7 +166,7 @@ const typographyUtilsConfig = {
   ...baseConfig,
   safelist: [
     {
-      pattern: /^text-(xs|sm|base|lg|xl|[0-9]*xl)/
+      pattern: /^text-(xs|sm|md|lg|xl|[0-9]*xl|[0-9]*xs)/
     }
   ]
 };
@@ -180,12 +186,12 @@ const spacingUtilsConfig = {
   ...baseConfig,
   safelist: [
     {
-      // m{t|r|b|l}-
-      pattern: /^(m|m[trbl]|-m|-m[trbl])-/
+      // m{t|r|b|l|x|y}-
+      pattern: /^(m|m[trblxy]|-m|-m[trblxy])-/
     },
     {
-      // p{t|r|b|l}-
-      pattern: /^(p|p[trbl])-/
+      // p{t|r|b|l|x|y}-
+      pattern: /^(p|p[trblxy])-/
     }
   ]
 };
