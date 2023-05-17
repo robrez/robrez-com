@@ -55,7 +55,7 @@
   --rr-color-slate-700: #334155;
   --rr-color-slate-800: #1e293b;
   --rr-color-slate-900: #0f172a;
-  --rr-color-slate-950: #0c1222;
+  --rr-color-slate-950: #020617;
   --rr-color-slate: #64748b;
   --rr-color-slate-contrast: #fff;
   --rr-color-slate-contrastx: #000;
@@ -69,7 +69,7 @@
   --rr-color-gray-700: #374151;
   --rr-color-gray-800: #1f2937;
   --rr-color-gray-900: #111827;
-  --rr-color-gray-950: #0e131f;
+  --rr-color-gray-950: #030712;
   --rr-color-gray: #6b7280;
   --rr-color-gray-contrast: #fff;
   --rr-color-gray-contrastx: #000;
@@ -83,7 +83,7 @@
   --rr-color-zinc-700: #3f3f46;
   --rr-color-zinc-800: #27272a;
   --rr-color-zinc-900: #18181b;
-  --rr-color-zinc-950: #131316;
+  --rr-color-zinc-950: #09090b;
   --rr-color-zinc: #71717a;
   --rr-color-zinc-contrast: #fff;
   --rr-color-zinc-contrastx: #000;
@@ -97,7 +97,7 @@
   --rr-color-neutral-700: #404040;
   --rr-color-neutral-800: #262626;
   --rr-color-neutral-900: #171717;
-  --rr-color-neutral-950: #121212;
+  --rr-color-neutral-950: #0a0a0a;
   --rr-color-neutral: #737373;
   --rr-color-neutral-contrast: #fff;
   --rr-color-neutral-contrastx: #000;
@@ -111,7 +111,7 @@
   --rr-color-stone-700: #44403c;
   --rr-color-stone-800: #292524;
   --rr-color-stone-900: #1c1917;
-  --rr-color-stone-950: #161412;
+  --rr-color-stone-950: #0c0a09;
   --rr-color-stone: #78716c;
   --rr-color-stone-contrast: #fff;
   --rr-color-stone-contrastx: #000;
@@ -125,7 +125,7 @@
   --rr-color-red-700: #b91c1c;
   --rr-color-red-800: #991b1b;
   --rr-color-red-900: #7f1d1d;
-  --rr-color-red-950: #661717;
+  --rr-color-red-950: #450a0a;
   --rr-color-red: #ef4444;
   --rr-color-red-contrast: #fff;
   --rr-color-red-contrastx: #000;
@@ -139,7 +139,7 @@
   --rr-color-orange-700: #c2410c;
   --rr-color-orange-800: #9a3412;
   --rr-color-orange-900: #7c2d12;
-  --rr-color-orange-950: #63240e;
+  --rr-color-orange-950: #431407;
   --rr-color-orange: #f97316;
   --rr-color-orange-contrast: #fff;
   --rr-color-orange-contrastx: #000;
@@ -153,7 +153,7 @@
   --rr-color-amber-700: #b45309;
   --rr-color-amber-800: #92400e;
   --rr-color-amber-900: #78350f;
-  --rr-color-amber-950: #602a0c;
+  --rr-color-amber-950: #451a03;
   --rr-color-amber: #f59e0b;
   --rr-color-amber-contrast: #fff;
   --rr-color-amber-contrastx: #000;
@@ -167,7 +167,7 @@
   --rr-color-yellow-700: #a16207;
   --rr-color-yellow-800: #854d0e;
   --rr-color-yellow-900: #713f12;
-  --rr-color-yellow-950: #5a320e;
+  --rr-color-yellow-950: #422006;
   --rr-color-yellow: #eab308;
   --rr-color-yellow-contrast: #fff;
   --rr-color-yellow-contrastx: #000;
@@ -181,7 +181,7 @@
   --rr-color-lime-700: #4d7c0f;
   --rr-color-lime-800: #3f6212;
   --rr-color-lime-900: #365314;
-  --rr-color-lime-950: #2b4210;
+  --rr-color-lime-950: #1a2e05;
   --rr-color-lime: #84cc16;
   --rr-color-lime-contrast: #fff;
   --rr-color-lime-contrastx: #000;
@@ -195,7 +195,7 @@
   --rr-color-green-700: #15803d;
   --rr-color-green-800: #166534;
   --rr-color-green-900: #14532d;
-  --rr-color-green-950: #104224;
+  --rr-color-green-950: #052e16;
   --rr-color-green: #22c55e;
   --rr-color-green-contrast: #fff;
   --rr-color-green-contrastx: #000;
@@ -209,7 +209,7 @@
   --rr-color-emerald-700: #047857;
   --rr-color-emerald-800: #065f46;
   --rr-color-emerald-900: #064e3b;
-  --rr-color-emerald-950: #053e2f;
+  --rr-color-emerald-950: #022c22;
   --rr-color-emerald: #10b981;
   --rr-color-emerald-contrast: #fff;
   --rr-color-emerald-contrastx: #000;
@@ -223,7 +223,7 @@
   --rr-color-teal-700: #0f766e;
   --rr-color-teal-800: #115e59;
   --rr-color-teal-900: #134e4a;
-  --rr-color-teal-950: #0f3e3b;
+  --rr-color-teal-950: #042f2e;
   --rr-color-teal: #14b8a6;
   --rr-color-teal-contrast: #fff;
   --rr-color-teal-contrastx: #000;
@@ -237,7 +237,7 @@
   --rr-color-cyan-700: #0e7490;
   --rr-color-cyan-800: #155e75;
   --rr-color-cyan-900: #164e63;
-  --rr-color-cyan-950: #123e4f;
+  --rr-color-cyan-950: #083344;
   --rr-color-cyan: #06b6d4;
   --rr-color-cyan-contrast: #fff;
   --rr-color-cyan-contrastx: #000;
@@ -251,7 +251,7 @@
   --rr-color-sky-700: #0369a1;
   --rr-color-sky-800: #075985;
   --rr-color-sky-900: #0c4a6e;
-  --rr-color-sky-950: #0a3b58;
+  --rr-color-sky-950: #082f49;
   --rr-color-sky: #0ea5e9;
   --rr-color-sky-contrast: #fff;
   --rr-color-sky-contrastx: #000;
@@ -265,7 +265,7 @@
   --rr-color-blue-700: #1d4ed8;
   --rr-color-blue-800: #1e40af;
   --rr-color-blue-900: #1e3a8a;
-  --rr-color-blue-950: #182e6e;
+  --rr-color-blue-950: #172554;
   --rr-color-blue: #3b82f6;
   --rr-color-blue-contrast: #fff;
   --rr-color-blue-contrastx: #000;
@@ -279,7 +279,7 @@
   --rr-color-indigo-700: #4338ca;
   --rr-color-indigo-800: #3730a3;
   --rr-color-indigo-900: #312e81;
-  --rr-color-indigo-950: #272567;
+  --rr-color-indigo-950: #1e1b4b;
   --rr-color-indigo: #6366f1;
   --rr-color-indigo-contrast: #fff;
   --rr-color-indigo-contrastx: #000;
@@ -293,7 +293,7 @@
   --rr-color-violet-700: #6d28d9;
   --rr-color-violet-800: #5b21b6;
   --rr-color-violet-900: #4c1d95;
-  --rr-color-violet-950: #3d1777;
+  --rr-color-violet-950: #2e1065;
   --rr-color-violet: #8b5cf6;
   --rr-color-violet-contrast: #fff;
   --rr-color-violet-contrastx: #000;
@@ -307,7 +307,7 @@
   --rr-color-purple-700: #7e22ce;
   --rr-color-purple-800: #6b21a8;
   --rr-color-purple-900: #581c87;
-  --rr-color-purple-950: #46166c;
+  --rr-color-purple-950: #3b0764;
   --rr-color-purple: #a855f7;
   --rr-color-purple-contrast: #fff;
   --rr-color-purple-contrastx: #000;
@@ -321,7 +321,7 @@
   --rr-color-fuscia-700: #a21caf;
   --rr-color-fuscia-800: #86198f;
   --rr-color-fuscia-900: #701a75;
-  --rr-color-fuscia-950: #5a155e;
+  --rr-color-fuscia-950: #4a044e;
   --rr-color-fuscia: #d946ef;
   --rr-color-fuscia-contrast: #fff;
   --rr-color-fuscia-contrastx: #000;
@@ -335,7 +335,7 @@
   --rr-color-pink-700: #be185d;
   --rr-color-pink-800: #9d174d;
   --rr-color-pink-900: #831843;
-  --rr-color-pink-950: #691336;
+  --rr-color-pink-950: #500724;
   --rr-color-pink: #ec4899;
   --rr-color-pink-contrast: #fff;
   --rr-color-pink-contrastx: #000;
@@ -349,7 +349,7 @@
   --rr-color-rose-700: #be123c;
   --rr-color-rose-800: #9f1239;
   --rr-color-rose-900: #881337;
-  --rr-color-rose-950: #6d0f2c;
+  --rr-color-rose-950: #4c0519;
   --rr-color-rose: #f43f5e;
   --rr-color-rose-contrast: #fff;
   --rr-color-rose-contrastx: #000;

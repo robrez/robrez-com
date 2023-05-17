@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette').default;
 const Color = require('color');
 const cssPropName = require('./helpers.cjs').cssPropName;
 
@@ -16,7 +17,7 @@ function extractColorVars(_colorObj, _colorGroup = '') {
   function _extractColorVars(colorObj, colorGroup = '') {
     return Object.keys(colorObj).reduce((vars, colorKey) => {
       const value = colorObj[colorKey];
-      const colorKeyModifier = colorKey.toLowerCase() === 'default' ? '' : `-${colorKey}`;
+      const colorKeyModifier = colorKey.toUpperCase() === 'DEFAULT' ? '' : `-${colorKey}`;
       const propName = cssPropName(`--color${colorGroup}${colorKeyModifier}`);
       let newVars;
       if (typeof value === 'string') {
@@ -42,7 +43,7 @@ function aliasPalette(alias, colorName, colors) {
       .replace(aliasPrefix, '')
       .replace(/^[-]+/, '');
     if (!key) {
-      key = 'default';
+      key = 'DEFAULT';
     }
     result[key] = `var(${propName})`;
   });
@@ -179,6 +180,15 @@ const colorPalettes = {
   rose: computePalette(colors.rose)
 };
 
+const colorNames = Object.keys(colorPalettes);
+const propertyBasedPalettes = colorNames.reduce((acc, colorName) => {
+  const propertyBasedPalette = aliasPalette(colorName, colorName, colorPalettes);
+  return {
+    ...acc,
+    ...propertyBasedPalette
+  };
+}, {});
+
 const emotiveColors = {
   ...aliasPalette('primary', 'blue', colorPalettes),
   ...aliasPalette('success', 'green', colorPalettes),
@@ -217,23 +227,13 @@ const coreColorPrimitivesDark = {
   divider: dividerDark
 };
 
-const colorPalettesDark = {
-  slate: computePaletteDark(colors.slate),
-  gray: computePaletteDark(colors.gray),
-  zinc: computePaletteDark(colors.zinc),
-  stone: computePaletteDark(colors.stone),
-  neutral: computePaletteDark(colors.neutral),
-  red: computePaletteDark(colors.red),
-  orange: computePaletteDark(colors.orange),
-  yellow: computePaletteDark(colors.yellow),
-  green: computePaletteDark(colors.green),
-  teal: computePaletteDark(colors.teal),
-  sky: computePaletteDark(colors.sky),
-  blue: computePaletteDark(colors.blue),
-  indigo: computePaletteDark(colors.indigo),
-  violet: computePaletteDark(colors.violet),
-  pink: computePaletteDark(colors.pink)
-};
+const colorPalettesDark = colorNames.reduce((acc, colorName) => {
+  const darkPalette = computePaletteDark(colorPalettes[colorName]);
+  return {
+    ...acc,
+    ...{ [colorName]: darkPalette }
+  };
+}, {});
 
 const emotiveColorsDark = {
   ...aliasPalette('primary', 'blue', colorPalettesDark),
@@ -255,34 +255,48 @@ const colorPropsPlugin = ({ addBase, theme }) => {
   });
 };
 
-const colorUtilPlugin = ({ matchUtilities }) => {
-  const _vals = extractColorVars(colorPalettes)
-  matchUtilities(
-    {
-      xxx: value => {
-        return {
-          color: value
-        };
-      }
-    },
-    {
-      values: {
-        1: '1',
-        2: '2'
-      }
-    }
-  );
-};
-
 const colorPropsDarkPlugin = ({ addBase }) => {
   addBase({
     '[theme~="dark"], :host([theme~="dark"])': extractColorVars(allColorsDark)
   });
 };
 
+const colorUtilPlugin = ({ matchUtilities }) => {
+  const values = flattenColorPalette(propertyBasedPalettes);
+  matchUtilities(
+    {
+      color: value => {
+        return {
+          color: value
+        };
+      }
+    },
+    {
+      values: values
+    }
+  );
+};
+
+const bgColorUtilPlugin = ({ matchUtilities }) => {
+  const values = flattenColorPalette(propertyBasedPalettes);
+  matchUtilities(
+    {
+      bg: value => {
+        return {
+          'background-color': value
+        };
+      }
+    },
+    {
+      values: values
+    }
+  );
+};
+
 module.exports = {
   colorPropsPlugin,
-  colorUtilPlugin,
   colorPropsDarkPlugin,
-  allColors
+  allColors,
+  colorUtilPlugin,
+  bgColorUtilPlugin
 };

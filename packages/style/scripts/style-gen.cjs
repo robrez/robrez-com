@@ -102,6 +102,18 @@ const props = [
   },
   {
     package: 'utils',
+    name: 'color',
+    input: genericInputCss,
+    tailwindConfig: tailwindConfig.colorUtilPlugin
+  },
+  {
+    package: 'utils',
+    name: 'bg-color',
+    input: genericInputCss,
+    tailwindConfig: tailwindConfig.bgColorUtilPlugin
+  },
+  {
+    package: 'utils',
     name: 'typography',
     input: genericInputCss,
     tailwindConfig: tailwindConfig.typographyUtilsConfig

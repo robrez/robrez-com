@@ -1,6 +1,9 @@
 import { css } from 'lit-element';
 
 const styles = css`
+  .justify-normal {
+    justify-content: normal;
+  }
   .justify-start {
     justify-content: flex-start;
   }
@@ -18,6 +21,9 @@ const styles = css`
   }
   .justify-evenly {
     justify-content: space-evenly;
+  }
+  .justify-stretch {
+    justify-content: stretch;
   }
   .justify-items-start {
     justify-items: start;

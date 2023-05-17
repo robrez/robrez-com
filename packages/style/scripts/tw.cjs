@@ -1,6 +1,3 @@
-const colors = require('tailwindcss/colors');
-// const defaultTheme = require('tailwindcss/defaultTheme');
-const Color = require('color');
 const colorModule = require('./color.cjs');
 const cssPropName = require('./helpers.cjs').cssPropName;
 
@@ -125,7 +122,18 @@ const baseConfig = {
     fontSize: fontSizeTheme.theme
   },
   corePlugins: {
-    preflight: false
+    preflight: false,
+    textColor: false,
+    backgroundAttachment: false,
+    backgroundClip: false,
+    backgroundPosition: false,
+    backgroundImage: false,
+    backgroundOrigin: false,
+    backgroundRepeat: false,
+    backgroundSize: false,
+    backgroundColor: false,
+    backgroundOpacity: false,
+    backgroundBlendMode: false
   },
   experimental: {
     optimizeUniversalDefaults: true
@@ -141,10 +149,26 @@ const colorPropsConfig = {
 /** @type {import('tailwindcss').Config} */
 const colorPropsDarkConfig = {
   ...baseConfig,
-  plugins: [colorModule.colorPropsDarkPlugin, colorModule.colorUtilPlugin],
+  plugins: [colorModule.colorPropsDarkPlugin]
+};
+
+/** @type {import('tailwindcss').Config} */
+const colorUtilPlugin = {
+  ...baseConfig,
+  plugins: [colorModule.colorUtilPlugin],
   safelist: [
     {
-      pattern: /^xxx/
+      pattern: /^color-/
+    }
+  ]
+};
+/** @type {import('tailwindcss').Config} */
+const bgColorUtilPlugin = {
+  ...baseConfig,
+  plugins: [colorModule.bgColorUtilPlugin],
+  safelist: [
+    {
+      pattern: /^bg-/
     }
   ]
 };
@@ -199,6 +223,8 @@ const spacingUtilsConfig = {
 module.exports = {
   colorPropsConfig,
   colorPropsDarkConfig,
+  colorUtilPlugin,
+  bgColorUtilPlugin,
   typographyPropsConfig,
   spacingPropsConfig,
   typographyUtilsConfig,
