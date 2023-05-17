@@ -43,6 +43,18 @@ const styles = css`
   .bg-amber-contrastx {
     background-color: var(--rr-color-amber-contrastx);
   }
+  .bg-base-bg {
+    background-color: var(--rr-color-base-bg);
+  }
+  .bg-base-secondary-text {
+    background-color: var(--rr-color-base-secondary-text);
+  }
+  .bg-base-text {
+    background-color: var(--rr-color-base-text);
+  }
+  .bg-black {
+    background-color: var(--rr-color-black);
+  }
   .bg-blue {
     background-color: var(--rr-color-blue);
   }
@@ -85,6 +97,42 @@ const styles = css`
   .bg-blue-contrastx {
     background-color: var(--rr-color-blue-contrastx);
   }
+  .bg-contrast {
+    background-color: var(--rr-color-contrast);
+  }
+  .bg-contrast-100 {
+    background-color: var(--rr-color-contrast-100);
+  }
+  .bg-contrast-200 {
+    background-color: var(--rr-color-contrast-200);
+  }
+  .bg-contrast-300 {
+    background-color: var(--rr-color-contrast-300);
+  }
+  .bg-contrast-400 {
+    background-color: var(--rr-color-contrast-400);
+  }
+  .bg-contrast-50 {
+    background-color: var(--rr-color-contrast-50);
+  }
+  .bg-contrast-500 {
+    background-color: var(--rr-color-contrast-500);
+  }
+  .bg-contrast-600 {
+    background-color: var(--rr-color-contrast-600);
+  }
+  .bg-contrast-700 {
+    background-color: var(--rr-color-contrast-700);
+  }
+  .bg-contrast-800 {
+    background-color: var(--rr-color-contrast-800);
+  }
+  .bg-contrast-900 {
+    background-color: var(--rr-color-contrast-900);
+  }
+  .bg-current {
+    background-color: var(--rr-color-current);
+  }
   .bg-cyan {
     background-color: var(--rr-color-cyan);
   }
@@ -126,6 +174,54 @@ const styles = css`
   }
   .bg-cyan-contrastx {
     background-color: var(--rr-color-cyan-contrastx);
+  }
+  .bg-danger {
+    background-color: var(--rr-color-danger);
+  }
+  .bg-danger-100 {
+    background-color: var(--rr-color-danger-100);
+  }
+  .bg-danger-200 {
+    background-color: var(--rr-color-danger-200);
+  }
+  .bg-danger-300 {
+    background-color: var(--rr-color-danger-300);
+  }
+  .bg-danger-400 {
+    background-color: var(--rr-color-danger-400);
+  }
+  .bg-danger-50 {
+    background-color: var(--rr-color-danger-50);
+  }
+  .bg-danger-500 {
+    background-color: var(--rr-color-danger-500);
+  }
+  .bg-danger-600 {
+    background-color: var(--rr-color-danger-600);
+  }
+  .bg-danger-700 {
+    background-color: var(--rr-color-danger-700);
+  }
+  .bg-danger-800 {
+    background-color: var(--rr-color-danger-800);
+  }
+  .bg-danger-900 {
+    background-color: var(--rr-color-danger-900);
+  }
+  .bg-danger-950 {
+    background-color: var(--rr-color-danger-950);
+  }
+  .bg-danger-contrast {
+    background-color: var(--rr-color-danger-contrast);
+  }
+  .bg-danger-contrastx {
+    background-color: var(--rr-color-danger-contrastx);
+  }
+  .bg-divider {
+    background-color: var(--rr-color-divider);
+  }
+  .bg-divider-secondary {
+    background-color: var(--rr-color-divider-secondary);
   }
   .bg-emerald {
     background-color: var(--rr-color-emerald);
@@ -337,6 +433,51 @@ const styles = css`
   .bg-indigo-contrastx {
     background-color: var(--rr-color-indigo-contrastx);
   }
+  .bg-info {
+    background-color: var(--rr-color-info);
+  }
+  .bg-info-100 {
+    background-color: var(--rr-color-info-100);
+  }
+  .bg-info-200 {
+    background-color: var(--rr-color-info-200);
+  }
+  .bg-info-300 {
+    background-color: var(--rr-color-info-300);
+  }
+  .bg-info-400 {
+    background-color: var(--rr-color-info-400);
+  }
+  .bg-info-50 {
+    background-color: var(--rr-color-info-50);
+  }
+  .bg-info-500 {
+    background-color: var(--rr-color-info-500);
+  }
+  .bg-info-600 {
+    background-color: var(--rr-color-info-600);
+  }
+  .bg-info-700 {
+    background-color: var(--rr-color-info-700);
+  }
+  .bg-info-800 {
+    background-color: var(--rr-color-info-800);
+  }
+  .bg-info-900 {
+    background-color: var(--rr-color-info-900);
+  }
+  .bg-info-950 {
+    background-color: var(--rr-color-info-950);
+  }
+  .bg-info-contrast {
+    background-color: var(--rr-color-info-contrast);
+  }
+  .bg-info-contrastx {
+    background-color: var(--rr-color-info-contrastx);
+  }
+  .bg-inherit {
+    background-color: var(--rr-color-inherit);
+  }
   .bg-lime {
     background-color: var(--rr-color-lime);
   }
@@ -505,6 +646,48 @@ const styles = css`
   .bg-pink-contrastx {
     background-color: var(--rr-color-pink-contrastx);
   }
+  .bg-primary {
+    background-color: var(--rr-color-primary);
+  }
+  .bg-primary-100 {
+    background-color: var(--rr-color-primary-100);
+  }
+  .bg-primary-200 {
+    background-color: var(--rr-color-primary-200);
+  }
+  .bg-primary-300 {
+    background-color: var(--rr-color-primary-300);
+  }
+  .bg-primary-400 {
+    background-color: var(--rr-color-primary-400);
+  }
+  .bg-primary-50 {
+    background-color: var(--rr-color-primary-50);
+  }
+  .bg-primary-500 {
+    background-color: var(--rr-color-primary-500);
+  }
+  .bg-primary-600 {
+    background-color: var(--rr-color-primary-600);
+  }
+  .bg-primary-700 {
+    background-color: var(--rr-color-primary-700);
+  }
+  .bg-primary-800 {
+    background-color: var(--rr-color-primary-800);
+  }
+  .bg-primary-900 {
+    background-color: var(--rr-color-primary-900);
+  }
+  .bg-primary-950 {
+    background-color: var(--rr-color-primary-950);
+  }
+  .bg-primary-contrast {
+    background-color: var(--rr-color-primary-contrast);
+  }
+  .bg-primary-contrastx {
+    background-color: var(--rr-color-primary-contrastx);
+  }
   .bg-purple {
     background-color: var(--rr-color-purple);
   }
@@ -630,6 +813,39 @@ const styles = css`
   }
   .bg-rose-contrastx {
     background-color: var(--rr-color-rose-contrastx);
+  }
+  .bg-shade {
+    background-color: var(--rr-color-shade);
+  }
+  .bg-shade-100 {
+    background-color: var(--rr-color-shade-100);
+  }
+  .bg-shade-200 {
+    background-color: var(--rr-color-shade-200);
+  }
+  .bg-shade-300 {
+    background-color: var(--rr-color-shade-300);
+  }
+  .bg-shade-400 {
+    background-color: var(--rr-color-shade-400);
+  }
+  .bg-shade-50 {
+    background-color: var(--rr-color-shade-50);
+  }
+  .bg-shade-500 {
+    background-color: var(--rr-color-shade-500);
+  }
+  .bg-shade-600 {
+    background-color: var(--rr-color-shade-600);
+  }
+  .bg-shade-700 {
+    background-color: var(--rr-color-shade-700);
+  }
+  .bg-shade-800 {
+    background-color: var(--rr-color-shade-800);
+  }
+  .bg-shade-900 {
+    background-color: var(--rr-color-shade-900);
   }
   .bg-sky {
     background-color: var(--rr-color-sky);
@@ -757,6 +973,57 @@ const styles = css`
   .bg-stone-contrastx {
     background-color: var(--rr-color-stone-contrastx);
   }
+  .bg-success {
+    background-color: var(--rr-color-success);
+  }
+  .bg-success-100 {
+    background-color: var(--rr-color-success-100);
+  }
+  .bg-success-200 {
+    background-color: var(--rr-color-success-200);
+  }
+  .bg-success-300 {
+    background-color: var(--rr-color-success-300);
+  }
+  .bg-success-400 {
+    background-color: var(--rr-color-success-400);
+  }
+  .bg-success-50 {
+    background-color: var(--rr-color-success-50);
+  }
+  .bg-success-500 {
+    background-color: var(--rr-color-success-500);
+  }
+  .bg-success-600 {
+    background-color: var(--rr-color-success-600);
+  }
+  .bg-success-700 {
+    background-color: var(--rr-color-success-700);
+  }
+  .bg-success-800 {
+    background-color: var(--rr-color-success-800);
+  }
+  .bg-success-900 {
+    background-color: var(--rr-color-success-900);
+  }
+  .bg-success-950 {
+    background-color: var(--rr-color-success-950);
+  }
+  .bg-success-contrast {
+    background-color: var(--rr-color-success-contrast);
+  }
+  .bg-success-contrastx {
+    background-color: var(--rr-color-success-contrastx);
+  }
+  .bg-surface-bg {
+    background-color: var(--rr-color-surface-bg);
+  }
+  .bg-surface-secondary-text {
+    background-color: var(--rr-color-surface-secondary-text);
+  }
+  .bg-surface-text {
+    background-color: var(--rr-color-surface-text);
+  }
   .bg-teal {
     background-color: var(--rr-color-teal);
   }
@@ -799,6 +1066,42 @@ const styles = css`
   .bg-teal-contrastx {
     background-color: var(--rr-color-teal-contrastx);
   }
+  .bg-tint {
+    background-color: var(--rr-color-tint);
+  }
+  .bg-tint-100 {
+    background-color: var(--rr-color-tint-100);
+  }
+  .bg-tint-200 {
+    background-color: var(--rr-color-tint-200);
+  }
+  .bg-tint-300 {
+    background-color: var(--rr-color-tint-300);
+  }
+  .bg-tint-400 {
+    background-color: var(--rr-color-tint-400);
+  }
+  .bg-tint-50 {
+    background-color: var(--rr-color-tint-50);
+  }
+  .bg-tint-500 {
+    background-color: var(--rr-color-tint-500);
+  }
+  .bg-tint-600 {
+    background-color: var(--rr-color-tint-600);
+  }
+  .bg-tint-700 {
+    background-color: var(--rr-color-tint-700);
+  }
+  .bg-tint-800 {
+    background-color: var(--rr-color-tint-800);
+  }
+  .bg-tint-900 {
+    background-color: var(--rr-color-tint-900);
+  }
+  .bg-transparent {
+    background-color: var(--rr-color-transparent);
+  }
   .bg-violet {
     background-color: var(--rr-color-violet);
   }
@@ -840,6 +1143,51 @@ const styles = css`
   }
   .bg-violet-contrastx {
     background-color: var(--rr-color-violet-contrastx);
+  }
+  .bg-warning {
+    background-color: var(--rr-color-warning);
+  }
+  .bg-warning-100 {
+    background-color: var(--rr-color-warning-100);
+  }
+  .bg-warning-200 {
+    background-color: var(--rr-color-warning-200);
+  }
+  .bg-warning-300 {
+    background-color: var(--rr-color-warning-300);
+  }
+  .bg-warning-400 {
+    background-color: var(--rr-color-warning-400);
+  }
+  .bg-warning-50 {
+    background-color: var(--rr-color-warning-50);
+  }
+  .bg-warning-500 {
+    background-color: var(--rr-color-warning-500);
+  }
+  .bg-warning-600 {
+    background-color: var(--rr-color-warning-600);
+  }
+  .bg-warning-700 {
+    background-color: var(--rr-color-warning-700);
+  }
+  .bg-warning-800 {
+    background-color: var(--rr-color-warning-800);
+  }
+  .bg-warning-900 {
+    background-color: var(--rr-color-warning-900);
+  }
+  .bg-warning-950 {
+    background-color: var(--rr-color-warning-950);
+  }
+  .bg-warning-contrast {
+    background-color: var(--rr-color-warning-contrast);
+  }
+  .bg-warning-contrastx {
+    background-color: var(--rr-color-warning-contrastx);
+  }
+  .bg-white {
+    background-color: var(--rr-color-white);
   }
   .bg-yellow {
     background-color: var(--rr-color-yellow);

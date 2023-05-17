@@ -154,6 +154,14 @@ const coreColorPrimitives = {
   surface,
   divider
 };
+const corePrimitiveNames = Object.keys(coreColorPrimitives);
+const corePrimitiveProperties = corePrimitiveNames.reduce((acc, colorName) => {
+  const propertyBasedPalette = aliasPalette(colorName, colorName, coreColorPrimitives);
+  return {
+    ...acc,
+    ...propertyBasedPalette
+  };
+}, {});
 
 const colorPalettes = {
   slate: computePalette(colors.slate),
@@ -196,6 +204,14 @@ const emotiveColors = {
   ...aliasPalette('warning', 'yellow', colorPalettes),
   ...aliasPalette('info', 'teal', colorPalettes)
 };
+const emotiveNames = Object.keys(emotiveColors);
+const emotiveProperties = emotiveNames.reduce((acc, colorName) => {
+  const propertyBasedPalette = aliasPalette(colorName, colorName, emotiveColors);
+  return {
+    ...acc,
+    ...propertyBasedPalette
+  };
+}, {});
 
 const allColors = {
   ...coreColorPrimitives,
@@ -262,7 +278,7 @@ const colorPropsDarkPlugin = ({ addBase }) => {
 };
 
 const colorUtilPlugin = ({ matchUtilities }) => {
-  const values = flattenColorPalette(propertyBasedPalettes);
+  const values = flattenColorPalette({ ...propertyBasedPalettes, ...emotiveProperties, ...corePrimitiveProperties });
   matchUtilities(
     {
       color: value => {
@@ -278,7 +294,7 @@ const colorUtilPlugin = ({ matchUtilities }) => {
 };
 
 const bgColorUtilPlugin = ({ matchUtilities }) => {
-  const values = flattenColorPalette(propertyBasedPalettes);
+  const values = flattenColorPalette({ ...propertyBasedPalettes, ...emotiveProperties, ...corePrimitiveProperties });
   matchUtilities(
     {
       bg: value => {

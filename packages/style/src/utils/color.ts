@@ -43,6 +43,18 @@ const styles = css`
   .color-amber-contrastx {
     color: var(--rr-color-amber-contrastx);
   }
+  .color-base-bg {
+    color: var(--rr-color-base-bg);
+  }
+  .color-base-secondary-text {
+    color: var(--rr-color-base-secondary-text);
+  }
+  .color-base-text {
+    color: var(--rr-color-base-text);
+  }
+  .color-black {
+    color: var(--rr-color-black);
+  }
   .color-blue {
     color: var(--rr-color-blue);
   }
@@ -85,6 +97,42 @@ const styles = css`
   .color-blue-contrastx {
     color: var(--rr-color-blue-contrastx);
   }
+  .color-contrast {
+    color: var(--rr-color-contrast);
+  }
+  .color-contrast-100 {
+    color: var(--rr-color-contrast-100);
+  }
+  .color-contrast-200 {
+    color: var(--rr-color-contrast-200);
+  }
+  .color-contrast-300 {
+    color: var(--rr-color-contrast-300);
+  }
+  .color-contrast-400 {
+    color: var(--rr-color-contrast-400);
+  }
+  .color-contrast-50 {
+    color: var(--rr-color-contrast-50);
+  }
+  .color-contrast-500 {
+    color: var(--rr-color-contrast-500);
+  }
+  .color-contrast-600 {
+    color: var(--rr-color-contrast-600);
+  }
+  .color-contrast-700 {
+    color: var(--rr-color-contrast-700);
+  }
+  .color-contrast-800 {
+    color: var(--rr-color-contrast-800);
+  }
+  .color-contrast-900 {
+    color: var(--rr-color-contrast-900);
+  }
+  .color-current {
+    color: var(--rr-color-current);
+  }
   .color-cyan {
     color: var(--rr-color-cyan);
   }
@@ -126,6 +174,54 @@ const styles = css`
   }
   .color-cyan-contrastx {
     color: var(--rr-color-cyan-contrastx);
+  }
+  .color-danger {
+    color: var(--rr-color-danger);
+  }
+  .color-danger-100 {
+    color: var(--rr-color-danger-100);
+  }
+  .color-danger-200 {
+    color: var(--rr-color-danger-200);
+  }
+  .color-danger-300 {
+    color: var(--rr-color-danger-300);
+  }
+  .color-danger-400 {
+    color: var(--rr-color-danger-400);
+  }
+  .color-danger-50 {
+    color: var(--rr-color-danger-50);
+  }
+  .color-danger-500 {
+    color: var(--rr-color-danger-500);
+  }
+  .color-danger-600 {
+    color: var(--rr-color-danger-600);
+  }
+  .color-danger-700 {
+    color: var(--rr-color-danger-700);
+  }
+  .color-danger-800 {
+    color: var(--rr-color-danger-800);
+  }
+  .color-danger-900 {
+    color: var(--rr-color-danger-900);
+  }
+  .color-danger-950 {
+    color: var(--rr-color-danger-950);
+  }
+  .color-danger-contrast {
+    color: var(--rr-color-danger-contrast);
+  }
+  .color-danger-contrastx {
+    color: var(--rr-color-danger-contrastx);
+  }
+  .color-divider {
+    color: var(--rr-color-divider);
+  }
+  .color-divider-secondary {
+    color: var(--rr-color-divider-secondary);
   }
   .color-emerald {
     color: var(--rr-color-emerald);
@@ -337,6 +433,51 @@ const styles = css`
   .color-indigo-contrastx {
     color: var(--rr-color-indigo-contrastx);
   }
+  .color-info {
+    color: var(--rr-color-info);
+  }
+  .color-info-100 {
+    color: var(--rr-color-info-100);
+  }
+  .color-info-200 {
+    color: var(--rr-color-info-200);
+  }
+  .color-info-300 {
+    color: var(--rr-color-info-300);
+  }
+  .color-info-400 {
+    color: var(--rr-color-info-400);
+  }
+  .color-info-50 {
+    color: var(--rr-color-info-50);
+  }
+  .color-info-500 {
+    color: var(--rr-color-info-500);
+  }
+  .color-info-600 {
+    color: var(--rr-color-info-600);
+  }
+  .color-info-700 {
+    color: var(--rr-color-info-700);
+  }
+  .color-info-800 {
+    color: var(--rr-color-info-800);
+  }
+  .color-info-900 {
+    color: var(--rr-color-info-900);
+  }
+  .color-info-950 {
+    color: var(--rr-color-info-950);
+  }
+  .color-info-contrast {
+    color: var(--rr-color-info-contrast);
+  }
+  .color-info-contrastx {
+    color: var(--rr-color-info-contrastx);
+  }
+  .color-inherit {
+    color: var(--rr-color-inherit);
+  }
   .color-lime {
     color: var(--rr-color-lime);
   }
@@ -505,6 +646,48 @@ const styles = css`
   .color-pink-contrastx {
     color: var(--rr-color-pink-contrastx);
   }
+  .color-primary {
+    color: var(--rr-color-primary);
+  }
+  .color-primary-100 {
+    color: var(--rr-color-primary-100);
+  }
+  .color-primary-200 {
+    color: var(--rr-color-primary-200);
+  }
+  .color-primary-300 {
+    color: var(--rr-color-primary-300);
+  }
+  .color-primary-400 {
+    color: var(--rr-color-primary-400);
+  }
+  .color-primary-50 {
+    color: var(--rr-color-primary-50);
+  }
+  .color-primary-500 {
+    color: var(--rr-color-primary-500);
+  }
+  .color-primary-600 {
+    color: var(--rr-color-primary-600);
+  }
+  .color-primary-700 {
+    color: var(--rr-color-primary-700);
+  }
+  .color-primary-800 {
+    color: var(--rr-color-primary-800);
+  }
+  .color-primary-900 {
+    color: var(--rr-color-primary-900);
+  }
+  .color-primary-950 {
+    color: var(--rr-color-primary-950);
+  }
+  .color-primary-contrast {
+    color: var(--rr-color-primary-contrast);
+  }
+  .color-primary-contrastx {
+    color: var(--rr-color-primary-contrastx);
+  }
   .color-purple {
     color: var(--rr-color-purple);
   }
@@ -630,6 +813,39 @@ const styles = css`
   }
   .color-rose-contrastx {
     color: var(--rr-color-rose-contrastx);
+  }
+  .color-shade {
+    color: var(--rr-color-shade);
+  }
+  .color-shade-100 {
+    color: var(--rr-color-shade-100);
+  }
+  .color-shade-200 {
+    color: var(--rr-color-shade-200);
+  }
+  .color-shade-300 {
+    color: var(--rr-color-shade-300);
+  }
+  .color-shade-400 {
+    color: var(--rr-color-shade-400);
+  }
+  .color-shade-50 {
+    color: var(--rr-color-shade-50);
+  }
+  .color-shade-500 {
+    color: var(--rr-color-shade-500);
+  }
+  .color-shade-600 {
+    color: var(--rr-color-shade-600);
+  }
+  .color-shade-700 {
+    color: var(--rr-color-shade-700);
+  }
+  .color-shade-800 {
+    color: var(--rr-color-shade-800);
+  }
+  .color-shade-900 {
+    color: var(--rr-color-shade-900);
   }
   .color-sky {
     color: var(--rr-color-sky);
@@ -757,6 +973,57 @@ const styles = css`
   .color-stone-contrastx {
     color: var(--rr-color-stone-contrastx);
   }
+  .color-success {
+    color: var(--rr-color-success);
+  }
+  .color-success-100 {
+    color: var(--rr-color-success-100);
+  }
+  .color-success-200 {
+    color: var(--rr-color-success-200);
+  }
+  .color-success-300 {
+    color: var(--rr-color-success-300);
+  }
+  .color-success-400 {
+    color: var(--rr-color-success-400);
+  }
+  .color-success-50 {
+    color: var(--rr-color-success-50);
+  }
+  .color-success-500 {
+    color: var(--rr-color-success-500);
+  }
+  .color-success-600 {
+    color: var(--rr-color-success-600);
+  }
+  .color-success-700 {
+    color: var(--rr-color-success-700);
+  }
+  .color-success-800 {
+    color: var(--rr-color-success-800);
+  }
+  .color-success-900 {
+    color: var(--rr-color-success-900);
+  }
+  .color-success-950 {
+    color: var(--rr-color-success-950);
+  }
+  .color-success-contrast {
+    color: var(--rr-color-success-contrast);
+  }
+  .color-success-contrastx {
+    color: var(--rr-color-success-contrastx);
+  }
+  .color-surface-bg {
+    color: var(--rr-color-surface-bg);
+  }
+  .color-surface-secondary-text {
+    color: var(--rr-color-surface-secondary-text);
+  }
+  .color-surface-text {
+    color: var(--rr-color-surface-text);
+  }
   .color-teal {
     color: var(--rr-color-teal);
   }
@@ -799,6 +1066,42 @@ const styles = css`
   .color-teal-contrastx {
     color: var(--rr-color-teal-contrastx);
   }
+  .color-tint {
+    color: var(--rr-color-tint);
+  }
+  .color-tint-100 {
+    color: var(--rr-color-tint-100);
+  }
+  .color-tint-200 {
+    color: var(--rr-color-tint-200);
+  }
+  .color-tint-300 {
+    color: var(--rr-color-tint-300);
+  }
+  .color-tint-400 {
+    color: var(--rr-color-tint-400);
+  }
+  .color-tint-50 {
+    color: var(--rr-color-tint-50);
+  }
+  .color-tint-500 {
+    color: var(--rr-color-tint-500);
+  }
+  .color-tint-600 {
+    color: var(--rr-color-tint-600);
+  }
+  .color-tint-700 {
+    color: var(--rr-color-tint-700);
+  }
+  .color-tint-800 {
+    color: var(--rr-color-tint-800);
+  }
+  .color-tint-900 {
+    color: var(--rr-color-tint-900);
+  }
+  .color-transparent {
+    color: var(--rr-color-transparent);
+  }
   .color-violet {
     color: var(--rr-color-violet);
   }
@@ -840,6 +1143,51 @@ const styles = css`
   }
   .color-violet-contrastx {
     color: var(--rr-color-violet-contrastx);
+  }
+  .color-warning {
+    color: var(--rr-color-warning);
+  }
+  .color-warning-100 {
+    color: var(--rr-color-warning-100);
+  }
+  .color-warning-200 {
+    color: var(--rr-color-warning-200);
+  }
+  .color-warning-300 {
+    color: var(--rr-color-warning-300);
+  }
+  .color-warning-400 {
+    color: var(--rr-color-warning-400);
+  }
+  .color-warning-50 {
+    color: var(--rr-color-warning-50);
+  }
+  .color-warning-500 {
+    color: var(--rr-color-warning-500);
+  }
+  .color-warning-600 {
+    color: var(--rr-color-warning-600);
+  }
+  .color-warning-700 {
+    color: var(--rr-color-warning-700);
+  }
+  .color-warning-800 {
+    color: var(--rr-color-warning-800);
+  }
+  .color-warning-900 {
+    color: var(--rr-color-warning-900);
+  }
+  .color-warning-950 {
+    color: var(--rr-color-warning-950);
+  }
+  .color-warning-contrast {
+    color: var(--rr-color-warning-contrast);
+  }
+  .color-warning-contrastx {
+    color: var(--rr-color-warning-contrastx);
+  }
+  .color-white {
+    color: var(--rr-color-white);
   }
   .color-yellow {
     color: var(--rr-color-yellow);
