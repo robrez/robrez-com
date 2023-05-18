@@ -31,7 +31,6 @@ export class AppLayout extends LitElement {
       }
 
       [part='theme-toggle'] {
-        margin-left: 1rem;
         border: none;
         outline: none;
         background-color: transparent;
@@ -42,7 +41,10 @@ export class AppLayout extends LitElement {
         border-radius: 2px;
         opacity: 0.8;
         transition: 0.125s transform ease, 0.125s opacity;
-        position: relative;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        margin-top: 0.5rem;
       }
 
       [part='theme-toggle']:after {
