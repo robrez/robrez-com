@@ -1,4 +1,5 @@
 import { CSSResult, unsafeCSS } from 'lit';
+import { levels } from './src/meta/color.js';
 
 function rebrandProperty(colorName: string, colorKey: string): string {
   const colorKeyModifier = colorKey.toLowerCase() === 'default' ? '' : `-${colorKey}`;
@@ -7,22 +8,7 @@ function rebrandProperty(colorName: string, colorKey: string): string {
 }
 
 export function rebrand(colorName: string): CSSResult {
-  const keys = [
-    '50',
-    '100',
-    '200',
-    '300',
-    '400',
-    '500',
-    '600',
-    '700',
-    '800',
-    '900',
-    '950',
-    'DEFAULT',
-    'contrast',
-    'contrastx'
-  ];
+  const keys = [...levels];
 
   const css = String.raw;
   const properties = keys.map(key => rebrandProperty(colorName, key)).join('\n');

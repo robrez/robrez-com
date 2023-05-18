@@ -1,4 +1,6 @@
-import { html, render } from 'lit';
+import { html, render, TemplateResult } from 'lit';
+import { styleMap, StyleInfo } from 'lit/directives/style-map.js';
+import { levels, colorNames, emotiveNames } from '../meta/color.js';
 
 export function fontSize(renderRoot: HTMLElement): void {
   const classes: string[] = [
@@ -22,4 +24,54 @@ export function fontSize(renderRoot: HTMLElement): void {
     `;
   });
   render(html`${items}`, renderRoot);
+}
+
+function renderColor(name: string): TemplateResult {
+  const omit = ['DEFAULT', 'contrast', 'contrastx'];
+  const panes = levels
+    .filter(level => omit.indexOf(level) < 0)
+    .map(level => {
+      const cls = `color-${name}-${level}`;
+      return html`<div class="${cls} p-xs">${level}</div>`;
+    });
+  const containerStyle: StyleInfo = {
+    display: 'flex',
+    'align-items': 'center'
+  };
+  return html`<div>
+    <h3>${name}</h3>
+    <div class="bg-tint-800" style=${styleMap(containerStyle)}>${panes}</div>
+    <div class="bg-shade-800" style=${styleMap(containerStyle)}>${panes}</div>
+  </div>`;
+}
+
+export function color(renderRoot: HTMLElement): void {
+  const colors = colorNames.map(colorName => renderColor(colorName));
+  const demo = html`${colors}`;
+  render(demo, renderRoot);
+}
+
+function renderBgColor(name: string): TemplateResult {
+  const omit = ['DEFAULT', 'contrast', 'contrastx'];
+  const cleanLevels = levels.filter(level => omit.indexOf(level) < 0);
+  const midIndex = Math.floor(cleanLevels.length / 2);
+  const panes = cleanLevels.map((level, index) => {
+    const cls = `bg-${name}-${level}`;
+    const fgCls = index >= midIndex ? `color-${name}-contrast` : `color-${name}-contrastx`;
+    return html`<div class="${cls} ${fgCls} p-xs">${level}</div>`;
+  });
+  const containerStyle: StyleInfo = {
+    display: 'flex',
+    'align-items': 'center'
+  };
+  return html`<div>
+    <h3>${name}</h3>
+    <div style=${styleMap(containerStyle)}>${panes}</div>
+  </div>`;
+}
+
+export function bgColor(renderRoot: HTMLElement): void {
+  const colors = colorNames.map(colorName => renderBgColor(colorName));
+  const demo = html`${colors}`;
+  render(demo, renderRoot);
 }
