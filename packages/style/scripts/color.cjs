@@ -8,9 +8,19 @@ function computeContrast(colorStr, white = colors.white, black = colors.black) {
   return color.isDark() ? white : black;
 }
 
-function computeInvertedContrast(colorStr, white = colors.white, black = colors.black) {
-  const color = new Color(colorStr);
-  return color.isLight() ? white : black;
+function computeNumericKeys(palette) {
+  const numericKeys = Object.keys(palette)
+    .filter(k => {
+      try {
+        const kInt = parseInt(k, 10);
+        return Number.isInteger(kInt);
+      } catch (e) {
+        return false;
+      }
+    })
+    .map(k => parseInt(k))
+    .sort((a, b) => a - b);
+  return numericKeys;
 }
 
 function extractColorVars(_colorObj, _colorGroup = '') {
@@ -51,37 +61,20 @@ function aliasPalette(alias, colorName, colors) {
 }
 
 function computePalette(palette, base = '500') {
+  const levelDefault = palette.DEFAULT ?? palette[base];
+  const level950 = palette['950'] ?? new Color(result['900']).darken(0.2).hex();
   let result = {
-    ...palette
+    ...palette,
+    DEFAULT: levelDefault,
+    contrast: computeContrast(levelDefault),
+    950: level950
   };
-  if (!result.DEFAULT) {
-    result.DEFAULT = palette[base];
-  }
-  result = {
-    ...result,
-    contrast: computeContrast(palette.DEFAULT),
-    contrastx: computeInvertedContrast(palette.DEFAULT)
-  };
-  if (!result['950']) {
-    const c = new Color(result['900']);
-    result['950'] = c.darken(0.2).hex();
-  }
   return result;
 }
 
 function computePaletteDark(_palette, base = '500') {
   const palette = computePalette(_palette, base);
-  const numericKeys = Object.keys(palette)
-    .filter(k => {
-      try {
-        const kInt = parseInt(k, 10);
-        return Number.isInteger(kInt);
-      } catch (e) {
-        return false;
-      }
-    })
-    .map(k => parseInt(k))
-    .sort((a, b) => a - b);
+  const numericKeys = computeNumericKeys(palette);
   let result = { ...palette };
   const reverseNumericKeys = [...numericKeys].reverse();
   numericKeys.forEach((key, index) => {

@@ -35,7 +35,6 @@ const styles = css`
     --rr-color-slate-950: #f8fafc;
     --rr-color-slate: #64748b;
     --rr-color-slate-contrast: #fff;
-    --rr-color-slate-contrastx: #000;
     --rr-color-gray-50: #030712;
     --rr-color-gray-100: #111827;
     --rr-color-gray-200: #1f2937;
@@ -49,7 +48,6 @@ const styles = css`
     --rr-color-gray-950: #f9fafb;
     --rr-color-gray: #6b7280;
     --rr-color-gray-contrast: #fff;
-    --rr-color-gray-contrastx: #000;
     --rr-color-zinc-50: #09090b;
     --rr-color-zinc-100: #18181b;
     --rr-color-zinc-200: #27272a;
@@ -63,7 +61,6 @@ const styles = css`
     --rr-color-zinc-950: #fafafa;
     --rr-color-zinc: #71717a;
     --rr-color-zinc-contrast: #fff;
-    --rr-color-zinc-contrastx: #000;
     --rr-color-neutral-50: #0a0a0a;
     --rr-color-neutral-100: #171717;
     --rr-color-neutral-200: #262626;
@@ -77,7 +74,6 @@ const styles = css`
     --rr-color-neutral-950: #fafafa;
     --rr-color-neutral: #737373;
     --rr-color-neutral-contrast: #fff;
-    --rr-color-neutral-contrastx: #000;
     --rr-color-stone-50: #0c0a09;
     --rr-color-stone-100: #1c1917;
     --rr-color-stone-200: #292524;
@@ -91,7 +87,6 @@ const styles = css`
     --rr-color-stone-950: #fafaf9;
     --rr-color-stone: #78716c;
     --rr-color-stone-contrast: #fff;
-    --rr-color-stone-contrastx: #000;
     --rr-color-red-50: #450a0a;
     --rr-color-red-100: #7f1d1d;
     --rr-color-red-200: #991b1b;
@@ -105,7 +100,6 @@ const styles = css`
     --rr-color-red-950: #fef2f2;
     --rr-color-red: #ef4444;
     --rr-color-red-contrast: #fff;
-    --rr-color-red-contrastx: #000;
     --rr-color-orange-50: #431407;
     --rr-color-orange-100: #7c2d12;
     --rr-color-orange-200: #9a3412;
@@ -119,7 +113,6 @@ const styles = css`
     --rr-color-orange-950: #fff7ed;
     --rr-color-orange: #f97316;
     --rr-color-orange-contrast: #000;
-    --rr-color-orange-contrastx: #fff;
     --rr-color-amber-50: #451a03;
     --rr-color-amber-100: #78350f;
     --rr-color-amber-200: #92400e;
@@ -133,7 +126,6 @@ const styles = css`
     --rr-color-amber-950: #fffbeb;
     --rr-color-amber: #f59e0b;
     --rr-color-amber-contrast: #000;
-    --rr-color-amber-contrastx: #fff;
     --rr-color-yellow-50: #422006;
     --rr-color-yellow-100: #713f12;
     --rr-color-yellow-200: #854d0e;
@@ -147,7 +139,6 @@ const styles = css`
     --rr-color-yellow-950: #fefce8;
     --rr-color-yellow: #eab308;
     --rr-color-yellow-contrast: #000;
-    --rr-color-yellow-contrastx: #fff;
     --rr-color-lime-50: #1a2e05;
     --rr-color-lime-100: #365314;
     --rr-color-lime-200: #3f6212;
@@ -161,7 +152,6 @@ const styles = css`
     --rr-color-lime-950: #f7fee7;
     --rr-color-lime: #84cc16;
     --rr-color-lime-contrast: #000;
-    --rr-color-lime-contrastx: #fff;
     --rr-color-green-50: #052e16;
     --rr-color-green-100: #14532d;
     --rr-color-green-200: #166534;
@@ -175,7 +165,6 @@ const styles = css`
     --rr-color-green-950: #f0fdf4;
     --rr-color-green: #22c55e;
     --rr-color-green-contrast: #000;
-    --rr-color-green-contrastx: #fff;
     --rr-color-emerald-50: #022c22;
     --rr-color-emerald-100: #064e3b;
     --rr-color-emerald-200: #065f46;
@@ -189,7 +178,6 @@ const styles = css`
     --rr-color-emerald-950: #ecfdf5;
     --rr-color-emerald: #10b981;
     --rr-color-emerald-contrast: #000;
-    --rr-color-emerald-contrastx: #fff;
     --rr-color-teal-50: #042f2e;
     --rr-color-teal-100: #134e4a;
     --rr-color-teal-200: #115e59;
@@ -203,7 +191,6 @@ const styles = css`
     --rr-color-teal-950: #f0fdfa;
     --rr-color-teal: #14b8a6;
     --rr-color-teal-contrast: #000;
-    --rr-color-teal-contrastx: #fff;
     --rr-color-cyan-50: #083344;
     --rr-color-cyan-100: #164e63;
     --rr-color-cyan-200: #155e75;
@@ -217,7 +204,6 @@ const styles = css`
     --rr-color-cyan-950: #ecfeff;
     --rr-color-cyan: #06b6d4;
     --rr-color-cyan-contrast: #000;
-    --rr-color-cyan-contrastx: #fff;
     --rr-color-sky-50: #082f49;
     --rr-color-sky-100: #0c4a6e;
     --rr-color-sky-200: #075985;
@@ -231,7 +217,6 @@ const styles = css`
     --rr-color-sky-950: #f0f9ff;
     --rr-color-sky: #0ea5e9;
     --rr-color-sky-contrast: #000;
-    --rr-color-sky-contrastx: #fff;
     --rr-color-blue-50: #172554;
     --rr-color-blue-100: #1e3a8a;
     --rr-color-blue-200: #1e40af;
@@ -245,7 +230,6 @@ const styles = css`
     --rr-color-blue-950: #eff6ff;
     --rr-color-blue: #3b82f6;
     --rr-color-blue-contrast: #fff;
-    --rr-color-blue-contrastx: #000;
     --rr-color-indigo-50: #1e1b4b;
     --rr-color-indigo-100: #312e81;
     --rr-color-indigo-200: #3730a3;
@@ -259,7 +243,6 @@ const styles = css`
     --rr-color-indigo-950: #eef2ff;
     --rr-color-indigo: #6366f1;
     --rr-color-indigo-contrast: #fff;
-    --rr-color-indigo-contrastx: #000;
     --rr-color-violet-50: #2e1065;
     --rr-color-violet-100: #4c1d95;
     --rr-color-violet-200: #5b21b6;
@@ -273,7 +256,6 @@ const styles = css`
     --rr-color-violet-950: #f5f3ff;
     --rr-color-violet: #8b5cf6;
     --rr-color-violet-contrast: #fff;
-    --rr-color-violet-contrastx: #000;
     --rr-color-purple-50: #3b0764;
     --rr-color-purple-100: #581c87;
     --rr-color-purple-200: #6b21a8;
@@ -287,7 +269,6 @@ const styles = css`
     --rr-color-purple-950: #faf5ff;
     --rr-color-purple: #a855f7;
     --rr-color-purple-contrast: #fff;
-    --rr-color-purple-contrastx: #000;
     --rr-color-fuscia-50: #4a044e;
     --rr-color-fuscia-100: #701a75;
     --rr-color-fuscia-200: #86198f;
@@ -301,7 +282,6 @@ const styles = css`
     --rr-color-fuscia-950: #fdf4ff;
     --rr-color-fuscia: #d946ef;
     --rr-color-fuscia-contrast: #fff;
-    --rr-color-fuscia-contrastx: #000;
     --rr-color-pink-50: #500724;
     --rr-color-pink-100: #831843;
     --rr-color-pink-200: #9d174d;
@@ -315,7 +295,6 @@ const styles = css`
     --rr-color-pink-950: #fdf2f8;
     --rr-color-pink: #ec4899;
     --rr-color-pink-contrast: #fff;
-    --rr-color-pink-contrastx: #000;
     --rr-color-rose-50: #4c0519;
     --rr-color-rose-100: #881337;
     --rr-color-rose-200: #9f1239;
@@ -329,7 +308,6 @@ const styles = css`
     --rr-color-rose-950: #fff1f2;
     --rr-color-rose: #f43f5e;
     --rr-color-rose-contrast: #fff;
-    --rr-color-rose-contrastx: #000;
     --rr-color-primary-50: var(--rr-color-blue-50);
     --rr-color-primary-100: var(--rr-color-blue-100);
     --rr-color-primary-200: var(--rr-color-blue-200);
@@ -343,7 +321,6 @@ const styles = css`
     --rr-color-primary-950: var(--rr-color-blue-950);
     --rr-color-primary: var(--rr-color-blue);
     --rr-color-primary-contrast: var(--rr-color-blue-contrast);
-    --rr-color-primary-contrastx: var(--rr-color-blue-contrastx);
     --rr-color-success-50: var(--rr-color-green-50);
     --rr-color-success-100: var(--rr-color-green-100);
     --rr-color-success-200: var(--rr-color-green-200);
@@ -357,7 +334,6 @@ const styles = css`
     --rr-color-success-950: var(--rr-color-green-950);
     --rr-color-success: var(--rr-color-green);
     --rr-color-success-contrast: var(--rr-color-green-contrast);
-    --rr-color-success-contrastx: var(--rr-color-green-contrastx);
     --rr-color-danger-50: var(--rr-color-red-50);
     --rr-color-danger-100: var(--rr-color-red-100);
     --rr-color-danger-200: var(--rr-color-red-200);
@@ -371,7 +347,6 @@ const styles = css`
     --rr-color-danger-950: var(--rr-color-red-950);
     --rr-color-danger: var(--rr-color-red);
     --rr-color-danger-contrast: var(--rr-color-red-contrast);
-    --rr-color-danger-contrastx: var(--rr-color-red-contrastx);
     --rr-color-warning-50: var(--rr-color-yellow-50);
     --rr-color-warning-100: var(--rr-color-yellow-100);
     --rr-color-warning-200: var(--rr-color-yellow-200);
@@ -385,7 +360,6 @@ const styles = css`
     --rr-color-warning-950: var(--rr-color-yellow-950);
     --rr-color-warning: var(--rr-color-yellow);
     --rr-color-warning-contrast: var(--rr-color-yellow-contrast);
-    --rr-color-warning-contrastx: var(--rr-color-yellow-contrastx);
     --rr-color-info-50: var(--rr-color-teal-50);
     --rr-color-info-100: var(--rr-color-teal-100);
     --rr-color-info-200: var(--rr-color-teal-200);
@@ -399,7 +373,6 @@ const styles = css`
     --rr-color-info-950: var(--rr-color-teal-950);
     --rr-color-info: var(--rr-color-teal);
     --rr-color-info-contrast: var(--rr-color-teal-contrast);
-    --rr-color-info-contrastx: var(--rr-color-teal-contrastx);
   }
 `;
 
