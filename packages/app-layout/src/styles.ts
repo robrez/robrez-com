@@ -38,7 +38,7 @@ const styles = css`
   }
 
   .card a {
-    color: var(--rr-color-primary-600);
+    color: var(--rr-color-primary-text);
     text-decoration: none;
   }
 

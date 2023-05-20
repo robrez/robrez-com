@@ -60,7 +60,7 @@ const renderExample = (data: RenderData): string => {
       ${head(data)}
 
       <body>
-        <rr-app-layout brandcolor="pink">
+        <rr-app-layout randomize-brand-color>
           ${header(data)}
 
           <!-- main slot -->

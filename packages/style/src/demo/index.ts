@@ -36,6 +36,7 @@ function renderColor(name: string): TemplateResult {
     });
   const containerStyle: StyleInfo = {
     display: 'flex',
+    'flex-wrap': 'wrap',
     'align-items': 'center'
   };
   return html`<div>
@@ -62,6 +63,7 @@ function renderBgColor(name: string): TemplateResult {
   });
   const containerStyle: StyleInfo = {
     display: 'flex',
+    'flex-wrap': 'wrap',
     'align-items': 'center'
   };
   return html`<div>
