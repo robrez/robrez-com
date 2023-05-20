@@ -40,6 +40,9 @@ const styles = css`
   .bg-amber-contrast {
     background-color: var(--rr-color-amber-contrast);
   }
+  .bg-amber-text {
+    background-color: var(--rr-color-amber-text);
+  }
   .bg-base-bg {
     background-color: var(--rr-color-base-bg);
   }
@@ -90,6 +93,9 @@ const styles = css`
   }
   .bg-blue-contrast {
     background-color: var(--rr-color-blue-contrast);
+  }
+  .bg-blue-text {
+    background-color: var(--rr-color-blue-text);
   }
   .bg-contrast {
     background-color: var(--rr-color-contrast);
@@ -166,6 +172,9 @@ const styles = css`
   .bg-cyan-contrast {
     background-color: var(--rr-color-cyan-contrast);
   }
+  .bg-cyan-text {
+    background-color: var(--rr-color-cyan-text);
+  }
   .bg-danger {
     background-color: var(--rr-color-danger);
   }
@@ -204,6 +213,9 @@ const styles = css`
   }
   .bg-danger-contrast {
     background-color: var(--rr-color-danger-contrast);
+  }
+  .bg-danger-text {
+    background-color: var(--rr-color-danger-text);
   }
   .bg-divider {
     background-color: var(--rr-color-divider);
@@ -250,6 +262,9 @@ const styles = css`
   .bg-emerald-contrast {
     background-color: var(--rr-color-emerald-contrast);
   }
+  .bg-emerald-text {
+    background-color: var(--rr-color-emerald-text);
+  }
   .bg-fuscia {
     background-color: var(--rr-color-fuscia);
   }
@@ -288,6 +303,9 @@ const styles = css`
   }
   .bg-fuscia-contrast {
     background-color: var(--rr-color-fuscia-contrast);
+  }
+  .bg-fuscia-text {
+    background-color: var(--rr-color-fuscia-text);
   }
   .bg-gray {
     background-color: var(--rr-color-gray);
@@ -328,6 +346,9 @@ const styles = css`
   .bg-gray-contrast {
     background-color: var(--rr-color-gray-contrast);
   }
+  .bg-gray-text {
+    background-color: var(--rr-color-gray-text);
+  }
   .bg-green {
     background-color: var(--rr-color-green);
   }
@@ -366,6 +387,9 @@ const styles = css`
   }
   .bg-green-contrast {
     background-color: var(--rr-color-green-contrast);
+  }
+  .bg-green-text {
+    background-color: var(--rr-color-green-text);
   }
   .bg-indigo {
     background-color: var(--rr-color-indigo);
@@ -406,6 +430,9 @@ const styles = css`
   .bg-indigo-contrast {
     background-color: var(--rr-color-indigo-contrast);
   }
+  .bg-indigo-text {
+    background-color: var(--rr-color-indigo-text);
+  }
   .bg-info {
     background-color: var(--rr-color-info);
   }
@@ -444,6 +471,9 @@ const styles = css`
   }
   .bg-info-contrast {
     background-color: var(--rr-color-info-contrast);
+  }
+  .bg-info-text {
+    background-color: var(--rr-color-info-text);
   }
   .bg-inherit {
     background-color: var(--rr-color-inherit);
@@ -487,6 +517,9 @@ const styles = css`
   .bg-lime-contrast {
     background-color: var(--rr-color-lime-contrast);
   }
+  .bg-lime-text {
+    background-color: var(--rr-color-lime-text);
+  }
   .bg-neutral {
     background-color: var(--rr-color-neutral);
   }
@@ -525,6 +558,9 @@ const styles = css`
   }
   .bg-neutral-contrast {
     background-color: var(--rr-color-neutral-contrast);
+  }
+  .bg-neutral-text {
+    background-color: var(--rr-color-neutral-text);
   }
   .bg-orange {
     background-color: var(--rr-color-orange);
@@ -565,6 +601,9 @@ const styles = css`
   .bg-orange-contrast {
     background-color: var(--rr-color-orange-contrast);
   }
+  .bg-orange-text {
+    background-color: var(--rr-color-orange-text);
+  }
   .bg-pink {
     background-color: var(--rr-color-pink);
   }
@@ -603,6 +642,9 @@ const styles = css`
   }
   .bg-pink-contrast {
     background-color: var(--rr-color-pink-contrast);
+  }
+  .bg-pink-text {
+    background-color: var(--rr-color-pink-text);
   }
   .bg-primary {
     background-color: var(--rr-color-primary);
@@ -643,6 +685,9 @@ const styles = css`
   .bg-primary-contrast {
     background-color: var(--rr-color-primary-contrast);
   }
+  .bg-primary-text {
+    background-color: var(--rr-color-primary-text);
+  }
   .bg-purple {
     background-color: var(--rr-color-purple);
   }
@@ -681,6 +726,9 @@ const styles = css`
   }
   .bg-purple-contrast {
     background-color: var(--rr-color-purple-contrast);
+  }
+  .bg-purple-text {
+    background-color: var(--rr-color-purple-text);
   }
   .bg-red {
     background-color: var(--rr-color-red);
@@ -721,6 +769,9 @@ const styles = css`
   .bg-red-contrast {
     background-color: var(--rr-color-red-contrast);
   }
+  .bg-red-text {
+    background-color: var(--rr-color-red-text);
+  }
   .bg-rose {
     background-color: var(--rr-color-rose);
   }
@@ -759,6 +810,9 @@ const styles = css`
   }
   .bg-rose-contrast {
     background-color: var(--rr-color-rose-contrast);
+  }
+  .bg-rose-text {
+    background-color: var(--rr-color-rose-text);
   }
   .bg-shade {
     background-color: var(--rr-color-shade);
@@ -832,6 +886,9 @@ const styles = css`
   .bg-sky-contrast {
     background-color: var(--rr-color-sky-contrast);
   }
+  .bg-sky-text {
+    background-color: var(--rr-color-sky-text);
+  }
   .bg-slate {
     background-color: var(--rr-color-slate);
   }
@@ -870,6 +927,9 @@ const styles = css`
   }
   .bg-slate-contrast {
     background-color: var(--rr-color-slate-contrast);
+  }
+  .bg-slate-text {
+    background-color: var(--rr-color-slate-text);
   }
   .bg-stone {
     background-color: var(--rr-color-stone);
@@ -910,6 +970,9 @@ const styles = css`
   .bg-stone-contrast {
     background-color: var(--rr-color-stone-contrast);
   }
+  .bg-stone-text {
+    background-color: var(--rr-color-stone-text);
+  }
   .bg-success {
     background-color: var(--rr-color-success);
   }
@@ -948,6 +1011,9 @@ const styles = css`
   }
   .bg-success-contrast {
     background-color: var(--rr-color-success-contrast);
+  }
+  .bg-success-text {
+    background-color: var(--rr-color-success-text);
   }
   .bg-surface-bg {
     background-color: var(--rr-color-surface-bg);
@@ -996,6 +1062,9 @@ const styles = css`
   }
   .bg-teal-contrast {
     background-color: var(--rr-color-teal-contrast);
+  }
+  .bg-teal-text {
+    background-color: var(--rr-color-teal-text);
   }
   .bg-tint {
     background-color: var(--rr-color-tint);
@@ -1072,6 +1141,9 @@ const styles = css`
   .bg-violet-contrast {
     background-color: var(--rr-color-violet-contrast);
   }
+  .bg-violet-text {
+    background-color: var(--rr-color-violet-text);
+  }
   .bg-warning {
     background-color: var(--rr-color-warning);
   }
@@ -1110,6 +1182,9 @@ const styles = css`
   }
   .bg-warning-contrast {
     background-color: var(--rr-color-warning-contrast);
+  }
+  .bg-warning-text {
+    background-color: var(--rr-color-warning-text);
   }
   .bg-white {
     background-color: var(--rr-color-white);
@@ -1153,6 +1228,9 @@ const styles = css`
   .bg-yellow-contrast {
     background-color: var(--rr-color-yellow-contrast);
   }
+  .bg-yellow-text {
+    background-color: var(--rr-color-yellow-text);
+  }
   .bg-zinc {
     background-color: var(--rr-color-zinc);
   }
@@ -1191,6 +1269,9 @@ const styles = css`
   }
   .bg-zinc-contrast {
     background-color: var(--rr-color-zinc-contrast);
+  }
+  .bg-zinc-text {
+    background-color: var(--rr-color-zinc-text);
   }
 `;
 

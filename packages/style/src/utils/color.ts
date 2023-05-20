@@ -40,6 +40,9 @@ const styles = css`
   .color-amber-contrast {
     color: var(--rr-color-amber-contrast);
   }
+  .color-amber-text {
+    color: var(--rr-color-amber-text);
+  }
   .color-base-bg {
     color: var(--rr-color-base-bg);
   }
@@ -90,6 +93,9 @@ const styles = css`
   }
   .color-blue-contrast {
     color: var(--rr-color-blue-contrast);
+  }
+  .color-blue-text {
+    color: var(--rr-color-blue-text);
   }
   .color-contrast {
     color: var(--rr-color-contrast);
@@ -166,6 +172,9 @@ const styles = css`
   .color-cyan-contrast {
     color: var(--rr-color-cyan-contrast);
   }
+  .color-cyan-text {
+    color: var(--rr-color-cyan-text);
+  }
   .color-danger {
     color: var(--rr-color-danger);
   }
@@ -204,6 +213,9 @@ const styles = css`
   }
   .color-danger-contrast {
     color: var(--rr-color-danger-contrast);
+  }
+  .color-danger-text {
+    color: var(--rr-color-danger-text);
   }
   .color-divider {
     color: var(--rr-color-divider);
@@ -250,6 +262,9 @@ const styles = css`
   .color-emerald-contrast {
     color: var(--rr-color-emerald-contrast);
   }
+  .color-emerald-text {
+    color: var(--rr-color-emerald-text);
+  }
   .color-fuscia {
     color: var(--rr-color-fuscia);
   }
@@ -288,6 +303,9 @@ const styles = css`
   }
   .color-fuscia-contrast {
     color: var(--rr-color-fuscia-contrast);
+  }
+  .color-fuscia-text {
+    color: var(--rr-color-fuscia-text);
   }
   .color-gray {
     color: var(--rr-color-gray);
@@ -328,6 +346,9 @@ const styles = css`
   .color-gray-contrast {
     color: var(--rr-color-gray-contrast);
   }
+  .color-gray-text {
+    color: var(--rr-color-gray-text);
+  }
   .color-green {
     color: var(--rr-color-green);
   }
@@ -366,6 +387,9 @@ const styles = css`
   }
   .color-green-contrast {
     color: var(--rr-color-green-contrast);
+  }
+  .color-green-text {
+    color: var(--rr-color-green-text);
   }
   .color-indigo {
     color: var(--rr-color-indigo);
@@ -406,6 +430,9 @@ const styles = css`
   .color-indigo-contrast {
     color: var(--rr-color-indigo-contrast);
   }
+  .color-indigo-text {
+    color: var(--rr-color-indigo-text);
+  }
   .color-info {
     color: var(--rr-color-info);
   }
@@ -444,6 +471,9 @@ const styles = css`
   }
   .color-info-contrast {
     color: var(--rr-color-info-contrast);
+  }
+  .color-info-text {
+    color: var(--rr-color-info-text);
   }
   .color-inherit {
     color: var(--rr-color-inherit);
@@ -487,6 +517,9 @@ const styles = css`
   .color-lime-contrast {
     color: var(--rr-color-lime-contrast);
   }
+  .color-lime-text {
+    color: var(--rr-color-lime-text);
+  }
   .color-neutral {
     color: var(--rr-color-neutral);
   }
@@ -525,6 +558,9 @@ const styles = css`
   }
   .color-neutral-contrast {
     color: var(--rr-color-neutral-contrast);
+  }
+  .color-neutral-text {
+    color: var(--rr-color-neutral-text);
   }
   .color-orange {
     color: var(--rr-color-orange);
@@ -565,6 +601,9 @@ const styles = css`
   .color-orange-contrast {
     color: var(--rr-color-orange-contrast);
   }
+  .color-orange-text {
+    color: var(--rr-color-orange-text);
+  }
   .color-pink {
     color: var(--rr-color-pink);
   }
@@ -603,6 +642,9 @@ const styles = css`
   }
   .color-pink-contrast {
     color: var(--rr-color-pink-contrast);
+  }
+  .color-pink-text {
+    color: var(--rr-color-pink-text);
   }
   .color-primary {
     color: var(--rr-color-primary);
@@ -643,6 +685,9 @@ const styles = css`
   .color-primary-contrast {
     color: var(--rr-color-primary-contrast);
   }
+  .color-primary-text {
+    color: var(--rr-color-primary-text);
+  }
   .color-purple {
     color: var(--rr-color-purple);
   }
@@ -681,6 +726,9 @@ const styles = css`
   }
   .color-purple-contrast {
     color: var(--rr-color-purple-contrast);
+  }
+  .color-purple-text {
+    color: var(--rr-color-purple-text);
   }
   .color-red {
     color: var(--rr-color-red);
@@ -721,6 +769,9 @@ const styles = css`
   .color-red-contrast {
     color: var(--rr-color-red-contrast);
   }
+  .color-red-text {
+    color: var(--rr-color-red-text);
+  }
   .color-rose {
     color: var(--rr-color-rose);
   }
@@ -759,6 +810,9 @@ const styles = css`
   }
   .color-rose-contrast {
     color: var(--rr-color-rose-contrast);
+  }
+  .color-rose-text {
+    color: var(--rr-color-rose-text);
   }
   .color-shade {
     color: var(--rr-color-shade);
@@ -832,6 +886,9 @@ const styles = css`
   .color-sky-contrast {
     color: var(--rr-color-sky-contrast);
   }
+  .color-sky-text {
+    color: var(--rr-color-sky-text);
+  }
   .color-slate {
     color: var(--rr-color-slate);
   }
@@ -870,6 +927,9 @@ const styles = css`
   }
   .color-slate-contrast {
     color: var(--rr-color-slate-contrast);
+  }
+  .color-slate-text {
+    color: var(--rr-color-slate-text);
   }
   .color-stone {
     color: var(--rr-color-stone);
@@ -910,6 +970,9 @@ const styles = css`
   .color-stone-contrast {
     color: var(--rr-color-stone-contrast);
   }
+  .color-stone-text {
+    color: var(--rr-color-stone-text);
+  }
   .color-success {
     color: var(--rr-color-success);
   }
@@ -948,6 +1011,9 @@ const styles = css`
   }
   .color-success-contrast {
     color: var(--rr-color-success-contrast);
+  }
+  .color-success-text {
+    color: var(--rr-color-success-text);
   }
   .color-surface-bg {
     color: var(--rr-color-surface-bg);
@@ -996,6 +1062,9 @@ const styles = css`
   }
   .color-teal-contrast {
     color: var(--rr-color-teal-contrast);
+  }
+  .color-teal-text {
+    color: var(--rr-color-teal-text);
   }
   .color-tint {
     color: var(--rr-color-tint);
@@ -1072,6 +1141,9 @@ const styles = css`
   .color-violet-contrast {
     color: var(--rr-color-violet-contrast);
   }
+  .color-violet-text {
+    color: var(--rr-color-violet-text);
+  }
   .color-warning {
     color: var(--rr-color-warning);
   }
@@ -1110,6 +1182,9 @@ const styles = css`
   }
   .color-warning-contrast {
     color: var(--rr-color-warning-contrast);
+  }
+  .color-warning-text {
+    color: var(--rr-color-warning-text);
   }
   .color-white {
     color: var(--rr-color-white);
@@ -1153,6 +1228,9 @@ const styles = css`
   .color-yellow-contrast {
     color: var(--rr-color-yellow-contrast);
   }
+  .color-yellow-text {
+    color: var(--rr-color-yellow-text);
+  }
   .color-zinc {
     color: var(--rr-color-zinc);
   }
@@ -1191,6 +1269,9 @@ const styles = css`
   }
   .color-zinc-contrast {
     color: var(--rr-color-zinc-contrast);
+  }
+  .color-zinc-text {
+    color: var(--rr-color-zinc-text);
   }
 `;
 

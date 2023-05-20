@@ -27,7 +27,7 @@ export function fontSize(renderRoot: HTMLElement): void {
 }
 
 function renderColor(name: string): TemplateResult {
-  const omit = ['DEFAULT', 'contrast', 'contrastx'];
+  const omit = ['DEFAULT', 'contrast'];
   const panes = levels
     .filter(level => omit.indexOf(level) < 0)
     .map(level => {
@@ -41,7 +41,7 @@ function renderColor(name: string): TemplateResult {
   return html`<div>
     <h3>${name}</h3>
     <div class="bg-tint-800" style=${styleMap(containerStyle)}>${panes}</div>
-    <div class="bg-shade-800" style=${styleMap(containerStyle)}>${panes}</div>
+    <div class="bg-shade-800" theme="dark" style=${styleMap(containerStyle)}>${panes}</div>
   </div>`;
 }
 
@@ -52,12 +52,12 @@ export function color(renderRoot: HTMLElement): void {
 }
 
 function renderBgColor(name: string): TemplateResult {
-  const omit = ['DEFAULT', 'contrast', 'contrastx'];
+  const omit = ['DEFAULT', 'contrast', 'text'];
   const cleanLevels = levels.filter(level => omit.indexOf(level) < 0);
   const midIndex = Math.floor(cleanLevels.length / 2);
   const panes = cleanLevels.map((level, index) => {
     const cls = `bg-${name}-${level}`;
-    const fgCls = index >= midIndex ? `color-${name}-contrast` : `color-${name}-contrastx`;
+    const fgCls = index === midIndex ? `color-${name}-contrast` : index > midIndex ? `color-tint` : `color-shade`;
     return html`<div class="${cls} ${fgCls} p-xs">${level}</div>`;
   });
   const containerStyle: StyleInfo = {

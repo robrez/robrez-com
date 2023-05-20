@@ -12,7 +12,7 @@ export const levels = [
   '950',
   'DEFAULT',
   'contrast',
-  'contrastx'
+  'text'
 ];
 
 export const colorNames = [

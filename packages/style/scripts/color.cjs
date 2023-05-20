@@ -60,27 +60,53 @@ function aliasPalette(alias, colorName, colors) {
   return { [alias]: result };
 }
 
+function computeTextLevel(palette, dark = false) {
+  const numericKeys = computeNumericKeys(palette);
+  const white = new Color('#FFF');
+  const black = new Color('#000');
+  const textLevel = numericKeys.find(level => {
+    const color = new Color(palette[`${level}`]);
+    const wcagLight = white.level(color);
+    const wcagDark = black.level(color);
+    const wcagLevel = dark ? wcagDark : wcagLight;
+		// https://www.w3.org/TR/WCAG/#contrast-enhanced
+    return wcagLevel === 'AAA'; //wcag AAA
+  });
+  return textLevel;
+}
+
 function computePalette(palette, base = '500') {
   const levelDefault = palette.DEFAULT ?? palette[base];
   const level950 = palette['950'] ?? new Color(result['900']).darken(0.2).hex();
+  const text = computeTextLevel(palette);
   let result = {
     ...palette,
     DEFAULT: levelDefault,
     contrast: computeContrast(levelDefault),
-    950: level950
+    950: level950,
+    text: palette[`${text}`]
   };
+
   return result;
 }
 
 function computePaletteDark(_palette, base = '500') {
   const palette = computePalette(_palette, base);
   const numericKeys = computeNumericKeys(palette);
-  let result = { ...palette };
+  let result = {
+    ...palette
+  };
   const reverseNumericKeys = [...numericKeys].reverse();
   numericKeys.forEach((key, index) => {
     const reverseKey = reverseNumericKeys[index];
     result[`${key}`] = palette[`${reverseKey}`];
   });
+
+  const text = computeTextLevel(result, true);
+  result = {
+    ...result,
+    text: result[`${text}`]
+  };
 
   return result;
 }
