@@ -23,7 +23,8 @@ type ResumeItem = CollectionItem & {
 
 const formatter = new Intl.DateTimeFormat('en-US', {
   month: 'short',
-  year: 'numeric'
+  year: 'numeric',
+  timeZone: 'UTC'
 });
 
 function formatDate(date: Date | undefined, defaultValue = ''): string {
@@ -38,17 +39,29 @@ function formatDateRange(startDate: Date, endDate: Date | undefined): string | u
   return `${formatDate(startDate, '?')} - ${formatDate(endDate, 'Current')}`;
 }
 
-function renderResumeItem(item: CollectionItem): string {
+function renderPosition(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
-  return html` <div class="item">
-    <div class="card-heading divider">
-      <div class="horizontal center">
-        <h3>${data.title}</h3>
-        <small>${formatDateRange(data.startDate, data.endDate)}</small>
+  return html` <section>
+    <div class="card-heading">
+      <h3>${data.company}</h3>
+      <div class="flex items-center justify-between">
+        <h4>${data.title}</h4>
+        <small class="color-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
       </div>
     </div>
     <div class="card-body">${item.content}</div>
-  </div>`;
+  </section>`;
+}
+
+function renderProject(item: CollectionItem): string {
+  const data: ResumeItemData = item.data as ResumeItemData;
+  return html` <section>
+    <div class="flex items-center justify-between card-heading">
+      <h4>${data.title}</h4>
+      <small class="color-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
+    </div>
+    <div class="card-body">${item.content}</div>
+  </section>`;
 }
 
 function renderResumeItems(items: ResumeItem[]): string {
@@ -74,35 +87,16 @@ function renderResumeItems(items: ResumeItem[]): string {
     })
     .sort(dateRangeSort);
 
-  const positionsContent = positions.map(item => html`<li>${renderResumeItem(item)}</li>`).join('\n');
-  const projectsContent = projects.map(item => html`<li>${renderResumeItem(item)}</li>`).join('\n');
-  return html` <h2>Work Experience</h2>
+  const positionsContent = positions.map(item => html`${renderPosition(item)}`).join('\n');
+  const projectsContent = projects.map(item => html`${renderProject(item)}`).join('\n');
+  return html` <!-- -->
     <div class="card mt-xl">
-      <div class="card-heading divider">
-        <div class="horizontal center">
-          <h3>${positions[0].data.company}</h3>
-        </div>
-        <div class="card-heading divider">
-          <div class="horizontal center">
-            <h3>Positions</h3>
-          </div>
-        </div>
-        <div class="card-body">
-          <ul>
-            ${positionsContent}
-          </ul>
-        </div>
-        <div class="card-heading divider">
-          <div class="horizontal center">
-            <h3>Projects</h3>
-          </div>
-        </div>
-        <div class="card-body">
-          <ul>
-            ${projectsContent}
-          </ul>
-        </div>
+      <div>${positionsContent}</div>
+
+      <div class="card-heading">
+        <h4>Projects</h4>
       </div>
+      <div class="card-body">${projectsContent}</div>
     </div>`;
 }
 
@@ -122,7 +116,7 @@ function page(data: RenderData): string {
 
           <!-- main slot -->
           <div class="card">
-            <div class="card-heading divider"><h3>Resume</h3></div>
+            <div class="card-heading divider"><h2>Resume</h2></div>
           </div>
 
           <!-- resume -->

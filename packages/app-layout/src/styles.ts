@@ -68,6 +68,7 @@ const styles = css`
     color: var(--rr-color-tint-950);
   }
 
+  small,
   .caption {
     font-size: 13px;
     color: var(--rr-header-text-tertiary-color);

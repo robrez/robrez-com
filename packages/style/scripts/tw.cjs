@@ -198,9 +198,31 @@ const typographyUtilsConfig = {
 /** @type {import('tailwindcss').Config} */
 const flexUtilsConfig = {
   ...baseConfig,
+  corePlugins: {
+    ...baseConfig.corePlugins,
+    content: false
+  },
   safelist: [
     {
+      pattern: /^content-/
+    },
+    {
+      pattern: /^flex$/
+    },
+    {
+      pattern: /^inline-flex$/
+    },
+    {
+      pattern: /^flex-/
+    },
+    {
+      pattern: /^items-/
+    },
+    {
       pattern: /^justify-/
+    },
+    {
+      pattern: /^self-/
     }
   ]
 };
