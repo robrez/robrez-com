@@ -61,6 +61,7 @@ module.exports = {
   rules: {
     'no-extra-boolean-cast': 'off',
     'import/no-duplicates': 'warn',
-    'import/order': 'warn'
+    'import/order': 'warn',
+    'lit-a11y/anchor-is-valid': 'off'
   }
 };

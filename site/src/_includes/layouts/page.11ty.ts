@@ -18,7 +18,7 @@ function page(data: RenderData): string {
       ${head(data)}
 
       <body>
-        <rr-app-layout>
+        <rr-app-layout randomize-brand-color>
           ${header(data)}
 
           <!-- main slot -->

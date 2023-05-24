@@ -13,6 +13,10 @@ const copyTargets: Target[] = [
   {
     src: `../node_modules/lit/polyfill-support.js`,
     dest: `dist/modules/lit/`
+  },
+  {
+    src: `./src/images`,
+    dest: `dist/`
   }
 ];
 const copyPlugin: Plugin = copy({
