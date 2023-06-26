@@ -70,10 +70,10 @@ function renderResumeItems(items: ResumeItem[]): string {
   };
   const dateRangeSort = (a: ResumeItem, b: ResumeItem): number => {
     const now = new Date();
-    const endDiff = dateSort(a.data.endDate ?? now, b.data.endDate ?? now);
-    if (endDiff !== 0) {
-      return endDiff;
-    }
+    // const endDiff = dateSort(a.data.endDate ?? now, b.data.endDate ?? now);
+    // if (endDiff !== 0) {
+    // return endDiff;
+    // }
     return dateSort(a.data.startDate ?? now, b.data.startDate ?? now);
   };
   const positions = items

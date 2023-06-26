@@ -7,19 +7,11 @@ endDate:
 itemTags:
   - FHIR
   - SMART
-  - OAUTH
-  - OIDC
-  - Polymer
   - JAX-RS / Jersey
-  - SpringBoot
-  - GKE
-  - OpenTelemetry
-  - Prometheus
-  - HELM
 ---
 
-Created [FHIR](https://hl7.org/fhir/) API resource server and authorization infrastructure and ecosystem. Components of overall ecosystem include ingress, FHIR, OAuth, OpenID-Connect, [SMART](http://hl7.org/fhir/smart-app-launch/index.html) EHR, Standalone, Backend Services authorization flows
+Created [FHIR](https://hl7.org/fhir/) API resource server. Enhanced authorization infrastructure to support extended workflows specified by [SMART](http://hl7.org/fhir/smart-app-launch/index.html).
 
-This has become a mission-critical piece of much of our product catalog and is used ubiquitously for authentication, authorization, data access. This infrastructure was certified to meet or exceed requirements mandated during ONC's Health IT Certification Program. These mandates have the goal of promoting interoperability and giving patients control of and access to data. For example, [we](https://www.cpsi.com/resources/news/health-records-on-iphone-now-available-to-cpsi-clients-and-the-communities-they-serve/) are able to integrate with [Apple Healthkit](https://www.apple.com/healthcare/health-records/) using these standards-based protocols and services
+This product was certified to meet or exceed requirements of ONC's Health IT Certification Program. Most modern features in our ecosystem depend on this infrastructure. Additionally, third-party products such as [Apple Healthkit](https://www.apple.com/healthcare/health-records/) can be built on these standards-based protocols and services. ([Press release](https://www.cpsi.com/resources/news/health-records-on-iphone-now-available-to-cpsi-clients-and-the-communities-they-serve/))
 
-Have continued to serve in a _Principal Architect_ capacity and have actively enhanced various layers of this ecosystem as needed
+Created and deployed a documentation website, as required for listing on the Certified Health IT Products List ([CHPL](https://www.healthit.gov/topic/certified-health-it-products-list-chpl))
