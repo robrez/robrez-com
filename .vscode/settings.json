@@ -1,0 +1,12 @@
+{
+  "files.exclude": {
+    "**/*.css.ts": { "when": "$(basename)" },
+    "**/*.js.map": true,
+    "**/*.mjs": { "when": "$(basename).mts" },
+    "**/*.cjs": { "when": "$(basename).cts" },
+    "**/*.js": { "when": "$(basename).ts" },
+    "packages/**/*.d.ts": { "when": "$(basename).ts" },
+    "site/components/**/*.d.ts": { "when": "$(basename).ts" },
+    "site/src/**/*.d.ts": false
+  }
+}
