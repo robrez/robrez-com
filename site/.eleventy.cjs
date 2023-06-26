@@ -31,6 +31,10 @@ module.exports = function (eleventyConfig) {
     return collectionsApi.getFilteredByTags('_sitenav');
   });
 
+  eleventyConfig.addCollection('awesome', collectionsApi => {
+    return collectionsApi.getFilteredByTags('_awesome');
+  });
+
   eleventyConfig.addCollection('resume', collectionsApi => {
     return [...collectionsApi.getFilteredByGlob('./src/resume/**/*.md')];
   });

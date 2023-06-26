@@ -1,11 +1,15 @@
 ---
-layout: layouts/blog-list.11ty.js
+layout: layouts/awesome.11ty.js
 title: Awesome - Rob Resendez
 tags:
   - _sitenav
   - _awesome
 ---
 
-# Things I think are awesome
+# These are a few of my favorite things
 
-TODO
+## Web Development
+
+- [Modern Web](https://modern-web.dev/)
+- [Open WC](https://open-wc.org/)
+- [Lit](https://lit.dev/)
