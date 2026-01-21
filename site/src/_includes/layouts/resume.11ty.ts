@@ -5,7 +5,7 @@ import head from './head.js';
 
 const html = String.raw;
 
-type ResumeItemCategory = 'project' | 'position';
+type ResumeItemCategory = 'intro' | 'project' | 'position';
 
 // TODO make `CollectionItem` a templated type, `CollectionItem<T>`
 type ResumeItemData = {
@@ -14,6 +14,7 @@ type ResumeItemData = {
   company: string;
   startDate: Date;
   endDate?: Date;
+  rank?: number;
   itemTags: string[];
 } & CollectionItemData;
 
@@ -39,21 +40,17 @@ function formatDateRange(startDate: Date, endDate: Date | undefined): string | u
   return `${formatDate(startDate, '?')} - ${formatDate(endDate, 'Current')}`;
 }
 
-function renderPosition(item: CollectionItem): string {
+function renderIntro(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section>
     <div class="card-heading">
-      <h3>${data.company}</h3>
-      <div class="flex items-center justify-between">
-        <h4>${data.title}</h4>
-        <small class="color-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
-      </div>
+      <h3>About Me</h3>
     </div>
     <div class="card-body">${item.content}</div>
   </section>`;
 }
 
-function renderProject(item: CollectionItem): string {
+function renderPosition(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section>
     <div class="flex items-center justify-between card-heading">
@@ -64,18 +61,31 @@ function renderProject(item: CollectionItem): string {
   </section>`;
 }
 
+function renderProject(item: CollectionItem): string {
+  const data: ResumeItemData = item.data as ResumeItemData;
+  return html` <section>
+    <div class="flex items-center justify-between card-heading">
+      <h4>${data.title}</h4>
+    </div>
+    <div class="card-body">${item.content}</div>
+  </section>`;
+}
+
 function renderResumeItems(items: ResumeItem[]): string {
+  const rankSort = (a: ResumeItem, b: ResumeItem): number => {
+    const aRank = a?.data?.rank ?? 9999;
+    const bRank = b?.data?.rank ?? 9999;
+    return aRank - bRank;
+  };
   const dateSort = (a: Date, b: Date): number => {
     return b.getTime() - a.getTime();
   };
   const dateRangeSort = (a: ResumeItem, b: ResumeItem): number => {
     const now = new Date();
-    // const endDiff = dateSort(a.data.endDate ?? now, b.data.endDate ?? now);
-    // if (endDiff !== 0) {
-    // return endDiff;
-    // }
     return dateSort(a.data.startDate ?? now, b.data.startDate ?? now);
   };
+  const intro = items.filter(item => item.data.category === 'intro');
+
   const positions = items
     .filter(item => {
       return item.data.category === 'position';
@@ -85,18 +95,33 @@ function renderResumeItems(items: ResumeItem[]): string {
     .filter(item => {
       return item.data.category === 'project';
     })
-    .sort(dateRangeSort);
+    .sort(rankSort);
 
+  const introContent = intro.map(item => html`${renderIntro(item)}`).join('\n');
   const positionsContent = positions.map(item => html`${renderPosition(item)}`).join('\n');
   const projectsContent = projects.map(item => html`${renderProject(item)}`).join('\n');
   return html` <!-- -->
     <div class="card mt-xl">
-      <div>${positionsContent}</div>
+      ${introContent}
 
       <div class="card-heading">
-        <h4>Projects</h4>
+        <h3>Projects</h3>
       </div>
       <div class="card-body">${projectsContent}</div>
+
+      <div class="card-heading">
+        <h3>Professional Experience</h3>
+      </div>
+      <div class="card-body">
+        <div class="card-heading">
+          <h4>TruBridge</h4>
+          <div>
+            <small class="color-contrast-700 text-xs">${formatDateRange(new Date('2007-01-25'), undefined)}</small>
+          </div>
+          <div>Principal Engineer (various senior engineering roles)</div>
+        </div>
+        <div class="card-body">${positionsContent}</div>
+      </div>
     </div>`;
 }
 
