@@ -1,1 +1,1 @@
-export { XHello } from "./src/XHello.js";
+export { XHello } from './src/XHello.js';

@@ -1,1 +1,1 @@
-import "./x-hello.js";
+import './x-hello.js';

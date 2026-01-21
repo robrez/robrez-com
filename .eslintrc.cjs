@@ -62,6 +62,7 @@ module.exports = {
     'no-extra-boolean-cast': 'off',
     'import/no-duplicates': 'warn',
     'import/order': 'warn',
-    'lit-a11y/anchor-is-valid': 'off'
+    'lit-a11y/anchor-is-valid': 'off',
+    'wc/no-invalid-element-name': 'warn'
   }
 };

@@ -1,3 +1,3 @@
-import { XHello } from "./index.js";
+import { XHello } from './index.js';
 
-customElements.define("x-hello", XHello);
+customElements.define('x-hello', XHello);
