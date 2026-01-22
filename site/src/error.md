@@ -1,8 +1,6 @@
 ---
-layout: layouts/blog-list.11ty.js
-title: Error - Rob Resendez
+layout: layouts/error.11ty.js
+title: Error
 ---
 
-# ERROR
-
-OOPS
+OOPS... something went wrong

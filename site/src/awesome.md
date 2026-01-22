@@ -1,6 +1,7 @@
 ---
 layout: layouts/awesome.11ty.js
 title: Awesome - Rob Resendez
+ignore: true
 tags:
   - _sitenav
   - _awesome

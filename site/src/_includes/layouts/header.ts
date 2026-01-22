@@ -32,8 +32,8 @@ function computeUrl(data: RenderData, tag: string): NavMeta {
 
 const renderNav = (data: RenderData): string => {
   const home = computeUrl(data, '_home');
-  const posts = computeUrl(data, '_posts');
-  const awesome = computeUrl(data, '_awesome');
+  // const posts = computeUrl(data, '_posts');
+  // const awesome = computeUrl(data, '_awesome');
   const resume = computeUrl(data, '_resume');
   /*
    * note on `data-selected=`, REALLY missing lit-style bindings w/ this pure string
@@ -48,8 +48,6 @@ const renderNav = (data: RenderData): string => {
   return html` <nav horizontal>
     <ul>
       <li><a href="${home.href}" data-selected="${home.selected}">Home</a></li>
-      <li><a href="${posts.href}" data-selected="${posts.selected}">Posts</a></li>
-      <li><a href="${awesome.href}" data-selected="${awesome.selected}">Awesome</a></li>
       <li><a href="${resume.href}" data-selected="${resume.selected}">Resume</a></li>
     </ul>
   </nav>`;
