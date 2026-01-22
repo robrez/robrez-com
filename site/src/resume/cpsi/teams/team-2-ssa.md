@@ -1,9 +1,9 @@
 ---
 title: Platform & Ecosystem Unification
-company: CPSI
+company: TruBridge
 category: position
-startDate: 2020-01-01
-endDate: 2024-12-31
+startDate: 2019-12-01
+endDate: 2024-01-31
 ---
 
 - Helped drive architectural shift toward product-line slices with dedicated backend-for-frontend services

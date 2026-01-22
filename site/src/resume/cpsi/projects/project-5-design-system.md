@@ -1,6 +1,6 @@
 ---
 title: Design System & Standards-Based UI Component Platform
-company: CPSI
+company: TruBridge
 category: project
 startDate: 2020-01-01
 endDate:

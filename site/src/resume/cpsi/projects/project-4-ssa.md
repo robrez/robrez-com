@@ -1,10 +1,10 @@
 ---
 title: Product-Line Platform & Shared Solutions Stack
-company: CPSI
+company: TruBridge
 category: project
 startDate: 2020-01-01
 endDate:
-rank: 600
+rank: 400
 itemTags:
   - Lit
   - TypeScript

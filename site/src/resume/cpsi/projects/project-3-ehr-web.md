@@ -1,10 +1,10 @@
 ---
-title: Modern web client replacing proprietary thin-client
-company: CPSI
+title: Modern Web Client Replacing Proprietary Thin-Client
+company: TruBridge
 category: project
 startDate: 2018-01-01
 endDate: 2019-12-31
-rank: 700
+rank: 300
 itemTags:
   - lit-html
   - LitElement

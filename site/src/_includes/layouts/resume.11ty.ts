@@ -105,7 +105,7 @@ function renderResumeItems(items: ResumeItem[]): string {
       ${introContent}
 
       <div class="card-heading">
-        <h3>Projects</h3>
+        <h3>Key Platforms & Architectures</h3>
       </div>
       <div class="card-body">${projectsContent}</div>
 

@@ -103,7 +103,7 @@ const styles = css`
 
   .card-heading,
   .card-body {
-    padding: 1rem;
+    padding: var(--rr-space-md);
   }
 
   .card-heading.divider {

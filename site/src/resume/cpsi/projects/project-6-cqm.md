@@ -1,10 +1,10 @@
 ---
-title: Real-time CQM & decision-support platform
-company: CPSI
+title: Real-Time CQM & Decision-Support Platform
+company: TruBridge
 category: project
 startDate: 2022-11-01
 endDate:
-rank: 300
+rank: 600
 itemTags:
   - Lit
   - .NET Core

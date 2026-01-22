@@ -19,9 +19,13 @@ module.exports = function (eleventyConfig) {
     '../node_modules/@robrez-com/style/utils-all.css': 'style/utils-all.css'
   });
 
-  eleventyConfig.addCollection('blog', collectionsApi => {
-    return [...collectionsApi.getFilteredByGlob('./src/blog/*.md')];
-  });
+  eleventyConfig.ignores.add('./src/awesome.md');
+  eleventyConfig.ignores.add('./src/blog.md');
+  eleventyConfig.ignores.add('./src/blog/**');
+
+  // eleventyConfig.addCollection('blog', collectionsApi => {
+  // return [...collectionsApi.getFilteredByGlob('./src/blog/*.md')];
+  // });
 
   eleventyConfig.addCollection('home', collectionsApi => {
     return [...collectionsApi.getFilteredByGlob('./src/home/*.md')];
@@ -31,9 +35,9 @@ module.exports = function (eleventyConfig) {
     return collectionsApi.getFilteredByTags('_sitenav');
   });
 
-  eleventyConfig.addCollection('awesome', collectionsApi => {
-    return collectionsApi.getFilteredByTags('_awesome');
-  });
+  // eleventyConfig.addCollection('awesome', collectionsApi => {
+  // return collectionsApi.getFilteredByTags('_awesome');
+  // });
 
   eleventyConfig.addCollection('resume', collectionsApi => {
     return [...collectionsApi.getFilteredByGlob('./src/resume/**/*.md')];
