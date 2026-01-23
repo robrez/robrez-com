@@ -22,6 +22,7 @@
     "rollup:prod": "rollup -c rollup.config.prod.mjs"
   },
   "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
     "@robrez-com/app-layout": "^0.1.0",
     "@robrez-com/style": "^0.1.0",
     "@robrez-com/x-hello": "^0.1.0",
@@ -29,8 +30,7 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-beta.1",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@web/rollup-plugin-html": "^3.0.0",
     "@web/rollup-plugin-polyfills-loader": "^2.1.3",
