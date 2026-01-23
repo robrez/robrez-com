@@ -1,36 +1,43 @@
-import type { RollupOptions, Plugin } from 'rollup';
-import type { Target } from 'rollup-plugin-copy';
 import copy from 'rollup-plugin-copy';
 import resolve from '@rollup/plugin-node-resolve';
 
+/**
+ * @typedef {import("rollup").RollupOptions} RollupOptions
+ * @typedef {import("rollup").Plugin} Plugin
+ * @typedef {import("rollup-plugin-copy").Target} Target
+ */
+
 // note that copying assets can also be handled in `.eleventy.cjs`
 // this is a viable alternative
-const copyTargets: Target[] = [
-  {
-    src: `../node_modules/@webcomponents/webcomponentsjs`,
-    dest: `dist/modules/@webcomponents`
-  },
-  {
-    src: `../node_modules/lit/polyfill-support.js`,
-    dest: `dist/modules/lit/`
-  },
+
+/**
+ * @type {Target[]}
+ */
+const copyTargets = [
   {
     src: `./src/images`,
-    dest: `dist/`
+    dest: `dist-dev/`
   }
 ];
-const copyPlugin: Plugin = copy({
+
+/**
+ * @type {Plugin}
+ */
+const copyPlugin = copy({
   verbose: true,
   targets: copyTargets,
   flatten: true,
   dereference: true
 });
 
-const config: RollupOptions[] = [
+/**
+ * @type {RollupOptions[]}
+ */
+const config = [
   {
     input: 'src/index.js',
     output: {
-      file: 'dist/_dummy.js',
+      file: 'dist-dev/_dummy.js',
       format: 'esm'
     },
     plugins: [
@@ -40,7 +47,7 @@ const config: RollupOptions[] = [
   {
     input: 'components/index.js',
     output: {
-      file: 'dist/components.bundled.js',
+      file: 'dist-dev/components.bundled.js',
       format: 'esm'
     },
     plugins: [resolve()]

@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Hi 👋
 tags:
   - _home

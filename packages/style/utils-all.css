@@ -1,5 +1,5 @@
-@import url(src/utils/bg-color.css);
-@import url(src/utils/color.css);
-@import url(src/utils/flex.css);
-@import url(src/utils/spacing.css);
-@import url(src/utils/typography.css);
+@import url(./src/utils/bg-color.css);
+@import url(./src/utils/color.css);
+@import url(./src/utils/flex.css);
+@import url(./src/utils/spacing.css);
+@import url(./src/utils/typography.css);

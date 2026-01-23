@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: FHIR Resource Server & API Gateway
 company: TruBridge
 category: project

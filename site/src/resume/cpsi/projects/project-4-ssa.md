@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Product-Line Platform & Shared Solutions Stack
 company: TruBridge
 category: project

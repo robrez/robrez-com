@@ -8,31 +8,35 @@
   "module": "index.js",
   "scripts": {
     "nuke": "rimraf node_modules",
-    "build": "npm run clean && npm run tsc && npm run rollup && npm run 11ty",
+    "build:dev": "npm run clean && npm run tsc && npm run rollup && npm run 11ty",
+    "build": "npm run build:dev && npm run rollup:prod",
     "build:11ty": "npm run tsc:clean:11ty && npm run tsc:11ty && npm run rollup && npm run 11ty",
-    "clean": "npm run tsc:clean && rimraf dist",
+    "clean": "npm run tsc:clean && rimraf dist-dev && rimraf dist",
     "tsc": "tsc && npm run tsc:11ty",
     "tsc:11ty": "tsc --build ./tsconfig.11ty.json",
     "tsc:clean": "npm run tsc:clean:11ty && npm run tsc:clean:11ty",
     "tsc:clean:11ty": "tsc --build ./tsconfig.11ty.json --clean",
     "tsc:clean:components": "tsc --build ./tsconfig.json --clean",
     "11ty": "eleventy --config=.eleventy.cjs",
-    "rollup": "rollup -c rollup.config.js"
+    "rollup": "rollup -c rollup.config.mjs",
+    "rollup:prod": "rollup -c rollup.config.prod.mjs"
   },
   "dependencies": {
     "@robrez-com/app-layout": "^0.1.0",
-    "@robrez-com/x-hello": "^0.1.0",
     "@robrez-com/style": "^0.1.0",
+    "@robrez-com/x-hello": "^0.1.0",
     "lit": "^2.0.2",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-beta.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
-    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@web/rollup-plugin-html": "^3.0.0",
+    "@web/rollup-plugin-polyfills-loader": "^2.1.3",
     "@webcomponents/webcomponentsjs": "^2.6.0",
-    "rollup": "^2.0.0",
-    "rollup-plugin-copy": "^3.4.0",
-    "typescript": "^4.5.2"
+    "rollup": "^4.56.0",
+    "rollup-plugin-copy": "^3.5.0",
+    "typescript": "^5.0.0"
   }
 }

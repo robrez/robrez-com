@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Real-Time CQM & Decision-Support Platform
 company: TruBridge
 category: project
