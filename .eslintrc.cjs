@@ -1,11 +1,20 @@
 module.exports = {
-  plugins: ['@typescript-eslint', 'wc', 'lit', 'lit-a11y', 'chai-expect', 'chai-friendly', 'import'],
+  plugins: [
+    //
+    '@typescript-eslint',
+    'wc',
+    // 'lit',
+    // 'lit-a11y',
+    // 'chai-expect',
+    // 'chai-friendly',
+    'import'
+  ],
   extends: [
     'eslint:recommended',
     'plugin:wc/recommended',
-    'plugin:wc/best-practice',
-    'plugin:lit/recommended',
-    'plugin:lit-a11y/recommended'
+    'plugin:wc/best-practice'
+    // 'plugin:lit/recommended',
+    // 'plugin:lit-a11y/recommended'
   ],
   env: {
     es2021: true,

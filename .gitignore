@@ -6,6 +6,7 @@ node_modules/
 .npm
 tw-dist
 dist
+dist-dev
 *.tsbuildinfo
 packages/**/*.js
 packages/**/*.js.map

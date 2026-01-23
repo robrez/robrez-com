@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Authorization & Enterprise Identity Platform (OAuth2 / OIDC / SMART-on-FHIR)
 company: TruBridge
 category: project

@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Modern Web Client Replacing Proprietary Thin-Client
 company: TruBridge
 category: project

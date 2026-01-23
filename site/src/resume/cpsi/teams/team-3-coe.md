@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Architectural Stewardship & Platform Evolution
 company: TruBridge
 category: position

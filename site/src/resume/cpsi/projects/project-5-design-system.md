@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Design System & Standards-Based UI Component Platform
 company: TruBridge
 category: project

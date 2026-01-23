@@ -4,23 +4,21 @@ const tailwindcss = require('tailwindcss');
 const prettier = require('prettier');
 const tailwindConfig = require('./tw.cjs');
 
-const prettierConfigFile = prettier.resolveConfigFile.sync('./');
-const prettierConfig = prettier.resolveConfig.sync(prettierConfigFile);
-
 /**
  * Formats given content string according to prettier configuation
  * @param {string} content : ;
  * @param {import('prettier').Config} config
  * @returns
  */
-const prettify = (content, config = {}) => {
+async function prettify (content, config = {}) {
+  const prettierConfig = await prettier.resolveConfig('./');
   const cfg = {
     parser: 'babel',
     ...prettierConfig,
     ...config
   };
   return prettier.format(content, cfg);
-};
+}
 
 /**
  * Creates a lit css template wrapping the given css content string
@@ -29,7 +27,7 @@ const prettify = (content, config = {}) => {
  * @param {string} moduleId :
  * @returns string
  */
-const asLitCssModule = (packageId, moduleId) => {
+async function asLitCssModule (packageId, moduleId) {
   const tpl = `
     import { appendModule } from '../css-module-util.js';
     import styles from './${moduleId}.js';
@@ -39,8 +37,8 @@ const asLitCssModule = (packageId, moduleId) => {
 
     export default styles;
   `;
-  return prettify(tpl, {});
-};
+  return await prettify(tpl, {});
+}
 
 /**
  * Creates a lit css template wrapping the given css content string
@@ -48,7 +46,7 @@ const asLitCssModule = (packageId, moduleId) => {
  * @param {string} content : css string;
  * @returns string
  */
-const asLitCss = content => {
+async function asLitCss (content ) {
   const tpl = `
     import { css } from 'lit-element';
 
@@ -59,7 +57,7 @@ const asLitCss = content => {
     export default styles;
     ;
   `;
-  return prettify(tpl, {});
+  return await prettify(tpl, {});
 };
 
 /**
@@ -68,9 +66,9 @@ const asLitCss = content => {
  * @param {string} content : css string;
  * @returns string
  */
-const asCss = content => {
-  return prettify(content, { parser: 'css' });
-};
+async function asCss (content)  {
+  return await prettify(content, { parser: 'css' });
+}
 
 const genericInputCss = `./scripts/input.css`;
 const baseOutDir = `./src`;
@@ -143,15 +141,15 @@ async function processProp(prop) {
   const processor = await postcss([tailwindcss(prop.tailwindConfig)]);
   const result = await processor.process(css, {});
 
-  const tsStyles = asLitCss(result.css);
+  const tsStyles = await asLitCss(result.css);
   fs.mkdirSync(prop.outDir, { recursive: true });
   fs.writeFileSync(`${prop.outDir}/${prop.name}.ts`, tsStyles, { encoding: 'utf-8' });
 
-  const tsModuleStyles = asLitCssModule(prop.package, prop.name);
+  const tsModuleStyles = await asLitCssModule(prop.package, prop.name);
   fs.mkdirSync(prop.outDir, { recursive: true });
   fs.writeFileSync(`${prop.outDir}/${prop.name}-module.ts`, tsModuleStyles, { encoding: 'utf-8' });
 
-  const cssStyles = asCss(result.css);
+  const cssStyles = await asCss(result.css);
   fs.mkdirSync(prop.outDir, { recursive: true });
   fs.writeFileSync(`${prop.outDir}/${prop.name}.css`, cssStyles, { encoding: 'utf-8' });
 }

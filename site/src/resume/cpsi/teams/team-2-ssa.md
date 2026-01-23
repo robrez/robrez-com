@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Platform & Ecosystem Unification
 company: TruBridge
 category: position

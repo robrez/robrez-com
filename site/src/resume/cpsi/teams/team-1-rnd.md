@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Architecture & Application R&D
 company: TruBridge
 category: position

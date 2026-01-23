@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Senior Engineer III
 company: TruBridge
 category: intro

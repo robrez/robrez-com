@@ -207,7 +207,7 @@ function page(data: RenderData): string {
           <div class="card">
             <div class="card-heading flex flex-wrap">
               <div class="flex flex-1 items-start pr-md">
-                <div class="image-container mr-md flex-shrink-0"><img src="/images/rob.jpg" alt="" /></div>
+                <div class="image-container mr-md flex-shrink-0"><img src="../images/rob.jpg" alt="" /></div>
                 <div>
                   <h2><div class="color-primary-text">Rob Resendez</div></h2>
                   <div class="text-xs color-contrast-700">Software Engineering Professional</div>

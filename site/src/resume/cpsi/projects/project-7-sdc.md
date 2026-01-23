@@ -1,4 +1,5 @@
 ---
+permalink: false
 title: Structured Data Capture & Extraction
 company: TruBridge
 category: project

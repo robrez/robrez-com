@@ -46,7 +46,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: 'src',
-      output: 'dist'
+      output: 'dist-dev'
     },
     templateExtensionAliases: {
       '11ty.cjs': '11ty.js',
