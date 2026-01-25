@@ -1,4 +1,3 @@
-import '@robrez-com/x-hello/define.js';
 import '@robrez-com/app-layout/define.js';
 import { styles } from '@robrez-com/app-layout/src/styles.js';
 

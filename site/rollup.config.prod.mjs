@@ -1,33 +1,42 @@
-import copy from 'rollup-plugin-copy';
+import path from 'path';
 import { rollupPluginHTML as html } from '@web/rollup-plugin-html';
 import { polyfillsLoader } from '@web/rollup-plugin-polyfills-loader';
-import path from 'path';
+import { bundleAsync } from 'lightningcss';
+import esbuild from 'rollup-plugin-esbuild';
 
 /**
  * @typedef {import("rollup").RollupOptions} RollupOptions
  * @typedef {import("rollup").Plugin} Plugin
  * @typedef {import("rollup-plugin-copy").Target} Target
+ * @typedef {import("lightningcss").TransformAttributeOptions} TransformAttributeOptions
  */
 
 /**
- * @type {Target[]}
+ * @type {TransformAttributeOptions}
  */
-const copyTargets = [
-  {
-    src: `./dist-dev/style/src`,
-    dest: `dist/style`
+const lightningOptions = {
+  minify: true
+  // todo consider using targets property
+};
+
+/**
+ *
+ * @param {TransformAttributeOptions} opts
+ * @param {Uint8Array} content
+ * @param {string} fileName
+ * @returns {Uint8Array}
+ */
+async function lightningcssBundleCss(opts = {}) {
+  if (!opts.filename?.endsWith('.css')) {
+    return opts?.code;
   }
-];
 
-/**
- * @type {Plugin}
- */
-const copyPlugin = copy({
-  verbose: true,
-  targets: copyTargets,
-  flatten: true,
-  dereference: true
-});
+  const result = await bundleAsync({
+    ...opts
+  });
+
+  return result.code ?? opts?.code;
+}
 
 /**
  * @type {RollupOptions}
@@ -41,11 +50,26 @@ const config = {
     dir: 'dist'
   },
   plugins: [
-    copyPlugin,
     html({
       rootDir: path.join(process.cwd(), 'dist-dev'),
+      injectServiceWorker: false,
       flattenOutput: false,
-      minify: true
+      minify: true,
+      extractAssets: true,
+      transformAsset: async (content, filename) => {
+        if (filename.endsWith('.css')) {
+          return await lightningcssBundleCss({
+            ...lightningOptions,
+            filename: filename,
+            code: content
+          });
+        }
+        return content;
+      }
+    }),
+    esbuild({
+      minify: true,
+      target: ['chrome64', 'firefox67', 'safari11.1']
     }),
     polyfillsLoader({
       polyfills: {

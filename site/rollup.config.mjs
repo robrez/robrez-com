@@ -1,5 +1,7 @@
 import copy from 'rollup-plugin-copy';
+import minifyHTML from '@lit-labs/rollup-plugin-minify-html-literals';
 import resolve from '@rollup/plugin-node-resolve';
+import esbuild from 'rollup-plugin-esbuild';
 
 /**
  * @typedef {import("rollup").RollupOptions} RollupOptions
@@ -50,7 +52,15 @@ const config = [
       file: 'dist-dev/components.bundled.js',
       format: 'esm'
     },
-    plugins: [resolve()]
+    plugins: [
+      resolve(),
+      minifyHTML(),
+      esbuild({
+        minify: true,
+        legalComments: 'eof',
+        target: ['chrome64', 'firefox67', 'safari11.1']
+      })
+    ]
   }
 ];
 
