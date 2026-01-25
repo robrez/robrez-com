@@ -21,7 +21,6 @@
     "./site"
   ],
   "devDependencies": {
-    "@rollup/plugin-babel": "^6.1.0",
     "@types/node": "^20.19.30",
     "@typescript-eslint/eslint-plugin": "^8.53.1",
     "@typescript-eslint/parser": "^8.53.1",
