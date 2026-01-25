@@ -1,13 +1,13 @@
 import { css } from 'lit-element';
-import '@robrez-com/style/props-all-module.js';
 
 const styles = css`
   :root,
   :host {
     display: block;
 
-    --rr-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    --rr-font-family:
+      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol';
 
     --rr-header-bg-color: var(--rr-color-shade-800);
     --rr-header-primary-text-color: var(--rr-color-primary-300);
@@ -64,7 +64,10 @@ const styles = css`
     font-weight: normal;
     letter-spacing: -0.1rem;
     margin: 0;
-    text-shadow: 0 2px 2px rgb(0 0 0 / 40%), 0 1px 5px rgb(0 0 0 / 12%), 0 3px 1px rgb(0 0 0 / 20%);
+    text-shadow:
+      0 2px 2px rgb(0 0 0 / 40%),
+      0 1px 5px rgb(0 0 0 / 12%),
+      0 3px 1px rgb(0 0 0 / 20%);
     color: var(--rr-color-tint-950);
   }
 
@@ -94,7 +97,9 @@ const styles = css`
 
   ::slotted(.card),
   .card {
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
     border-radius: var(--rr-surface-border-radius, 4px);
     border-top: 3px solid var(--rr-color-primary);
     background-color: var(--rr-color-surface-bg);
