@@ -1,0 +1,168 @@
+/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+.m-0 {
+  margin: calc(var(--spacing) * 0);
+}
+
+.m-1 {
+  margin: calc(var(--spacing) * 1);
+}
+
+.m-2 {
+  margin: calc(var(--spacing) * 2);
+}
+
+.m-4 {
+  margin: calc(var(--spacing) * 4);
+}
+
+.m-6 {
+  margin: calc(var(--spacing) * 6);
+}
+
+.m-8 {
+  margin: calc(var(--spacing) * 8);
+}
+
+.m-12 {
+  margin: calc(var(--spacing) * 12);
+}
+
+.m-16 {
+  margin: calc(var(--spacing) * 16);
+}
+
+.m-24 {
+  margin: calc(var(--spacing) * 24);
+}
+
+.m-32 {
+  margin: calc(var(--spacing) * 32);
+}
+
+.m-36 {
+  margin: calc(var(--spacing) * 36);
+}
+
+.m-40 {
+  margin: calc(var(--spacing) * 40);
+}
+
+.m-44 {
+  margin: calc(var(--spacing) * 44);
+}
+
+.m-48 {
+  margin: calc(var(--spacing) * 48);
+}
+
+.m-52 {
+  margin: calc(var(--spacing) * 52);
+}
+
+.m-56 {
+  margin: calc(var(--spacing) * 56);
+}
+
+.m-60 {
+  margin: calc(var(--spacing) * 60);
+}
+
+.m-64 {
+  margin: calc(var(--spacing) * 64);
+}
+
+.m-72 {
+  margin: calc(var(--spacing) * 72);
+}
+
+.m-80 {
+  margin: calc(var(--spacing) * 80);
+}
+
+.m-96 {
+  margin: calc(var(--spacing) * 96);
+}
+
+.p-0 {
+  padding: calc(var(--spacing) * 0);
+}
+
+.p-1 {
+  padding: calc(var(--spacing) * 1);
+}
+
+.p-2 {
+  padding: calc(var(--spacing) * 2);
+}
+
+.p-4 {
+  padding: calc(var(--spacing) * 4);
+}
+
+.p-6 {
+  padding: calc(var(--spacing) * 6);
+}
+
+.p-8 {
+  padding: calc(var(--spacing) * 8);
+}
+
+.p-12 {
+  padding: calc(var(--spacing) * 12);
+}
+
+.p-16 {
+  padding: calc(var(--spacing) * 16);
+}
+
+.p-24 {
+  padding: calc(var(--spacing) * 24);
+}
+
+.p-32 {
+  padding: calc(var(--spacing) * 32);
+}
+
+.p-36 {
+  padding: calc(var(--spacing) * 36);
+}
+
+.p-40 {
+  padding: calc(var(--spacing) * 40);
+}
+
+.p-44 {
+  padding: calc(var(--spacing) * 44);
+}
+
+.p-48 {
+  padding: calc(var(--spacing) * 48);
+}
+
+.p-52 {
+  padding: calc(var(--spacing) * 52);
+}
+
+.p-56 {
+  padding: calc(var(--spacing) * 56);
+}
+
+.p-60 {
+  padding: calc(var(--spacing) * 60);
+}
+
+.p-64 {
+  padding: calc(var(--spacing) * 64);
+}
+
+.p-72 {
+  padding: calc(var(--spacing) * 72);
+}
+
+.p-80 {
+  padding: calc(var(--spacing) * 80);
+}
+
+.p-96 {
+  padding: calc(var(--spacing) * 96);
+}

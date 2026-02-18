@@ -1,9 +1,10 @@
 // gen.js
-import fs from "fs/promises";
-import postcss from "postcss";
-import tailwind from "@tailwindcss/postcss";
-import oklabFunction from "@csstools/postcss-oklab-function";
-import { transform, composeVisitors } from "lightningcss";
+import fs from 'fs/promises';
+import process from 'node:process';
+import postcss from 'postcss';
+import tailwind from '@tailwindcss/postcss';
+import oklabFunction from '@csstools/postcss-oklab-function';
+import { transform, composeVisitors } from 'lightningcss';
 
 /**
  * @typedef {import("lightningcss").Visitor} Visitor
@@ -15,14 +16,14 @@ import { transform, composeVisitors } from "lightningcss";
  */
 const layerFlattenVisitor = {
   Rule(rule) {
-    if (rule.type === "layer-block") {
-      if (rule?.value?.name?.indexOf("theme") >= 0) {
+    if (rule.type === 'layer-block') {
+      if (rule?.value?.name?.indexOf('theme') >= 0) {
         return rule.value.rules;
       }
       return [];
     }
     return [];
-  },
+  }
 };
 
 /**
@@ -30,34 +31,34 @@ const layerFlattenVisitor = {
  */
 const propsOnlyVisitor = {
   Declaration(decl) {
-    if (decl.property !== "custom") {
+    if (decl.property !== 'custom') {
       return [];
     }
-    if (decl.value.name?.startsWith("--tw")) {
+    if (decl.value.name?.startsWith('--tw')) {
       return [];
     }
     return {
       ...decl,
       value: {
         ...decl.value,
-        name: decl.value.name.replace("--", "--rr-"),
-      },
+        name: decl.value.name.replace('--', '--rr-')
+      }
     };
-  },
+  }
 };
 
 const scaleMap = {
-  50: "950",
-  100: "900",
-  200: "800",
-  300: "700",
-  400: "600",
-  500: "500",
-  600: "400",
-  700: "300",
-  800: "200",
-  900: "100",
-  950: "50",
+  50: '950',
+  100: '900',
+  200: '800',
+  300: '700',
+  400: '600',
+  500: '500',
+  600: '400',
+  700: '300',
+  800: '200',
+  900: '100',
+  950: '50'
 };
 
 const colorNames = new Set();
@@ -74,7 +75,7 @@ function reverseColorScale(name) {
   const oldScale = m[2];
   const newScale = scaleMap[oldScale];
   if (!newScale) return name;
-  return name.replace(/-(\d{2,3})$/, "-" + newScale);
+  return name.replace(/-(\d{2,3})$/, '-' + newScale);
 }
 
 /**
@@ -86,17 +87,14 @@ const colorScaleReverseVisitor = {
       ...decl,
       value: {
         ...decl.value,
-        name: reverseColorScale(decl.value.name),
-      },
+        name: reverseColorScale(decl.value.name)
+      }
     };
-  },
+  }
 };
 
 async function colorDarkSelectorTransformer(content) {
-  return content?.replace(
-    ":root, :host {",
-    "[theme~='dark'], :host([theme~='dark']) {",
-  );
+  return content?.replace(':root, :host {', "[theme~='dark'], :host([theme~='dark']) {");
 }
 
 // const files = ["system", "spacing", "typography"];
@@ -109,11 +107,11 @@ function selectorArray(selector) {
 }
 
 function isClass(selector) {
-  return selector?.type === "class";
+  return selector?.type === 'class';
 }
 
 function noTransformFilter(selector) {
-  return selectorArray(selector).filter((selector) => {
+  return selectorArray(selector).filter(selector => {
     const isClassSelector = isClass(selector);
     if (!isClassSelector) {
       return selector;
@@ -127,29 +125,26 @@ async function twConcat(files) {
   const css = String.raw;
   let imports = files
     .map(
-      (file) => css`
-        @import "../src/${file}.css";
-      `,
+      file => css`
+        @import '../lib/${file}.css';
+      `
     )
-    .join("\n");
+    .join('\n');
   const combinedCss = css`
-    @import "../src/_props.css";
+    @import '../lib/_props.css';
 
     ${imports}
   `;
   const tmp = `./tmp/all.css`;
-  await fs.mkdir("./tmp", { recursive: true });
-  await fs.writeFile(tmp, combinedCss, "utf8");
-  const content = await fs.readFile(tmp, "utf8");
-  const result = await postcss([
-    tailwind(),
-    oklabFunction({ preserve: false }),
-  ]).process(content, {
-    from: tmp,
+  await fs.mkdir('./tmp', { recursive: true });
+  await fs.writeFile(tmp, combinedCss, 'utf8');
+  const content = await fs.readFile(tmp, 'utf8');
+  const result = await postcss([tailwind(), oklabFunction({ preserve: false })]).process(content, {
+    from: tmp
   });
   await fs.rm(tmp);
   try {
-    await fs.rmdir("./tmp");
+    await fs.rmdir('./tmp');
   } catch (e) {}
   return result;
 }
@@ -167,7 +162,7 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
     code: Buffer.from(result.css),
     minify: false,
     analyzeDependencies: false,
-    visitor: visitor,
+    visitor: visitor
   });
 
   let propsCss = propsOnly?.code.toString();
@@ -176,16 +171,16 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
     propsCss = await customizer(propsCss);
   }
 
-  await fs.mkdir("./dist/props/", { recursive: true });
-  await fs.writeFile(`./dist/props/${propsName}.css`, propsCss, "utf-8");
-  console.log("done");
+  await fs.mkdir('./src/props/', { recursive: true });
+  await fs.writeFile(`./src/props/${propsName}.css`, propsCss, 'utf-8');
+  console.log('done');
 }
 
 async function build(inputPath, outputPath) {
-  const css = await fs.readFile(inputPath, "utf8");
+  const css = await fs.readFile(inputPath, 'utf8');
   const result = await postcss([tailwind()]).process(css, {
     from: inputPath,
-    to: outputPath,
+    to: outputPath
   });
 
   const utilsResult = transform({
@@ -195,8 +190,8 @@ async function build(inputPath, outputPath) {
     analyzeDependencies: false,
     visitor: {
       Rule(rule) {
-        if (rule.type === "layer-block") {
-          if (rule?.value?.name?.indexOf("utilities") >= 0) {
+        if (rule.type === 'layer-block') {
+          if (rule?.value?.name?.indexOf('utilities') >= 0) {
             return rule.value.rules;
           }
           return [];
@@ -207,45 +202,41 @@ async function build(inputPath, outputPath) {
         return noTransformFilter(selector);
       },
       Declaration(decl) {
-        if (decl.value?.name?.startsWith("--tw")) {
+        if (decl.value?.name?.startsWith('--tw')) {
           // removes unwanted `--tw` rules and props
           return [];
         }
-      },
-    },
+      }
+    }
   });
 
   const utils = utilsResult?.code.toString();
 
-  await fs.mkdir("./dist/utils", { recursive: true });
-  await fs.writeFile(outputPath, utils, "utf8");
-  console.log("build complete: ", inputPath, outputPath);
+  await fs.mkdir('./src/utils', { recursive: true });
+  await fs.writeFile(outputPath, utils, 'utf8');
+  console.log('build complete: ', inputPath, outputPath);
 }
 
 async function buildAll() {
   const propsVisitor = composeVisitors([propsOnlyVisitor, layerFlattenVisitor]);
-  await buildProps(["spacing"], "spacing", propsVisitor);
-  await buildProps(["typography"], "typography", propsVisitor);
+  await buildProps(['spacing'], 'spacing', propsVisitor);
+  await buildProps(['typography'], 'typography', propsVisitor);
+  await buildProps(['color', 'bg-color', 'color-static'], 'color', propsVisitor);
   await buildProps(
-    ["color", "bg-color", "color-static"],
-    "color",
-    propsVisitor,
-  );
-  await buildProps(
-    ["color", "bg-color", "color-dark-static"],
-    "color-dark",
+    ['color', 'bg-color', 'color-dark-static'],
+    'color-dark',
     composeVisitors([propsVisitor, colorScaleReverseVisitor]),
-    colorDarkSelectorTransformer,
+    colorDarkSelectorTransformer
   );
-  const files = ["color", "bg-color", "spacing", "typography"];
+  const files = ['color', 'bg-color', 'spacing', 'typography'];
   for (const file of files) {
-    const inputPath = `./src/${file}.css`;
-    const outputPath = `./dist/utils/${file}.css`;
+    const inputPath = `./lib/${file}.css`;
+    const outputPath = `./src/utils/${file}.css`;
     await build(inputPath, outputPath);
   }
 }
 
-buildAll().catch((err) => {
+buildAll().catch(err => {
   console.error(err);
   process.exit(1);
 });
