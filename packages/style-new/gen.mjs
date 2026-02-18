@@ -107,7 +107,8 @@ const propsOnlyVisitor = {
       ...decl,
       value: {
         ...decl.value,
-        name: decl.value.name.replace('--', '--rr-')
+        // name: decl.value.name.replace('--', '--rr-')
+        name: decl.value.name.replace('--', '--')
       }
     };
   }
@@ -130,7 +131,6 @@ const scaleMap = {
 const colorNames = new Set();
 
 function reverseColorScale(name) {
-  // matches --rr-color-red-500
   const m = name.match(/--.*-color-([a-z-]+)-(\d{2,3})$/);
   if (!m) return name;
 
@@ -196,8 +196,8 @@ async function twConcat(files) {
       `
     )
     .join('\n');
+    // @import '../.src/_props.css';
   const combinedCss = css`
-    @import '../.src/_props.css';
 
     ${imports}
   `;
@@ -295,6 +295,10 @@ async function build(inputPath, outputPath) {
 async function buildAll() {
   const propsVisitor = composeVisitors([propsOnlyVisitor, layerFlattenVisitor]);
   await buildProps(['spacing'], 'spacing', propsVisitor);
+  
+  if(1 === 1) {
+    return;
+  }
   await buildProps(['typography'], 'typography', propsVisitor);
   await buildProps(['color', 'bg-color', 'color-static'], 'color', propsVisitor);
   await buildProps(

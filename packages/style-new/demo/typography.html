@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="stylesheet" href="../props-all.css" />
+    <link rel="stylesheet" href="../utils-all.css" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background-color: #ededed;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+    </style>
+    <title>test</title>
+  </head>
+
+  <body>
+    <h1>Typography</h1>
+
+    <div class="card">
+      <h2>Font Sizes</h2>
+      <section class="font-size-demo"></section>
+    </div>
+  </body>
+  <script type="module">
+    import { fontSize } from '../src/demo/index.js';
+    fontSize(document.querySelector('.font-size-demo'));
+  </script>
+</html>
