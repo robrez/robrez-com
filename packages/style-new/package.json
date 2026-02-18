@@ -1,14 +1,25 @@
 {
-  "name": "hello-tw4",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "build": "npm run gen",
-    "gen": "rimraf dist && node gen.mjs"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "@robrez-com/style-new",
   "description": "",
+  "license": "MIT",
+  "author": "me",
+  "version": "0.1.0",
+  "main": "index.js",
+  "module": "index.js",
+  "type": "module",
+  "types": "index.d.ts",
+  "scripts": {
+    "nuke": "rimraf node_modules",
+    "build": "npm run build:style && npm run build:tsc",
+    "build:tsc": "tsc",
+    "clean": "tsc --build ./tsconfig.json --clean",
+    "build:style": "npm run gen",
+    "gen": "node gen.mjs"
+  },
+  "dependencies": {
+    "lit": "^2.0.2",
+    "tslib": "^2.3.1"
+  },
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^5.0.1",
     "@tailwindcss/cli": "^4.1.18",
@@ -17,6 +28,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "rimraf": "^6.1.2",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.0.0"
   }
 }
