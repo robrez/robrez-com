@@ -1,7 +1,6 @@
 @import "tailwindcss/theme" layer(theme);
 
 @theme static {
-  --color-tint-950: rgba(255, 255, 255, 0.95);
   --color-contrast-50: rgba(0, 0, 0, 0.05);
   --color-contrast-100: rgba(0, 0, 0, 0.1);
   --color-contrast-200: rgba(0, 0, 0, 0.2);

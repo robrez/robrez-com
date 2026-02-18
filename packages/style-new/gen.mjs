@@ -131,7 +131,7 @@ const scaleMap = {
 const colorNames = new Set();
 
 function reverseColorScale(name) {
-  const m = name.match(/--.*-color-([a-z-]+)-(\d{2,3})$/);
+  const m = name.match(/^-.*-color-([a-z-]+)-(\d{2,3})$/);
   if (!m) return name;
 
   // this is a somewhat hacky side-effect to avoid parsing twice
@@ -162,8 +162,6 @@ const colorScaleReverseVisitor = {
 async function colorDarkSelectorTransformer(content) {
   return content?.replace(':root, :host {', "[theme~='dark'], :host([theme~='dark']) {");
 }
-
-// const files = ["system", "spacing", "typography"];
 
 function selectorArray(selector) {
   if (Array.isArray(selector)) {
@@ -196,20 +194,27 @@ async function twConcat(files) {
       `
     )
     .join('\n');
-    // @import '../.src/_props.css';
+  // @import '../.src/_props.css';
   const combinedCss = css`
-
     ${imports}
   `;
   const tmp = `./tmp/all.css`;
   await fs.mkdir('./tmp', { recursive: true });
+  await fs.mkdir('./tmp/dummy', { recursive: true });
   await fs.writeFile(tmp, combinedCss, 'utf8');
   const content = await fs.readFile(tmp, 'utf8');
-  const result = await postcss([tailwind(), oklabFunction({ preserve: false })]).process(content, {
+  const processor = postcss([
+    tailwind({
+      base: './tmp/dummy'
+    }),
+    oklabFunction({ preserve: false })
+  ]);
+  const result = await processor.process(content, {
     from: tmp
   });
-  await fs.rm(tmp);
   try {
+    await fs.rmdir('./tmp/dummy');
+    await fs.rm(tmp);
     await fs.rmdir('./tmp');
   } catch (e) {
     // couldn't rmdir, it's fine
@@ -253,10 +258,20 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
 
 async function build(inputPath, outputPath) {
   const css = await fs.readFile(inputPath, 'utf8');
-  const result = await postcss([tailwind()]).process(css, {
+  await fs.mkdir('./tmp/dummy', { recursive: true });
+  const result = await postcss([
+    tailwind({
+      base: './tmp/dummy'
+    })
+  ]).process(css, {
     from: inputPath,
     to: outputPath
   });
+  try {
+    await fs.rmdir('./tmp/dummy');
+  } catch (e) {
+    // could not remove
+  }
 
   const utilsResult = transform({
     filename: inputPath,
@@ -294,12 +309,6 @@ async function build(inputPath, outputPath) {
 
 async function buildAll() {
   const propsVisitor = composeVisitors([propsOnlyVisitor, layerFlattenVisitor]);
-  await buildProps(['spacing'], 'spacing', propsVisitor);
-  
-  if(1 === 1) {
-    return;
-  }
-  await buildProps(['typography'], 'typography', propsVisitor);
   await buildProps(['color', 'bg-color', 'color-static'], 'color', propsVisitor);
   await buildProps(
     ['color', 'bg-color', 'color-dark-static'],
@@ -307,6 +316,8 @@ async function buildAll() {
     composeVisitors([propsVisitor, colorScaleReverseVisitor]),
     colorDarkSelectorTransformer
   );
+  await buildProps(['spacing'], 'spacing', propsVisitor);
+  await buildProps(['typography'], 'typography', propsVisitor);
   const files = ['color', 'bg-color', 'spacing', 'typography'];
   for (const file of files) {
     const inputPath = `./.src/${file}.css`;

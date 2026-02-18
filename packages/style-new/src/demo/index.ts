@@ -32,7 +32,7 @@ function renderColor(name: string): TemplateResult {
     .filter(level => omit.indexOf(level) < 0)
     .map(level => {
       const cls = `text-${name}-${level}`;
-      return html`<div class="${cls} p-2">${level}</div>`;
+      return html`<div class="${cls} p-8">${level}</div>`;
     });
   const containerStyle: StyleInfo = {
     display: 'flex',
@@ -59,7 +59,7 @@ function renderBgColor(name: string): TemplateResult {
   const panes = cleanLevels.map((level, index) => {
     const cls = `bg-${name}-${level}`;
     const fgCls = index === midIndex ? `color-${name}-contrast` : index > midIndex ? `text-white` : `text-black`;
-    return html`<div class="${cls} ${fgCls} p-2">${level}</div>`;
+    return html`<div class="${cls} ${fgCls} p-8">${level}</div>`;
   });
   const containerStyle: StyleInfo = {
     display: 'flex',
