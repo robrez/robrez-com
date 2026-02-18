@@ -17,7 +17,10 @@
     "sitep": "wds --watch --root-dir=site/dist --node-resolve"
   },
   "workspaces": [
-    "./packages/*",
+    "./packages/style",
+    "./packages/style-new",
+    "./packages/app-layout",
+    "./packages/x-hello",
     "./site"
   ],
   "devDependencies": {

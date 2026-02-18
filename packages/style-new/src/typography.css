@@ -1,0 +1,31 @@
+@import "tailwindcss/theme" layer(theme);
+
+@theme {
+  /* remove unwanted defaults */
+  --text-*: initial;
+  --leading-*: initial;
+
+  /* sizing */
+  --text-3xs: 0.5rem;
+  --text-2xs: 0.625rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.25rem;
+
+  /* leading */
+  --leading-1: 1;
+  --leading-sm: 1.25;
+  --leading-md: 1.5;
+  --leading-lg: 1.75;
+}
+
+@import "tailwindcss/utilities" layer(utilities);
+
+@source inline("text-xs text-sm text-base text-lg text-xl text-2xl text-3xl text-4xl text-5xl text-6xl text-7xl text-8xl text-9xl");
+@source inline("font-thin font-extralight font-light font-normal font-medium font-semibold font-bold font-extrabold font-black");
+@source inline("leading-1 leading-xs leading-sm leading-md leading-lg");
