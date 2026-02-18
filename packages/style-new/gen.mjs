@@ -126,12 +126,12 @@ async function twConcat(files) {
   let imports = files
     .map(
       file => css`
-        @import '../lib/${file}.css';
+        @import '../.src/${file}.css';
       `
     )
     .join('\n');
   const combinedCss = css`
-    @import '../lib/_props.css';
+    @import '../.src/_props.css';
 
     ${imports}
   `;
@@ -230,7 +230,7 @@ async function buildAll() {
   );
   const files = ['color', 'bg-color', 'spacing', 'typography'];
   for (const file of files) {
-    const inputPath = `./lib/${file}.css`;
+    const inputPath = `./.src/${file}.css`;
     const outputPath = `./src/utils/${file}.css`;
     await build(inputPath, outputPath);
   }
