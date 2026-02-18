@@ -1,5 +1,6 @@
 /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
-:root, :host {
+:root,
+:host {
   --rr-color-red-50: #fef2f2;
   --rr-color-red-100: #ffe2e2;
   --rr-color-red-200: #ffcaca;
@@ -245,8 +246,8 @@
   --rr-color-black: #000;
   --rr-color-white: #fff;
   --rr-spacing: 1px;
-  --rr-text-xs: .75rem;
-  --rr-text-sm: .875rem;
+  --rr-text-xs: 0.75rem;
+  --rr-text-sm: 0.875rem;
   --rr-text-lg: 1.125rem;
   --rr-text-xl: 1.25rem;
   --rr-text-2xl: 1.5rem;
@@ -261,8 +262,4 @@
   --rr-font-weight-bold: 700;
   --rr-font-weight-extrabold: 800;
   --rr-font-weight-black: 900;
-}
-
-@supports (color: color(display-p3 0 0 0%)) {
-  
 }

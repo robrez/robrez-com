@@ -1,5 +1,6 @@
 /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
-[theme~='dark'], :host([theme~='dark']) {
+[theme~='dark'],
+:host([theme~='dark']) {
   --rr-color-red-950: #fef2f2;
   --rr-color-red-900: #ffe2e2;
   --rr-color-red-800: #ffcaca;
@@ -244,9 +245,9 @@
   --rr-color-stone-50: #0c0a09;
   --rr-color-black: #000;
   --rr-color-white: #fff;
-  --rr-spacing: .25rem;
-  --rr-text-xs: .75rem;
-  --rr-text-sm: .875rem;
+  --rr-spacing: 0.25rem;
+  --rr-text-xs: 0.75rem;
+  --rr-text-sm: 0.875rem;
   --rr-text-lg: 1.125rem;
   --rr-text-xl: 1.25rem;
   --rr-text-2xl: 1.5rem;
@@ -273,8 +274,4 @@
   --rr-color-contrast-200: #000c;
   --rr-color-contrast-100: #000000e6;
   --rr-color-contrast-50: #000000f2;
-}
-
-@supports (color: color(display-p3 0 0 0%)) {
-  
 }

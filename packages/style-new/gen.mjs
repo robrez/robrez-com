@@ -1,10 +1,76 @@
-// gen.js
 import fs from 'fs/promises';
 import process from 'node:process';
+import prettier from 'prettier';
 import postcss from 'postcss';
 import tailwind from '@tailwindcss/postcss';
 import oklabFunction from '@csstools/postcss-oklab-function';
 import { transform, composeVisitors } from 'lightningcss';
+
+/**
+ * Formats given content string according to prettier configuation
+ * @param {string} content : ;
+ * @param {import('prettier').Config} config
+ * @returns
+ */
+async function prettify(content, config = {}) {
+  const prettierConfig = await prettier.resolveConfig('./');
+  const cfg = {
+    parser: 'babel',
+    ...prettierConfig,
+    ...config
+  };
+  return prettier.format(content, cfg);
+}
+
+/**
+ * Creates a lit css template wrapping the given css content string
+ *
+ * @param {string} packageId :
+ * @param {string} moduleId :
+ * @returns string
+ */
+async function asLitCssModule(packageId, moduleId) {
+  const tpl = `
+    import { appendModule } from '../css-module-util.js';
+    import styles from './${moduleId}.js';
+
+    const moduleId = '${packageId}/${moduleId}';
+    appendModule(moduleId, styles);
+
+    export default styles;
+  `;
+  return await prettify(tpl, {});
+}
+
+/**
+ * Creates a lit css template wrapping the given css content string
+ *
+ * @param {string} content : css string;
+ * @returns string
+ */
+async function asLitCss(content) {
+  const tpl = `
+    import { css } from 'lit-element';
+
+    const styles = css\`
+      ${content}
+    \`
+
+    export default styles;
+    ;
+  `;
+  return await prettify(tpl, {});
+}
+
+/**
+ * Creates a lit css template wrapping the given css content string
+ *
+ * @param {string} content : css string;
+ * @returns string
+ */
+async function asCss(content) {
+  return await prettify(content, { parser: 'css' });
+}
 
 /**
  * @typedef {import("lightningcss").Visitor} Visitor
@@ -18,7 +84,7 @@ const layerFlattenVisitor = {
   Rule(rule) {
     if (rule.type === 'layer-block') {
       if (rule?.value?.name?.indexOf('theme') >= 0) {
-        return rule.value.rules;
+        return rule.value.rules?.filter(r => r.type === 'style');
       }
       return [];
     }
@@ -145,7 +211,9 @@ async function twConcat(files) {
   await fs.rm(tmp);
   try {
     await fs.rmdir('./tmp');
-  } catch (e) {}
+  } catch (e) {
+    // couldn't rmdir, it's fine
+  }
   return result;
 }
 
@@ -171,9 +239,16 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
     propsCss = await customizer(propsCss);
   }
 
+  const prettyPropsCss = await asCss(propsCss);
+
   await fs.mkdir('./src/props/', { recursive: true });
-  await fs.writeFile(`./src/props/${propsName}.css`, propsCss, 'utf-8');
-  console.log('done');
+  await fs.writeFile(`./src/props/${propsName}.css`, prettyPropsCss, 'utf-8');
+
+  const litCss = await asLitCss(propsCss);
+  await fs.writeFile(`./src/props/${propsName}.ts`, litCss, 'utf-8');
+  const litCssModule = await asLitCssModule('props', propsName);
+  await fs.writeFile(`./src/props/${propsName}-module.ts`, litCssModule, 'utf-8');
+  console.log('done', propsName);
 }
 
 async function build(inputPath, outputPath) {
