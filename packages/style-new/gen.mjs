@@ -340,6 +340,7 @@ async function buildAll() {
 
   await buildUtils(['color-light-theme', 'color'], 'color');
   await buildUtils(['color-light-theme', 'bg-color'], 'bg-color');
+  await buildUtils(['flex'], 'flex');
   await buildUtils(['spacing'], 'spacing');
   await buildUtils(['typography'], 'typography');
 

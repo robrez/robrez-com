@@ -1,0 +1,16 @@
+@import 'tailwindcss/theme' layer(theme);
+@import 'tailwindcss/utilities' layer(utilities);
+
+@source inline("flex inline-flex flex-1 flex-auto flex-initial flex-none");
+@source inline("flex-shrink flex-shrink-0");
+@source inline("flex-grow flex-grow-0");
+@source inline("flex-row flex-row-reverse flex-col flex-col-reverse");
+@source inline("flex-wrap flex-wrap-reverse flex-nowrap");
+
+@source inline("justify-start justify-end justify-end-safe justify-center justify-center-safe justify-between justify-around justify-evenly justify-stretch justify-baseline justify-normal");
+@source inline("justify-items-start justify-items-end justify-items-end-safe justify-items-center justify-items-center-safe justify-items-stretch justify-items-normal");
+@source inline("justify-self-auto justify-self-start justify-self-center justify-self-center-safe justify-self-end justify-self-end-safe justify-self-stretch");
+
+@source inline("content-normal content-center content-start content-end content-between content-around content-evenly content-baseline content-stretch");
+@source inline("items-start items-end items-end-safe items-center items-center-safe items-baseline items-baseline-last items-stretch");
+@source inline("self-auto self-start self-end self-end-safe self-center self-center-safe self-stretch self-baseline self-baseline-last");
