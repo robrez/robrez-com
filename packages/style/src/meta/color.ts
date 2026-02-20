@@ -1,4 +1,5 @@
 export const levels = [
+  //
   '50',
   '100',
   '200',
@@ -9,18 +10,11 @@ export const levels = [
   '700',
   '800',
   '900',
-  '950',
-  'DEFAULT',
-  'contrast',
-  'text'
+  '950'
 ];
 
 export const colorNames = [
-  'slate',
-  'gray',
-  'zinc',
-  'neutral',
-  'stone',
+  //
   'red',
   'orange',
   'amber',
@@ -35,9 +29,14 @@ export const colorNames = [
   'indigo',
   'violet',
   'purple',
-  'fuscia',
+  'fuchsia',
   'pink',
-  'rose'
+  'rose',
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone'
 ];
 
 export const emotiveNames = ['primary', 'success', 'danger', 'warning', 'info'];

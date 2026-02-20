@@ -13,13 +13,22 @@
     "build": "npm run build:style && npm run build:tsc",
     "build:tsc": "tsc",
     "clean": "tsc --build ./tsconfig.json --clean",
-    "build:style": "node ./scripts/style-gen.cjs"
+    "build:style": "npm run gen",
+    "gen": "node gen.mjs"
   },
   "dependencies": {
     "lit": "^2.0.2",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
+    "@csstools/postcss-oklab-function": "^5.0.1",
+    "@tailwindcss/cli": "^4.1.18",
+    "@tailwindcss/postcss": "^4.1.18",
+    "lightningcss": "1.30.1",
+    "postcss": "^8.5.6",
+    "prettier": "^3.8.1",
+    "rimraf": "^6.1.2",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5.0.0"
   }
 }
