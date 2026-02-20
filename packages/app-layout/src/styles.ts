@@ -54,7 +54,7 @@ const styles = css`
   }
 
   .card a {
-    color: var(--color-primary-text);
+    color: var(--color-primary);
     text-decoration: none;
   }
 
@@ -120,11 +120,6 @@ const styles = css`
     border-top: 3px solid var(--color-primary-500);
     background-color: var(--color-surface-bg);
     color: var(--color-surface-text);
-  }
-
-  .card-heading,
-  .card-body {
-    padding: var(--space-md);
   }
 
   .card-heading.divider {

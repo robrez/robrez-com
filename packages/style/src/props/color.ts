@@ -322,6 +322,7 @@ const styles = css`
     --color-white-300: #ffffff4d;
     --color-white-400: #fff6;
     --color-white-500: #ffffff80;
+    --color-white-600: #fff9;
     --color-white-700: #ffffffb3;
     --color-white-800: #fffc;
     --color-white-900: #ffffffe6;

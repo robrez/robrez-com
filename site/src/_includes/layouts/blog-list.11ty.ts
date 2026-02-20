@@ -39,7 +39,7 @@ const _renderExample = (data: RenderData): string => {
     return renderItem(post, page);
   });
   return html`
-    <div class="card card-body mt-xl">
+    <div class="card card-body p-16 mt-24">
       <nav class="collection">
         <ul>
           ${blogItems.join('')}
@@ -65,7 +65,7 @@ const renderExample = (data: RenderData): string => {
 
           <!-- main slot -->
           <div class="card">
-            <div class="card-heading"><h3>${data.title}</h3></div>
+            <div class="card-heading p-16"><h3>${data.title}</h3></div>
           </div>
 
           <!-- listing  -->
