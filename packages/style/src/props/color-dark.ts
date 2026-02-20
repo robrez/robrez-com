@@ -1,7 +1,7 @@
 import { css } from 'lit-element';
 
 const styles = css`
-  /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+  /*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
   [theme~='dark'],
   :host([theme~='dark']) {
     --color-red-950: #fef2f2;

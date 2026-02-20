@@ -9,22 +9,22 @@ const styles = css`
       -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
       'Segoe UI Emoji', 'Segoe UI Symbol';
 
-    --rr-header-bg-color: var(--rr-color-shade-800);
-    --rr-header-primary-text-color: var(--rr-color-primary-300);
-    --rr-header-text-color: var(--rr-color-tint-900);
-    --rr-header-text-secondary-color: var(--rr-color-tint-800);
-    --rr-header-text-tertiary-color: var(--rr-color-tint-600);
-    --rr-base-divider-color: var(--rr-color-primary);
+    --rr-header-bg-color: var(--color-black-800);
+    --rr-header-primary-text-color: var(--color-primary-300);
+    --rr-header-text-color: var(--color-white-900);
+    --rr-header-text-secondary-color: var(--color-white-800);
+    --rr-header-text-tertiary-color: var(--color-white-600);
+    --rr-base-divider-color: var(--color-primary);
     --rr-large-divider-width: 6px;
 
-    background-color: var(--rr-color-base-bg);
-    color: var(--rr-color-base-text);
+    background-color: var(--color-base-bg);
+    color: var(--color-base-text);
     font-family: var(--rr-font-family);
   }
 
   :host([theme~='dark']) {
-    --rr-header-bg-color: var(--rr-color-shade);
-    --rr-header-primary-text-color: var(--rr-color-primary-700);
+    --rr-header-bg-color: var(--color-black);
+    --rr-header-primary-text-color: var(--color-primary-700);
   }
 
   h1,
@@ -33,12 +33,12 @@ const styles = css`
   h4,
   h5,
   h6 {
-    color: var(--rr-color-surface-secondary-text);
+    color: var(--color-surface-secondary-text);
     margin: 0;
   }
 
   .card a {
-    color: var(--rr-color-primary-text);
+    color: var(--color-primary-text);
     text-decoration: none;
   }
 
@@ -68,7 +68,7 @@ const styles = css`
       0 2px 2px rgb(0 0 0 / 40%),
       0 1px 5px rgb(0 0 0 / 12%),
       0 3px 1px rgb(0 0 0 / 20%);
-    color: var(--rr-color-tint-950);
+    color: var(--color-white-950);
   }
 
   small,
@@ -101,9 +101,9 @@ const styles = css`
       0 1px 3px 0 rgb(0 0 0 / 0.1),
       0 1px 2px -1px rgb(0 0 0 / 0.1);
     border-radius: var(--rr-surface-border-radius, 4px);
-    border-top: 3px solid var(--rr-color-primary);
-    background-color: var(--rr-color-surface-bg);
-    color: var(--rr-color-surface-text);
+    border-top: 3px solid var(--color-primary);
+    background-color: var(--color-surface-bg);
+    color: var(--color-surface-text);
   }
 
   .card-heading,
@@ -112,7 +112,7 @@ const styles = css`
   }
 
   .card-heading.divider {
-    border-bottom: 1px solid var(--rr-color-divider-secondary);
+    border-bottom: 1px solid var(--color-divider-secondary);
   }
 
   footer {
