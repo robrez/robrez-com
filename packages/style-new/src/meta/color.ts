@@ -33,7 +33,7 @@ export const colorNames = [
   'indigo',
   'violet',
   'purple',
-  'fuscia',
+  'fuchsia',
   'pink',
   'rose'
 ];

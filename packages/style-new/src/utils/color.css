@@ -1,4 +1,8 @@
 /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+.text-amber {
+  color: var(--color-amber);
+}
+
 .text-amber-50 {
   color: var(--color-amber-50);
 }
@@ -43,8 +47,16 @@
   color: var(--color-amber-950);
 }
 
+.text-amber-contrast {
+  color: var(--color-amber-contrast);
+}
+
 .text-black {
   color: var(--color-black);
+}
+
+.text-blue {
+  color: var(--color-blue);
 }
 
 .text-blue-50 {
@@ -91,8 +103,16 @@
   color: var(--color-blue-950);
 }
 
+.text-blue-contrast {
+  color: var(--color-blue-contrast);
+}
+
 .text-current {
   color: currentColor;
+}
+
+.text-cyan {
+  color: var(--color-cyan);
 }
 
 .text-cyan-50 {
@@ -139,6 +159,14 @@
   color: var(--color-cyan-950);
 }
 
+.text-cyan-contrast {
+  color: var(--color-cyan-contrast);
+}
+
+.text-emerald {
+  color: var(--color-emerald);
+}
+
 .text-emerald-50 {
   color: var(--color-emerald-50);
 }
@@ -181,6 +209,14 @@
 
 .text-emerald-950 {
   color: var(--color-emerald-950);
+}
+
+.text-emerald-contrast {
+  color: var(--color-emerald-contrast);
+}
+
+.text-fuchsia {
+  color: var(--color-fuchsia);
 }
 
 .text-fuchsia-50 {
@@ -227,6 +263,14 @@
   color: var(--color-fuchsia-950);
 }
 
+.text-fuchsia-contrast {
+  color: var(--color-fuchsia-contrast);
+}
+
+.text-gray {
+  color: var(--color-gray);
+}
+
 .text-gray-50 {
   color: var(--color-gray-50);
 }
@@ -269,6 +313,14 @@
 
 .text-gray-950 {
   color: var(--color-gray-950);
+}
+
+.text-gray-contrast {
+  color: var(--color-gray-contrast);
+}
+
+.text-green {
+  color: var(--color-green);
 }
 
 .text-green-50 {
@@ -315,6 +367,14 @@
   color: var(--color-green-950);
 }
 
+.text-green-contrast {
+  color: var(--color-green-contrast);
+}
+
+.text-indigo {
+  color: var(--color-indigo);
+}
+
 .text-indigo-50 {
   color: var(--color-indigo-50);
 }
@@ -357,6 +417,14 @@
 
 .text-indigo-950 {
   color: var(--color-indigo-950);
+}
+
+.text-indigo-contrast {
+  color: var(--color-indigo-contrast);
+}
+
+.text-lime {
+  color: var(--color-lime);
 }
 
 .text-lime-50 {
@@ -403,6 +471,14 @@
   color: var(--color-lime-950);
 }
 
+.text-lime-contrast {
+  color: var(--color-lime-contrast);
+}
+
+.text-neutral {
+  color: var(--color-neutral);
+}
+
 .text-neutral-50 {
   color: var(--color-neutral-50);
 }
@@ -445,6 +521,14 @@
 
 .text-neutral-950 {
   color: var(--color-neutral-950);
+}
+
+.text-neutral-contrast {
+  color: var(--color-neutral-contrast);
+}
+
+.text-orange {
+  color: var(--color-orange);
 }
 
 .text-orange-50 {
@@ -491,6 +575,14 @@
   color: var(--color-orange-950);
 }
 
+.text-orange-contrast {
+  color: var(--color-orange-contrast);
+}
+
+.text-pink {
+  color: var(--color-pink);
+}
+
 .text-pink-50 {
   color: var(--color-pink-50);
 }
@@ -533,6 +625,14 @@
 
 .text-pink-950 {
   color: var(--color-pink-950);
+}
+
+.text-pink-contrast {
+  color: var(--color-pink-contrast);
+}
+
+.text-purple {
+  color: var(--color-purple);
 }
 
 .text-purple-50 {
@@ -579,6 +679,14 @@
   color: var(--color-purple-950);
 }
 
+.text-purple-contrast {
+  color: var(--color-purple-contrast);
+}
+
+.text-red {
+  color: var(--color-red);
+}
+
 .text-red-50 {
   color: var(--color-red-50);
 }
@@ -621,6 +729,14 @@
 
 .text-red-950 {
   color: var(--color-red-950);
+}
+
+.text-red-contrast {
+  color: var(--color-red-contrast);
+}
+
+.text-rose {
+  color: var(--color-rose);
 }
 
 .text-rose-50 {
@@ -667,6 +783,14 @@
   color: var(--color-rose-950);
 }
 
+.text-rose-contrast {
+  color: var(--color-rose-contrast);
+}
+
+.text-sky {
+  color: var(--color-sky);
+}
+
 .text-sky-50 {
   color: var(--color-sky-50);
 }
@@ -709,6 +833,14 @@
 
 .text-sky-950 {
   color: var(--color-sky-950);
+}
+
+.text-sky-contrast {
+  color: var(--color-sky-contrast);
+}
+
+.text-slate {
+  color: var(--color-slate);
 }
 
 .text-slate-50 {
@@ -755,6 +887,14 @@
   color: var(--color-slate-950);
 }
 
+.text-slate-contrast {
+  color: var(--color-slate-contrast);
+}
+
+.text-stone {
+  color: var(--color-stone);
+}
+
 .text-stone-50 {
   color: var(--color-stone-50);
 }
@@ -797,6 +937,14 @@
 
 .text-stone-950 {
   color: var(--color-stone-950);
+}
+
+.text-stone-contrast {
+  color: var(--color-stone-contrast);
+}
+
+.text-teal {
+  color: var(--color-teal);
 }
 
 .text-teal-50 {
@@ -843,8 +991,16 @@
   color: var(--color-teal-950);
 }
 
+.text-teal-contrast {
+  color: var(--color-teal-contrast);
+}
+
 .text-transparent {
   color: #0000;
+}
+
+.text-violet {
+  color: var(--color-violet);
 }
 
 .text-violet-50 {
@@ -891,8 +1047,16 @@
   color: var(--color-violet-950);
 }
 
+.text-violet-contrast {
+  color: var(--color-violet-contrast);
+}
+
 .text-white {
   color: var(--color-white);
+}
+
+.text-yellow {
+  color: var(--color-yellow);
 }
 
 .text-yellow-50 {
@@ -939,6 +1103,14 @@
   color: var(--color-yellow-950);
 }
 
+.text-yellow-contrast {
+  color: var(--color-yellow-contrast);
+}
+
+.text-zinc {
+  color: var(--color-zinc);
+}
+
 .text-zinc-50 {
   color: var(--color-zinc-50);
 }
@@ -981,4 +1153,8 @@
 
 .text-zinc-950 {
   color: var(--color-zinc-950);
+}
+
+.text-zinc-contrast {
+  color: var(--color-zinc-contrast);
 }

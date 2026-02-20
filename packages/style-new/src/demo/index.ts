@@ -27,13 +27,11 @@ export function fontSize(renderRoot: HTMLElement): void {
 }
 
 function renderColor(name: string): TemplateResult {
-  const omit = ['DEFAULT', 'contrast'];
-  const panes = levels
-    .filter(level => omit.indexOf(level) < 0)
-    .map(level => {
-      const cls = `text-${name}-${level}`;
-      return html`<div class="${cls} p-8">${level}</div>`;
-    });
+  const cleanLevels = [...levels];
+  const panes = cleanLevels.map(level => {
+    const cls = `text-${name}-${level}`.replace('-text', '');
+    return html`<div class="${cls} p-8">${level}</div>`;
+  });
   const containerStyle: StyleInfo = {
     display: 'flex',
     'flex-wrap': 'wrap',
@@ -41,8 +39,8 @@ function renderColor(name: string): TemplateResult {
   };
   return html`<div>
     <h3>${name}</h3>
-    <div class="bg-neutral-200" style=${styleMap(containerStyle)}>${panes}</div>
-    <div class="bg-neutral-200" theme="dark" style=${styleMap(containerStyle)}>${panes}</div>
+    <div class="bg-neutral-100" style=${styleMap(containerStyle)}>${panes}</div>
+    <div class="bg-neutral-100" theme="dark" style=${styleMap(containerStyle)}>${panes}</div>
   </div>`;
 }
 
@@ -53,12 +51,11 @@ export function color(renderRoot: HTMLElement): void {
 }
 
 function renderBgColor(name: string): TemplateResult {
-  const omit = ['DEFAULT', 'contrast', 'text'];
-  const cleanLevels = levels.filter(level => omit.indexOf(level) < 0);
-  const midIndex = Math.floor(cleanLevels.length / 2);
+  const cleanLevels = [...levels, 'text'];
+  const midIndex = Math.floor(cleanLevels.length / 2) - 1;
   const panes = cleanLevels.map((level, index) => {
     const cls = `bg-${name}-${level}`;
-    const fgCls = index === midIndex ? `color-${name}-contrast` : index > midIndex ? `text-white` : `text-black`;
+    const fgCls = index === midIndex ? `text-${name}-contrast` : index > midIndex ? `text-white` : `text-black`;
     return html`<div class="${cls} ${fgCls} p-8">${level}</div>`;
   });
   const containerStyle: StyleInfo = {

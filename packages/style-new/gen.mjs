@@ -107,6 +107,7 @@ const propsOnlyVisitor = {
       ...decl,
       value: {
         ...decl.value,
+        // here, to rename tokens, eg:
         // name: decl.value.name.replace('--', '--rr-')
         name: decl.value.name.replace('--', '--')
       }
@@ -130,6 +131,8 @@ const scaleMap = {
 
 const colorNames = new Set();
 
+const noReverse = new Set(['contrast', 'white', 'black']);
+
 function reverseColorScale(name) {
   const m = name.match(/^-.*-color-([a-z-]+)-(\d{2,3})$/);
   if (!m) return name;
@@ -137,6 +140,10 @@ function reverseColorScale(name) {
   // this is a somewhat hacky side-effect to avoid parsing twice
   const colorName = m[1];
   colorNames.add(colorName);
+
+  if (noReverse.has(colorName)) {
+    return name;
+  }
 
   const oldScale = m[2];
   const newScale = scaleMap[oldScale];
@@ -245,36 +252,20 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
   }
 
   const prettyPropsCss = await asCss(propsCss);
-
   await fs.mkdir('./src/props/', { recursive: true });
   await fs.writeFile(`./src/props/${propsName}.css`, prettyPropsCss, 'utf-8');
 
   const litCss = await asLitCss(propsCss);
   await fs.writeFile(`./src/props/${propsName}.ts`, litCss, 'utf-8');
+
   const litCssModule = await asLitCssModule('props', propsName);
   await fs.writeFile(`./src/props/${propsName}-module.ts`, litCssModule, 'utf-8');
   console.log('done', propsName);
 }
 
-async function build(inputPath, outputPath) {
-  const css = await fs.readFile(inputPath, 'utf8');
-  await fs.mkdir('./tmp/dummy', { recursive: true });
-  const result = await postcss([
-    tailwind({
-      base: './tmp/dummy'
-    })
-  ]).process(css, {
-    from: inputPath,
-    to: outputPath
-  });
-  try {
-    await fs.rmdir('./tmp/dummy');
-  } catch (e) {
-    // could not remove
-  }
-
+async function buildUtils(files, utilsName) {
+  const result = await twConcat(files);
   const utilsResult = transform({
-    filename: inputPath,
     code: Buffer.from(result.css),
     minify: false,
     analyzeDependencies: false,
@@ -301,29 +292,28 @@ async function build(inputPath, outputPath) {
   });
 
   const utils = utilsResult?.code.toString();
-
-  await fs.mkdir('./src/utils', { recursive: true });
-  await fs.writeFile(outputPath, utils, 'utf8');
-  console.log('build complete: ', inputPath, outputPath);
+  const prettyUtilsCss = await asCss(utils);
+  await fs.mkdir('./src/utils/', { recursive: true });
+  await fs.writeFile(`./src/utils/${utilsName}.css`, prettyUtilsCss, 'utf-8');
+  console.log('build complete: ', utilsName);
 }
 
 async function buildAll() {
   const propsVisitor = composeVisitors([propsOnlyVisitor, layerFlattenVisitor]);
-  await buildProps(['color', 'bg-color', 'color-static'], 'color', propsVisitor);
+  await buildProps(['color-light-theme', 'color', 'bg-color'], 'color', propsVisitor);
   await buildProps(
-    ['color', 'bg-color', 'color-dark-static'],
+    ['color-dark-theme', 'color', 'bg-color'],
     'color-dark',
     composeVisitors([propsVisitor, colorScaleReverseVisitor]),
     colorDarkSelectorTransformer
   );
   await buildProps(['spacing'], 'spacing', propsVisitor);
   await buildProps(['typography'], 'typography', propsVisitor);
-  const files = ['color', 'bg-color', 'spacing', 'typography'];
-  for (const file of files) {
-    const inputPath = `./.src/${file}.css`;
-    const outputPath = `./src/utils/${file}.css`;
-    await build(inputPath, outputPath);
-  }
+
+  await buildUtils(['color-light-theme', 'color'], 'color');
+  await buildUtils(['color-light-theme', 'bg-color'], 'bg-color');
+  await buildUtils(['spacing'], 'spacing');
+  await buildUtils(['typography'], 'typography');
 }
 
 buildAll().catch(err => {

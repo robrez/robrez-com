@@ -1,0 +1,63 @@
+@import "tailwindcss/theme" layer(theme);
+
+@theme {
+  --color-slate-contrast: #000;
+  --color-slate: var(--color-slate-700);
+  --color-gray-contrast: #000;
+  --color-gray: var(--color-gray-700);
+  --color-zinc-contrast: #000;
+  --color-zinc: var(--color-zinc-700);
+  --color-neutral-contrast: #000;
+  --color-neutral: var(--color-neutral-700);
+  --color-stone-contrast: #000;
+  --color-stone: var(--color-stone-700);
+  --color-red-contrast: #000;
+  --color-red: var(--color-red-700);
+  --color-orange-contrast: #000;
+  --color-orange: var(--color-orange-700);
+  --color-amber-contrast: #000;
+  --color-amber: var(--color-amber-700);
+  --color-yellow-contrast: #000;
+  --color-yellow: var(--color-yellow-700);
+  --color-lime-contrast: #000;
+  --color-lime: var(--color-lime-700);
+  --color-green-contrast: #000;
+  --color-green: var(--color-green-700);
+  --color-emerald-contrast: #000;
+  --color-emerald: var(--color-emerald-700);
+  --color-teal-contrast: #000;
+  --color-teal: var(--color-teal-700);
+  --color-cyan-contrast: #000;
+  --color-cyan: var(--color-cyan-700);
+ --color-sky-contrast: #000;
+  --color-sky: var(--color-sky-700);
+  --color-blue-contrast: #000;
+  --color-blue: var(--color-blue-700);
+  --color-indigo-contrast: #000;
+  --color-indigo: var(--color-indigo-700);
+  --color-violet-contrast: #000;
+  --color-violet: var(--color-violet-700);
+  --color-purple-contrast: #000;
+  --color-purple: var(--color-purple-700);
+  --color-fuchsia-contrast: #000;
+  --color-fuchsia: var(--color-fuchsia-700);
+  --color-pink-contrast: #000;
+  --color-pink: var(--color-pink-700);
+  --color-rose-contrast: #000;
+  --color-rose: var(--color-rose-700);
+}
+
+@theme static {
+  --color-contrast-50: rgba(255, 255, 255, 0.05);
+  --color-contrast-100: rgba(255, 255, 255, 0.1);
+  --color-contrast-200: rgba(255, 255, 255, 0.2);
+  --color-contrast-300: rgba(255, 255, 255, 0.3);
+  --color-contrast-400: rgba(255, 255, 255, 0.4);
+  --color-contrast-500: rgba(255, 255, 255, 0.5);
+  --color-contrast-600: rgba(255, 255, 255, 0.6);
+  --color-contrast-700: rgba(255, 255, 255, 0.7);
+  --color-contrast-800: rgba(255, 255, 255, 0.8);
+  --color-contrast-900: rgba(255, 255, 255, 0.9);
+  --color-contrast-950: rgba(255, 255, 255, 0.95);
+  --color-contrast: rgba(255, 255, 255);
+}
