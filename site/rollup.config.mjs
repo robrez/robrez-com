@@ -1,4 +1,4 @@
-import copy from 'rollup-plugin-copy';
+import { copy } from '@web/rollup-plugin-copy';
 import minifyHTML from '@lit-labs/rollup-plugin-minify-html-literals';
 import resolve from '@rollup/plugin-node-resolve';
 import esbuild from 'rollup-plugin-esbuild';
@@ -13,23 +13,11 @@ import esbuild from 'rollup-plugin-esbuild';
 // this is a viable alternative
 
 /**
- * @type {Target[]}
- */
-const copyTargets = [
-  {
-    src: `./src/images`,
-    dest: `dist-dev/`
-  }
-];
-
-/**
  * @type {Plugin}
  */
 const copyPlugin = copy({
-  verbose: true,
-  targets: copyTargets,
-  flatten: true,
-  dereference: true
+  patterns: '**/*.{svg,jpg,json}',
+  rootDir: './src/'
 });
 
 /**

@@ -5,26 +5,42 @@ const styles = css`
   :host {
     display: block;
 
-    --rr-font-family:
+    --font-family:
       -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
       'Segoe UI Emoji', 'Segoe UI Symbol';
 
-    --rr-header-bg-color: var(--rr-color-shade-800);
-    --rr-header-primary-text-color: var(--rr-color-primary-300);
-    --rr-header-text-color: var(--rr-color-tint-900);
-    --rr-header-text-secondary-color: var(--rr-color-tint-800);
-    --rr-header-text-tertiary-color: var(--rr-color-tint-600);
-    --rr-base-divider-color: var(--rr-color-primary);
-    --rr-large-divider-width: 6px;
+    --color-base-bg: var(--color-gray-50);
+    --color-base-text: var(--color-neutral-800);
+    --color-base-secondary-text: var(--color-neutral-500);
+    --color-surface-bg: var(--color-white);
+    --color-surface-text: var(--color-neutral-800);
+    --color-surface-secondary-text: var(--color-neutral-500);
+    --color-divider: var(--color-zinc-300);
+    --color-divider-secondary: var(--color-zinc-200);
+    --header-bg-color: var(--color-black-800);
+    --header-primary-text-color: var(--color-primary-300);
+    --header-text-color: var(--color-white-900);
+    --header-text-secondary-color: var(--color-white-800);
+    --header-text-tertiary-color: var(--color-white-600);
+    --base-divider-color: var(--color-primary-500);
+    --large-divider-width: 6px;
 
-    background-color: var(--rr-color-base-bg);
-    color: var(--rr-color-base-text);
-    font-family: var(--rr-font-family);
+    background-color: var(--color-base-bg);
+    color: var(--color-base-text);
+    font-family: var(--font-family);
   }
 
   :host([theme~='dark']) {
-    --rr-header-bg-color: var(--rr-color-shade);
-    --rr-header-primary-text-color: var(--rr-color-primary-700);
+    --color-base-bg: var(--color-black-900);
+    --color-base-text: var(--color-neutral-900);
+    --color-base-secondary-text: var(--color-neutral-700);
+    --color-surface-bg: var(--color-gray-200);
+    --color-surface-text: var(--color-neutral-900);
+    --color-surface-secondary-text: var(--color-neutral-700);
+    --color-divider: var(--color-zinc-300);
+    --color-divider-secondary: var(--color-zinc-200);
+    --header-bg-color: var(--color-black);
+    --header-primary-text-color: var(--color-primary-700);
   }
 
   h1,
@@ -33,12 +49,12 @@ const styles = css`
   h4,
   h5,
   h6 {
-    color: var(--rr-color-surface-secondary-text);
+    color: var(--color-surface-secondary-text);
     margin: 0;
   }
 
   .card a {
-    color: var(--rr-color-primary-text);
+    color: var(--color-primary);
     text-decoration: none;
   }
 
@@ -48,8 +64,8 @@ const styles = css`
 
   header {
     padding: 1rem;
-    background: var(--rr-header-bg-color);
-    color: var(--rr-header-text-color);
+    background: var(--header-bg-color);
+    color: var(--header-text-color);
   }
 
   .header-content {
@@ -68,13 +84,13 @@ const styles = css`
       0 2px 2px rgb(0 0 0 / 40%),
       0 1px 5px rgb(0 0 0 / 12%),
       0 3px 1px rgb(0 0 0 / 20%);
-    color: var(--rr-color-tint-950);
+    color: var(--color-white-950);
   }
 
   small,
   .caption {
     font-size: 13px;
-    color: var(--rr-header-text-tertiary-color);
+    color: var(--header-text-tertiary-color);
   }
 
   main {
@@ -82,10 +98,10 @@ const styles = css`
     padding: 1rem;
     background: linear-gradient(
       180deg,
-      var(--rr-header-bg-color),
-      var(--rr-header-bg-color) 56px,
-      var(--rr-base-divider-color) 56px,
-      var(--rr-base-divider-color) calc(56px + var(--rr-large-divider-width)),
+      var(--header-bg-color),
+      var(--header-bg-color) 56px,
+      var(--base-divider-color) 56px,
+      var(--base-divider-color) calc(56px + var(--large-divider-width)),
       transparent 1px
     );
   }
@@ -100,26 +116,21 @@ const styles = css`
     box-shadow:
       0 1px 3px 0 rgb(0 0 0 / 0.1),
       0 1px 2px -1px rgb(0 0 0 / 0.1);
-    border-radius: var(--rr-surface-border-radius, 4px);
-    border-top: 3px solid var(--rr-color-primary);
-    background-color: var(--rr-color-surface-bg);
-    color: var(--rr-color-surface-text);
-  }
-
-  .card-heading,
-  .card-body {
-    padding: var(--rr-space-md);
+    border-radius: var(--surface-border-radius, 4px);
+    border-top: 3px solid var(--color-primary-500);
+    background-color: var(--color-surface-bg);
+    color: var(--color-surface-text);
   }
 
   .card-heading.divider {
-    border-bottom: 1px solid var(--rr-color-divider-secondary);
+    border-bottom: 1px solid var(--color-divider-secondary);
   }
 
   footer {
     padding: 1rem;
-    background: var(--rr-header-bg-color);
-    color: var(--rr-header-text-color);
-    border-top: var(--rr-large-divider-width) solid var(--rr-base-divider-color);
+    background: var(--header-bg-color);
+    color: var(--header-text-color);
+    border-top: var(--large-divider-width) solid var(--base-divider-color);
     min-height: 200px;
   }
 

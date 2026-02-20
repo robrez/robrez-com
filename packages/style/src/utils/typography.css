@@ -1,40 +1,80 @@
+/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
 .text-2xl {
-  font-size: var(--rr-font-size-2xl);
-  line-height: var(--rr-line-height-2xl);
+  font-size: var(--text-2xl);
 }
-.text-2xs {
-  font-size: var(--rr-font-size-2xs);
-  line-height: var(--rr-line-height-2xs);
-}
+
 .text-3xl {
-  font-size: var(--rr-font-size-3xl);
-  line-height: var(--rr-line-height-3xl);
+  font-size: var(--text-3xl);
 }
-.text-3xs {
-  font-size: var(--rr-font-size-3xs);
-  line-height: var(--rr-line-height-3xs);
-}
+
 .text-4xl {
-  font-size: var(--rr-font-size-4xl);
-  line-height: var(--rr-line-height-4xl);
+  font-size: var(--text-4xl);
 }
+
 .text-lg {
-  font-size: var(--rr-font-size-lg);
-  line-height: var(--rr-line-height-lg);
+  font-size: var(--text-lg);
 }
-.text-md {
-  font-size: var(--rr-font-size-md);
-  line-height: var(--rr-line-height-md);
-}
+
 .text-sm {
-  font-size: var(--rr-font-size-sm);
-  line-height: var(--rr-line-height-sm);
+  font-size: var(--text-sm);
 }
+
 .text-xl {
-  font-size: var(--rr-font-size-xl);
-  line-height: var(--rr-line-height-xl);
+  font-size: var(--text-xl);
 }
+
 .text-xs {
-  font-size: var(--rr-font-size-xs);
-  line-height: var(--rr-line-height-xs);
+  font-size: var(--text-xs);
+}
+
+.leading-1 {
+  line-height: var(--leading-1);
+}
+
+.leading-lg {
+  line-height: var(--leading-lg);
+}
+
+.leading-md {
+  line-height: var(--leading-md);
+}
+
+.leading-sm {
+  line-height: var(--leading-sm);
+}
+
+.font-black {
+  font-weight: var(--font-weight-black);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.font-extralight {
+  font-weight: var(--font-weight-extralight);
+}
+
+.font-light {
+  font-weight: var(--font-weight-light);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-thin {
+  font-weight: var(--font-weight-thin);
 }

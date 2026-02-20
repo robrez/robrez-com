@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -21,7 +21,7 @@
   </head>
 
   <body>
-    <rr-app-layout>
+    <rr-app-layout randomize-brand-color>
       <h1 slot="header">Application</h1>
 
       <div class="card">
@@ -45,20 +45,11 @@
 
       <div slot="footer">
         <div>Thanks for visiting</div>
-        <div><button id="modeBtn">Switch Theme</button></div>
       </div>
     </rr-app-layout>
 
     <script type="module">
       import '../define-with-styles.js';
-
-      const modeBtn = document.getElementById('modeBtn');
-      modeBtn.addEventListener('click', e => {
-        const appEl = document.querySelector('rr-app-layout');
-        appEl.classList.toggle('rr-theme-dark');
-        const darkMode = appEl.classList.contains('rr-theme-dark');
-        modeBtn.textContent = darkMode ? 'Switch to Light' : 'Switch to Dark';
-      });
     </script>
   </body>
 </html>

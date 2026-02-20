@@ -4,9 +4,9 @@ import { rebrand } from '@robrez-com/style/rebrand.js';
 import { colorNames as allColorNames } from '@robrez-com/style/src/meta/color.js';
 import { styles } from './styles.js';
 
+const bannedColorNames = new Set<string>(['slate', 'gray', 'zinc', 'neutral', 'stone', 'primary']);
 const colorNames = allColorNames.filter(color => {
-  const bannedColorNames = ['slate', 'gray', 'zinc', 'neutral', 'stone'];
-  return bannedColorNames.indexOf(color) < 0;
+  return !bannedColorNames.has(color);
 });
 
 const lightIcon = svg`<svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M480 936q-150 0-255-105T120 576q0-150 105-255t255-105q8 0 17 .5t23 1.5q-36 32-56 79t-20 99q0 90 63 153t153 63q52 0 99-18.5t79-51.5q1 12 1.5 19.5t.5 14.5q0 150-105 255T480 936Zm0-60q109 0 190-67.5T771 650q-25 11-53.667 16.5Q688.667 672 660 672q-114.689 0-195.345-80.655Q384 510.689 384 396q0-24 5-51.5t18-62.5q-98 27-162.5 109.5T180 576q0 125 87.5 212.5T480 876Zm-4-297Z"/></svg>`;
@@ -58,7 +58,7 @@ export class AppLayout extends LitElement {
         height: 1.5rem;
         width: 1.5rem;
         padding: 0.125rem;
-        color: var(--rr-header-text-color);
+        color: var(--header-text-color);
         border-radius: 2px;
         opacity: 0.8;
         transition:
@@ -77,7 +77,7 @@ export class AppLayout extends LitElement {
         bottom: 0;
         right: 0;
         left: 0;
-        background-color: var(--rr-header-text-color);
+        background-color: var(--header-text-color);
         opacity: 0;
         border-radius: 2px;
         transition:
@@ -108,7 +108,7 @@ export class AppLayout extends LitElement {
       }
 
       [part='theme-toggle']:focus-visible {
-        box-shadow: 0 0 3px var(--rr-color-primary);
+        box-shadow: 0 0 3px var(--color-primary-500);
       }
 
       [part='theme-toggle'] svg {

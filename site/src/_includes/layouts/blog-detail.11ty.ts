@@ -21,11 +21,11 @@ const renderExample = (data: RenderData): string => {
           <!-- main slot -->
 
           <div class="card">
-            <div class="card-heading"><h3>${data.name}</h3></div>
+            <div class="card-heading p-16"><h3>${data.name}</h3></div>
           </div>
 
-          <div class="card mt-xl">
-            <div class="card-body">${data.content}</div>
+          <div class="card mt-24">
+            <div class="card-body p-16">${data.content}</div>
           </div>
 
           <!-- footer slot -->

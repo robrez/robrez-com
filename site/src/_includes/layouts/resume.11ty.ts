@@ -43,31 +43,31 @@ function formatDateRange(startDate: Date, endDate: Date | undefined): string | u
 function renderIntro(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section>
-    <div class="card-heading">
+    <div class="card-heading p-16">
       <h3>About Me</h3>
     </div>
-    <div class="card-body">${item.content}</div>
+    <div class="card-body p-16">${item.content}</div>
   </section>`;
 }
 
 function renderPosition(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section>
-    <div class="flex items-center justify-between card-heading">
+    <div class="flex items-center justify-between card-heading p-16">
       <h4>${data.title}</h4>
       <small class="color-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
     </div>
-    <div class="card-body">${item.content}</div>
+    <div class="card-body p-16">${item.content}</div>
   </section>`;
 }
 
 function renderProject(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section>
-    <div class="flex items-center justify-between card-heading">
+    <div class="flex items-center justify-between card-heading p-16">
       <h4>${data.title}</h4>
     </div>
-    <div class="card-body">${item.content}</div>
+    <div class="card-body p-16">${item.content}</div>
   </section>`;
 }
 
@@ -101,26 +101,26 @@ function renderResumeItems(items: ResumeItem[]): string {
   const positionsContent = positions.map(item => html`${renderPosition(item)}`).join('\n');
   const projectsContent = projects.map(item => html`${renderProject(item)}`).join('\n');
   return html` <!-- -->
-    <div class="card mt-xl">
+    <div class="card mt-24">
       ${introContent}
 
-      <div class="card-heading">
+      <div class="card-heading p-16">
         <h3>Key Platforms & Architectures</h3>
       </div>
-      <div class="card-body">${projectsContent}</div>
+      <div class="card-body p-16">${projectsContent}</div>
 
-      <div class="card-heading">
+      <div class="card-heading p-16">
         <h3>Professional Experience</h3>
       </div>
-      <div class="card-body">
-        <div class="card-heading">
+      <div class="card-body p-16">
+        <div class="card-heading p-16">
           <h4>TruBridge</h4>
           <div>
             <small class="color-contrast-700 text-xs">${formatDateRange(new Date('2007-01-25'), undefined)}</small>
           </div>
           <div>Principal Engineer (various senior engineering roles)</div>
         </div>
-        <div class="card-body">${positionsContent}</div>
+        <div class="card-body p-16">${positionsContent}</div>
       </div>
     </div>`;
 }
@@ -138,7 +138,7 @@ function pageStyles(): string {
     .image-container {
       box-sizing: border-box;
       border-radius: 9999px;
-      border: 3px solid var(--rr-color-primary);
+      border: 3px solid var(--color-primary);
       height: 64px;
       width: 64px;
     }
@@ -200,14 +200,14 @@ function page(data: RenderData): string {
       </head>
 
       <body>
-        <rr-app-layout class="text-md">
+        <rr-app-layout class="text-md leading-md" randomize-brand-color>
           ${header(data)}
 
           <!-- main slot -->
           <div class="card">
-            <div class="card-heading flex flex-wrap">
-              <div class="flex flex-1 items-start pr-md">
-                <div class="image-container mr-md flex-shrink-0"><img src="../images/rob.jpg" alt="" /></div>
+            <div class="card-heading p-16 flex flex-wrap">
+              <div class="flex flex-1 items-start pr-16">
+                <div class="image-container mr-16 flex-shrink-0"><img src="../images/rob.jpg" alt="" /></div>
                 <div>
                   <h2><div class="color-primary-text">Rob Resendez</div></h2>
                   <div class="text-xs color-contrast-700">Software Engineering Professional</div>
@@ -215,11 +215,11 @@ function page(data: RenderData): string {
               </div>
               <div class="self-end">
                 <div class="social flex items-center justify-end">
-                  <a class="mr-xs" href="https://github.com/robrez">github</a>
+                  <a class="mr-8" href="https://github.com/robrez">github</a>
                   ${icons.gh}
                 </div>
                 <div class="social flex items-center justify-end">
-                  <a class="mr-xs" href="https://www.linkedin.com/in/rob-resendez/">linkedin</a>
+                  <a class="mr-8" href="https://www.linkedin.com/in/rob-resendez/">linkedin</a>
                   ${icons.linkedin}
                 </div>
               </div>

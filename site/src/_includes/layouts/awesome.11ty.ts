@@ -20,13 +20,13 @@ function page(data: RenderData): string {
 
           <!-- main slot -->
           <div class="card">
-            <div class="card-heading">
+            <div class="card-heading p-16">
               <h3>Awesome 🎉🔥</h3>
             </div>
           </div>
 
-          <div class="card mt-xl">
-            <div class="card-body">${awesome?.content}</div>
+          <div class="card mt-24">
+            <div class="card-body p-16">${awesome?.content}</div>
           </div>
 
           <!-- footer slot -->

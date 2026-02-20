@@ -22,8 +22,8 @@ function page(data: RenderData): string {
 
           <!-- main slot -->
           <div class="card">
-            <div class="card-heading divider"><h3>${intro?.data.title}</h3></div>
-            <div class="card-body">${intro?.content}</div>
+            <div class="card-heading p-16 divider"><h3>${intro?.data.title}</h3></div>
+            <div class="card-body p-16">${intro?.content}</div>
           </div>
 
           <!-- footer slot -->
