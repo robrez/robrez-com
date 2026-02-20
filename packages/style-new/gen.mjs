@@ -129,20 +129,25 @@ const scaleMap = {
   950: '50'
 };
 
-const colorNames = new Set();
+const colorNamesSet = new Set();
+const colorNames = [];
+const colorLevels = [...Object.keys(scaleMap)];
 
-const noReverse = new Set(['contrast', 'white', 'black']);
+const tintsAndShades = new Set(['contrast', 'white', 'black']);
 
 function reverseColorScale(name) {
   const m = name.match(/^-.*-color-([a-z-]+)-(\d{2,3})$/);
   if (!m) return name;
 
-  // this is a somewhat hacky side-effect to avoid parsing twice
   const colorName = m[1];
-  colorNames.add(colorName);
-
-  if (noReverse.has(colorName)) {
+  if (tintsAndShades.has(colorName)) {
     return name;
+  }
+
+  // this is a somewhat hacky side-effect to avoid parsing twice
+  if (!colorNamesSet.has(colorName)) {
+    colorNamesSet.add(colorName);
+    colorNames.push(colorName);
   }
 
   const oldScale = m[2];
@@ -260,7 +265,7 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
 
   const litCssModule = await asLitCssModule('props', propsName);
   await fs.writeFile(`./src/props/${propsName}-module.ts`, litCssModule, 'utf-8');
-  console.log('done', propsName);
+  console.log('build complete: ', `props/${propsName}`);
 }
 
 async function buildUtils(files, utilsName) {
@@ -295,7 +300,30 @@ async function buildUtils(files, utilsName) {
   const prettyUtilsCss = await asCss(utils);
   await fs.mkdir('./src/utils/', { recursive: true });
   await fs.writeFile(`./src/utils/${utilsName}.css`, prettyUtilsCss, 'utf-8');
-  console.log('build complete: ', utilsName);
+  console.log('build complete: ', `utils/${utilsName}`);
+}
+
+async function buildMeta() {
+  const js = String.raw;
+  const levelsStr = colorLevels.map(name => `'${name}'`).join(',\n  ');
+  const namesStr = colorNames.map(name => `'${name}'`).join(',\n  ');
+  const colorMeta = js`
+    export const levels = [
+      //
+      ${levelsStr}
+    ];
+
+    export const colorNames = [
+      //
+      ${namesStr}
+    ]
+
+    export const emotiveNames = ['primary', 'success', 'danger', 'warning', 'info'];
+  `;
+  const colorSrc = await prettify(colorMeta, {});
+  await fs.mkdir('./src/meta/', { recursive: true });
+  await fs.writeFile(`./src/meta/color.ts`, colorSrc, 'utf-8');
+  console.log('build complete: ', 'meta/color');
 }
 
 async function buildAll() {
@@ -314,6 +342,8 @@ async function buildAll() {
   await buildUtils(['color-light-theme', 'bg-color'], 'bg-color');
   await buildUtils(['spacing'], 'spacing');
   await buildUtils(['typography'], 'typography');
+
+  await buildMeta();
 }
 
 buildAll().catch(err => {

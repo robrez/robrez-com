@@ -14,11 +14,7 @@ export const levels = [
 ];
 
 export const colorNames = [
-  'slate',
-  'gray',
-  'zinc',
-  'neutral',
-  'stone',
+  //
   'red',
   'orange',
   'amber',
@@ -35,7 +31,12 @@ export const colorNames = [
   'purple',
   'fuchsia',
   'pink',
-  'rose'
+  'rose',
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone'
 ];
 
 export const emotiveNames = ['primary', 'success', 'danger', 'warning', 'info'];

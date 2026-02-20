@@ -43,10 +43,6 @@
   background-color: var(--color-amber-950);
 }
 
-.bg-black {
-  background-color: var(--color-black);
-}
-
 .bg-blue-50 {
   background-color: var(--color-blue-50);
 }
@@ -843,10 +839,6 @@
   background-color: var(--color-teal-950);
 }
 
-.bg-transparent {
-  background-color: #0000;
-}
-
 .bg-violet-50 {
   background-color: var(--color-violet-50);
 }
@@ -889,10 +881,6 @@
 
 .bg-violet-950 {
   background-color: var(--color-violet-950);
-}
-
-.bg-white {
-  background-color: var(--color-white);
 }
 
 .bg-yellow-50 {

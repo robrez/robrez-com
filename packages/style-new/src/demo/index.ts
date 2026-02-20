@@ -27,7 +27,7 @@ export function fontSize(renderRoot: HTMLElement): void {
 }
 
 function renderColor(name: string): TemplateResult {
-  const cleanLevels = [...levels];
+  const cleanLevels = [...levels, 'text'];
   const panes = cleanLevels.map(level => {
     const cls = `text-${name}-${level}`.replace('-text', '');
     return html`<div class="${cls} p-8">${level}</div>`;
@@ -51,7 +51,7 @@ export function color(renderRoot: HTMLElement): void {
 }
 
 function renderBgColor(name: string): TemplateResult {
-  const cleanLevels = [...levels, 'text'];
+  const cleanLevels = [...levels];
   const midIndex = Math.floor(cleanLevels.length / 2) - 1;
   const panes = cleanLevels.map((level, index) => {
     const cls = `bg-${name}-${level}`;
