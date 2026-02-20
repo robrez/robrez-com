@@ -631,6 +631,58 @@
   color: var(--color-pink-contrast);
 }
 
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-primary-50 {
+  color: var(--color-primary-50);
+}
+
+.text-primary-100 {
+  color: var(--color-primary-100);
+}
+
+.text-primary-200 {
+  color: var(--color-primary-200);
+}
+
+.text-primary-300 {
+  color: var(--color-primary-300);
+}
+
+.text-primary-400 {
+  color: var(--color-primary-400);
+}
+
+.text-primary-500 {
+  color: var(--color-primary-500);
+}
+
+.text-primary-600 {
+  color: var(--color-primary-600);
+}
+
+.text-primary-700 {
+  color: var(--color-primary-700);
+}
+
+.text-primary-800 {
+  color: var(--color-primary-800);
+}
+
+.text-primary-900 {
+  color: var(--color-primary-900);
+}
+
+.text-primary-950 {
+  color: var(--color-primary-950);
+}
+
+.text-primary-contrast {
+  color: var(--color-primary-contrast);
+}
+
 .text-purple {
   color: var(--color-purple);
 }

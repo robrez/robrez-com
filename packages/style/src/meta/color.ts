@@ -36,7 +36,8 @@ export const colorNames = [
   'gray',
   'zinc',
   'neutral',
-  'stone'
+  'stone',
+  'primary'
 ];
 
 export const emotiveNames = ['primary', 'success', 'danger', 'warning', 'info'];
