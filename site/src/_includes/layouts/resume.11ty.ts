@@ -2,6 +2,7 @@ import type { RenderData, CollectionItem, CollectionItemData } from '../../types
 import header from './header.js';
 import footer from './footer.js';
 import head from './head.js';
+import relative from '../util/relative-path.js';
 
 const html = String.raw;
 
@@ -52,10 +53,12 @@ function renderIntro(item: CollectionItem): string {
 
 function renderPosition(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
-  return html` <section>
-    <div class="flex items-center justify-between card-heading p-16">
+  return html` <section class="break-inside-avoid">
+    <div class="card-heading p-16">
       <h4>${data.title}</h4>
-      <small class="text-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
+      <div>
+        <small class="text-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
+      </div>
     </div>
     <div class="card-body p-16">${item.content}</div>
   </section>`;
@@ -63,7 +66,7 @@ function renderPosition(item: CollectionItem): string {
 
 function renderProject(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
-  return html` <section>
+  return html` <section class="break-inside-avoid">
     <div class="flex items-center justify-between card-heading p-16">
       <h4>${data.title}</h4>
     </div>
@@ -113,12 +116,12 @@ function renderResumeItems(items: ResumeItem[]): string {
         <h3>Professional Experience</h3>
       </div>
       <div class="card-body p-16">
-        <div class="card-heading p-16">
+        <div class="card-heading p-16 break-inside-avoid">
           <h4>TruBridge</h4>
           <div>
             <small class="text-contrast-700 text-xs">${formatDateRange(new Date('2007-01-25'), undefined)}</small>
           </div>
-          <div>Principal Engineer (various senior engineering roles)</div>
+          <div>Staff Engineer (various senior engineering roles)</div>
         </div>
         <div class="card-body p-16">${positionsContent}</div>
       </div>
@@ -162,6 +165,7 @@ type Icons = {
   gh: string;
   linkedin: string;
   mail: string;
+  download: string;
 };
 
 function iconsLicense(): string {
@@ -174,10 +178,12 @@ function iconset(): Icons {
   const gh = svg`<svg class="gh" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>`;
   const linkedin = svg`<svg class="linkedin" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>`;
   const mail = svg`<svg class="mail" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>`;
+  const download = svg`<svg class="download" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
   return {
     gh,
     linkedin,
-    mail
+    mail,
+    download
   };
 }
 
@@ -185,8 +191,11 @@ function page(data: RenderData): string {
   const resumeItems: ResumeItem[] = data.collections.resume as ResumeItem[];
 
   const icons = iconset();
+  const resumeHref = '../assets/resume.pdf';
 
   const { title, page, content } = data;
+  // @ts-ignore
+  const buildTs = data?.build?.default?.timestamp ?? Date.now();
   const tpl = html` <!DOCTYPE html>
 
     <html lang="en">
@@ -209,11 +218,28 @@ function page(data: RenderData): string {
               <div class="flex flex-1 items-start pr-16">
                 <div class="image-container mr-16 flex-shrink-0"><img src="../images/rob.jpg" alt="" /></div>
                 <div>
-                  <h2><div class="color-primary-text">Rob Resendez</div></h2>
+                  <h2>
+                    <a class="text-primary-900" href="https://robrez.com/resume/"
+                      ><span class="text-primary-900">Rob Resendez</span></a
+                    >
+                  </h2>
                   <div class="text-xs text-contrast-700">Software Engineering Professional</div>
                 </div>
               </div>
               <div class="self-end">
+                <div class="print:hidden">
+                  <div class="social flex items-center justify-end">
+                    <a
+                      class="mr-8"
+                      href="${resumeHref}?ver=${buildTs}"
+                      download="Resume-Rob-Resendez.pdf"
+                      type="application/pdf"
+                      aria-label="Download resume as PDF"
+                      >download</a
+                    >
+                    ${icons.download}
+                  </div>
+                </div>
                 <div class="social flex items-center justify-end">
                   <a class="mr-8" href="https://github.com/robrez">github</a>
                   ${icons.gh}

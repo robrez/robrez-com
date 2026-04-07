@@ -16,7 +16,7 @@ import esbuild from 'rollup-plugin-esbuild';
  * @type {Plugin}
  */
 const copyPlugin = copy({
-  patterns: '**/*.{svg,jpg,json}',
+  patterns: '**/*.{svg,jpg,json,pdf}',
   rootDir: './src/'
 });
 

@@ -37,8 +37,10 @@ async function buildAll() {
       '../node_modules/@robrez-com/style/src/props/color-dark.css',
       '../node_modules/@robrez-com/style/src/props/spacing.css',
       '../node_modules/@robrez-com/style/src/props/typography.css',
-      '../node_modules/@robrez-com/style/src/utils/*.css',
+      '../node_modules/@robrez-com/style/src/utils/*.css'
     ],
+    // allow for tw "variant:rule" syntax
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
     safelist: {
       standard: [
         //
@@ -50,8 +52,7 @@ async function buildAll() {
   const prettyUtilsCss = await asCss(blah);
   await fs.mkdir('./dist-css', { recursive: true });
   await fs.writeFile(`./dist-css/purgecss.css`, prettyUtilsCss, 'utf-8');
-  console.log('build complete');
-  var x = 0;
+  console.log('purgecss complete');
 }
 
 buildAll().catch(err => {

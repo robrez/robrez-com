@@ -1,4 +1,5 @@
 import path from 'path';
+import { copy } from '@web/rollup-plugin-copy';
 import { rollupPluginHTML as html } from '@web/rollup-plugin-html';
 import { polyfillsLoader } from '@web/rollup-plugin-polyfills-loader';
 import { bundleAsync } from 'lightningcss';
@@ -10,6 +11,15 @@ import esbuild from 'rollup-plugin-esbuild';
  * @typedef {import("rollup-plugin-copy").Target} Target
  * @typedef {import("lightningcss").TransformAttributeOptions} TransformAttributeOptions
  */
+
+
+/**
+ * @type {Plugin}
+ */
+const copyPlugin = copy({
+  patterns: '**/*.pdf',
+  rootDir: './dist-dev/',
+});
 
 /**
  * @type {TransformAttributeOptions}
@@ -75,7 +85,8 @@ const config = {
       polyfills: {
         webcomponents: true
       }
-    })
+    }),
+    copyPlugin
   ]
 };
 

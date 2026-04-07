@@ -168,6 +168,24 @@ const styles = css`
   nav a[data-selected='true'] {
     text-decoration: underline;
   }
+
+  @media print {
+    :host {
+      --color-base-bg: #fff;
+    }
+    [part~='header'],
+    [part~='footer'] {
+      display: none;
+    }
+
+    ::slotted(.card),
+    .card {
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      box-shadow: unset;
+      border-radius: 0;
+    }
+  }
 `;
 
 export { styles };
