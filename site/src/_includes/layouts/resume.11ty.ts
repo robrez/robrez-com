@@ -55,7 +55,7 @@ function renderPosition(item: CollectionItem): string {
   return html` <section>
     <div class="flex items-center justify-between card-heading p-16">
       <h4>${data.title}</h4>
-      <small class="color-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
+      <small class="text-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
     </div>
     <div class="card-body p-16">${item.content}</div>
   </section>`;
@@ -116,7 +116,7 @@ function renderResumeItems(items: ResumeItem[]): string {
         <div class="card-heading p-16">
           <h4>TruBridge</h4>
           <div>
-            <small class="color-contrast-700 text-xs">${formatDateRange(new Date('2007-01-25'), undefined)}</small>
+            <small class="text-contrast-700 text-xs">${formatDateRange(new Date('2007-01-25'), undefined)}</small>
           </div>
           <div>Principal Engineer (various senior engineering roles)</div>
         </div>
@@ -210,7 +210,7 @@ function page(data: RenderData): string {
                 <div class="image-container mr-16 flex-shrink-0"><img src="../images/rob.jpg" alt="" /></div>
                 <div>
                   <h2><div class="color-primary-text">Rob Resendez</div></h2>
-                  <div class="text-xs color-contrast-700">Software Engineering Professional</div>
+                  <div class="text-xs text-contrast-700">Software Engineering Professional</div>
                 </div>
               </div>
               <div class="self-end">
