@@ -107,6 +107,50 @@
   color: var(--color-blue-contrast);
 }
 
+.text-contrast-50 {
+  color: var(--color-contrast-50);
+}
+
+.text-contrast-100 {
+  color: var(--color-contrast-100);
+}
+
+.text-contrast-200 {
+  color: var(--color-contrast-200);
+}
+
+.text-contrast-300 {
+  color: var(--color-contrast-300);
+}
+
+.text-contrast-400 {
+  color: var(--color-contrast-400);
+}
+
+.text-contrast-500 {
+  color: var(--color-contrast-500);
+}
+
+.text-contrast-600 {
+  color: var(--color-contrast-600);
+}
+
+.text-contrast-700 {
+  color: var(--color-contrast-700);
+}
+
+.text-contrast-800 {
+  color: var(--color-contrast-800);
+}
+
+.text-contrast-900 {
+  color: var(--color-contrast-900);
+}
+
+.text-contrast-950 {
+  color: var(--color-contrast-950);
+}
+
 .text-current {
   color: currentColor;
 }
