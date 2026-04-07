@@ -1,7 +1,6 @@
 import { css } from 'lit-element';
 
 const styles = css`
-  :root,
   :host {
     display: block;
 
