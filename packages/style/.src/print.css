@@ -1,0 +1,5 @@
+@import "tailwindcss/theme" layer(theme);
+
+@import "tailwindcss/utilities" layer(utilities);
+
+@source inline("break-inside-auto break-inside-avoid break-inside-avoid-page break-inside-avoid-column");

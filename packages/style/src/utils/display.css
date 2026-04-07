@@ -1,0 +1,18 @@
+/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+@media print {
+  .print\:block {
+    display: block;
+  }
+
+  .print\:hidden {
+    display: none;
+  }
+}

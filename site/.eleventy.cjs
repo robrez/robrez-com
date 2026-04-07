@@ -12,7 +12,6 @@ module.exports = function (eleventyConfig) {
    * Considered copying w/ rollup
    */
   eleventyConfig.addPassthroughCopy({
-    '../node_modules/prismjs/themes/prism-okaidia.css': 'prism-okaidia.css',
     './dist-css/*.css': 'style/',
   });
 

@@ -160,7 +160,7 @@ export class AppLayout extends LitElement {
         <div class="main-content"><slot></slot></div>
       </main>
 
-      <footer>
+      <footer part="footer">
         <slot name="footer"></slot>
       </footer>
     `;

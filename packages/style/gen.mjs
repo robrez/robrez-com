@@ -4,7 +4,7 @@ import prettier from 'prettier';
 import postcss from 'postcss';
 import tailwind from '@tailwindcss/postcss';
 import oklabFunction from '@csstools/postcss-oklab-function';
-import { transform, composeVisitors } from 'lightningcss';
+import { transform, composeVisitors, Features } from 'lightningcss';
 
 /**
  * Formats given content string according to prettier configuation
@@ -270,26 +270,38 @@ async function buildProps(files, propsName, visitor, customizer = undefined) {
 
 async function buildUtils(files, utilsName) {
   const result = await twConcat(files);
-  const utilsResult = transform({
+
+  // Pass 1: lower nesting so print utilities become normal @media rules
+  const lowered = transform({
     code: Buffer.from(result.css),
+    minify: false,
+    analyzeDependencies: false,
+    include: Features.Nesting
+  });
+
+  // Pass 2: strip @layer utilities, keep everything else
+  const utilsResult = transform({
+    code: lowered.code,
     minify: false,
     analyzeDependencies: false,
     visitor: {
       Rule(rule) {
+        if (rule.type === 'property' && rule?.value?.name?.startsWith('--tw-')) {
+          return [];
+        }
         if (rule.type === 'layer-block') {
-          if (rule?.value?.name?.indexOf('utilities') >= 0) {
+          if (rule?.value?.name?.includes('utilities')) {
             return rule.value.rules;
           }
           return [];
         }
-        return [];
+        return rule;
       },
       Selector(selector) {
         return noTransformFilter(selector);
       },
       Declaration(decl) {
         if (decl.value?.name?.startsWith('--tw')) {
-          // removes unwanted `--tw` rules and props
           return [];
         }
       }
@@ -302,7 +314,6 @@ async function buildUtils(files, utilsName) {
   await fs.writeFile(`./src/utils/${utilsName}.css`, prettyUtilsCss, 'utf-8');
   console.log('build complete: ', `utils/${utilsName}`);
 }
-
 async function buildMeta() {
   const js = String.raw;
   const levelsStr = colorLevels.map(name => `'${name}'`).join(',\n  ');
@@ -340,9 +351,11 @@ async function buildAll() {
 
   await buildUtils(['color-light-theme', 'color'], 'color');
   await buildUtils(['color-light-theme', 'bg-color'], 'bg-color');
+  await buildUtils(['display'], 'display');
   await buildUtils(['flex'], 'flex');
   await buildUtils(['spacing'], 'spacing');
   await buildUtils(['typography'], 'typography');
+  await buildUtils(['print'], 'print');
 
   await buildMeta();
 }
