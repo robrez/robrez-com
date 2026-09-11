@@ -5,7 +5,7 @@ company: TruBridge
 category: project
 startDate: 2018-01-01
 endDate: 2019-12-31
-rank: 300
+rank: 400
 itemTags:
   - lit-html
   - LitElement

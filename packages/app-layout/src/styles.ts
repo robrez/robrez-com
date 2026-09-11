@@ -52,6 +52,14 @@ const styles = css`
     margin: 0;
   }
 
+  p {
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+  }
+
   .card a {
     color: var(--color-primary);
     text-decoration: none;

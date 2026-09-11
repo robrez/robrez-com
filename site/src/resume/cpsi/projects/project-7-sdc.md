@@ -5,7 +5,7 @@ company: TruBridge
 category: project
 startDate: 2022-11-01
 endDate:
-rank: 700
+rank: 800
 itemTags:
   - Lit
   - .NET Core

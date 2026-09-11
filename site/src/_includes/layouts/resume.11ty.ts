@@ -2,7 +2,7 @@ import type { RenderData, CollectionItem, CollectionItemData } from '../../types
 import header from './header.js';
 import footer from './footer.js';
 import head from './head.js';
-import relative from '../util/relative-path.js';
+// import relative from '../util/relative-path.js';
 
 const html = String.raw;
 
@@ -44,33 +44,33 @@ function formatDateRange(startDate: Date, endDate: Date | undefined): string | u
 function renderIntro(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section>
-    <div class="card-heading p-16">
+    <div class="card-heading pt-24 px-16 pb-8">
       <h3>About Me</h3>
     </div>
-    <div class="card-body p-16">${item.content}</div>
+    <div class="card-body py-8 px-16 pb-32">${item.content}</div>
   </section>`;
 }
 
 function renderPosition(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section class="break-inside-avoid">
-    <div class="card-heading p-16">
+    <div class="card-heading py-8 p-16">
       <h4>${data.title}</h4>
       <div>
         <small class="text-contrast-700 text-xs">${formatDateRange(data.startDate, data.endDate)}</small>
       </div>
     </div>
-    <div class="card-body p-16">${item.content}</div>
+    <div class="card-body py-8 px-16 pb-32">${item.content}</div>
   </section>`;
 }
 
 function renderProject(item: CollectionItem): string {
   const data: ResumeItemData = item.data as ResumeItemData;
   return html` <section class="break-inside-avoid">
-    <div class="flex items-center justify-between card-heading p-16">
+    <div class="flex items-center justify-between card-heading py-8 px-16">
       <h4>${data.title}</h4>
     </div>
-    <div class="card-body p-16">${item.content}</div>
+    <div class="card-body py-8 px-16 pb-32">${item.content}</div>
   </section>`;
 }
 
@@ -107,23 +107,23 @@ function renderResumeItems(items: ResumeItem[]): string {
     <div class="card mt-24">
       ${introContent}
 
-      <div class="card-heading p-16">
+      <div class="card-heading px-16 py-8">
         <h3>Key Platforms & Architectures</h3>
       </div>
-      <div class="card-body p-16">${projectsContent}</div>
+      <div class="card-body px-16 py-8">${projectsContent}</div>
 
-      <div class="card-heading p-16">
+      <div class="card-heading px-16 py-8">
         <h3>Professional Experience</h3>
       </div>
-      <div class="card-body p-16">
-        <div class="card-heading p-16 break-inside-avoid">
+      <div class="card-body px-16">
+        <div class="card-heading px-16 py-8 break-inside-avoid">
           <h4>TruBridge</h4>
           <div>
             <small class="text-contrast-700 text-xs">${formatDateRange(new Date('2007-01-25'), undefined)}</small>
           </div>
           <div>Staff Engineer (various senior engineering roles)</div>
         </div>
-        <div class="card-body p-16">${positionsContent}</div>
+        <div class="card-body px-16 py-8">${positionsContent}</div>
       </div>
     </div>`;
 }
