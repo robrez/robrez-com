@@ -5,7 +5,7 @@ company: TruBridge
 category: project
 startDate: 2020-01-01
 endDate:
-rank: 500
+rank: 600
 itemTags:
   - Lit
   - TypeScript

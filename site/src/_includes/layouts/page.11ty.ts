@@ -15,6 +15,12 @@ function page(data: RenderData): string {
     <html lang="en">
       <!-- head -->
       ${head(data)}
+      <!-- todo refactor for page-specific styles -->
+      <style>
+        p {
+          margin: 1rem 0;
+        }
+      </style>
 
       <body>
         <rr-app-layout randomize-brand-color>
@@ -23,7 +29,7 @@ function page(data: RenderData): string {
           <!-- main slot -->
           <div class="card">
             <div class="card-heading p-16 divider"><h3>${intro?.data.title}</h3></div>
-            <div class="card-body p-16">${intro?.content}</div>
+            <div class="card-body p-16 pb-24">${intro?.content}</div>
           </div>
 
           <!-- footer slot -->
